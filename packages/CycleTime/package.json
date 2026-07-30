@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "rck.cycletime",
+  "name": "CycleTime",
+  "type": "addon",
+  "version": "1.0.0",
+  "description": "VC Cycle Time 측정 및 관리",
+  "restartRequired": true,
+  "systemPackage": false,
+  "vcVersions": [
+    "5.0",
+    "5.1"
+  ],
+  "releaseNotes": [
+    "GitHub Release 초기 배포"
+  ],
+  "files": [
+    {
+      "source": "payload/Plugin.CycleTime.dll",
+      "destination": "vcRoot/Plugin.CycleTime.dll"
+    }
+  ]
+}
