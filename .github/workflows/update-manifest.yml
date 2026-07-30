@@ -1,0 +1,89 @@
+name: Release 패키지 Manifest 자동 갱신
+
+'on':
+  release:
+    types: [published, edited]
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: '다시 처리할 Release Tag'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rck-manifest-update
+  cancel-in-progress: false
+
+jobs:
+  update-manifest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+
+      - name: 처리할 Release 정보 설정
+        id: release
+        shell: bash
+        env:
+          EVENT_TAG: ${{ github.event.release.tag_name }}
+          INPUT_TAG: ${{ inputs.tag_name }}
+          EVENT_PUBLISHED_AT: ${{ github.event.release.published_at }}
+        run: |
+          set -euo pipefail
+          TAG="${EVENT_TAG:-${INPUT_TAG:-}}"
+          if [ -z "$TAG" ]; then
+            echo "Release Tag를 확인할 수 없습니다."
+            exit 1
+          fi
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "published_at=${EVENT_PUBLISHED_AT:-}" >> "$GITHUB_OUTPUT"
+
+      - name: Release ZIP Asset 다운로드
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.release.outputs.tag }}
+        run: |
+          set -euo pipefail
+          rm -rf .release-assets
+          mkdir -p .release-assets
+          gh release download "$TAG" --pattern '*.zip' --dir .release-assets
+          find .release-assets -maxdepth 1 -type f -name '*.zip' -print
+
+      - name: Manifest 자동 생성
+        shell: bash
+        env:
+          TAG: ${{ steps.release.outputs.tag }}
+          PUBLISHED_AT: ${{ steps.release.outputs.published_at }}
+        run: |
+          set -euo pipefail
+          python3 scripts/update_manifest.py \
+            --assets-dir .release-assets \
+            --manifest manifest.json \
+            --repository "$GITHUB_REPOSITORY" \
+            --tag "$TAG" \
+            --published-at "$PUBLISHED_AT"
+
+      - name: 변경 내용 Commit 및 Push
+        shell: bash
+        env:
+          TAG: ${{ steps.release.outputs.tag }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add manifest.json
+          if git diff --cached --quiet; then
+            echo 'manifest.json 변경 없음'
+            exit 0
+          fi
+          git commit -m "chore: update package manifest for ${TAG}"
+          git push origin "HEAD:${DEFAULT_BRANCH}"
