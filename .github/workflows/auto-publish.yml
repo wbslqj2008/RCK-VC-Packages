@@ -1,0 +1,81 @@
+name: DLL 업로드 자동 배포
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'packages/**'
+      - 'scripts/auto_publish.py'
+      - '.github/workflows/auto-publish.yml'
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: '버전 증가 방식 (일반 DLL 업로드는 patch 자동 적용)'
+        type: choice
+        options: [patch, minor, major]
+        default: patch
+      package_id:
+        description: '강제로 배포할 패키지 ID (예: rck.rckstudio, 비우면 변경된 패키지만)'
+        type: string
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rck-manifest-update
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Scan the latest main contents so concurrent uploads are coalesced safely.
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: 변경된 패키지 생성
+        id: packages
+        env:
+          BUMP: ${{ inputs.bump || 'patch' }}
+          FORCE_PACKAGE: ${{ inputs.package_id || '' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG="auto-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          python scripts/auto_publish.py --output-dir .auto-release --repository "$GITHUB_REPOSITORY" --tag "$TAG" --bump "$BUMP" --force-package "$FORCE_PACKAGE"
+          COUNT=$(python -c 'import json; print(json.load(open(".auto-release/summary.json"))["count"])')
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "source_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - name: GitHub Release 게시
+        if: steps.packages.outputs.count != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.packages.outputs.tag }}
+          SOURCE_SHA: ${{ steps.packages.outputs.source_sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh release create "$TAG" .auto-release/*.zip --target "$SOURCE_SHA" --title "자동 애드온 업데이트 $TAG" --notes '업로드된 파일의 변경을 감지하여 자동 생성한 패키지입니다.'
+      - name: Manifest 반영
+        if: steps.packages.outputs.count != '0'
+        env:
+          TAG: ${{ steps.packages.outputs.tag }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp .auto-release/manifest.next.json manifest.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add manifest.json
+          git commit -m "chore: auto-publish addon packages $TAG"
+          for attempt in 1 2 3 4; do
+            if git push origin HEAD:main; then exit 0; fi
+            git pull --rebase origin main
+          done
+          exit 1
