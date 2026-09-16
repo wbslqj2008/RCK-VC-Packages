@@ -13,6 +13,7 @@ import zipfile
 from datetime import datetime, timezone
 from pathlib import Path, PurePosixPath
 from typing import Any
+from auto_publish import main_dll, version_tuple
 
 
 REQUIRED_PACKAGE_FIELDS = {
@@ -89,7 +90,7 @@ def build_manifest_entry(
     published_at: str,
 ) -> dict[str, Any]:
     asset = urllib.parse.quote(zip_path.name)
-    return {
+    entry = {
         "id": package["id"],
         "name": package["name"],
         "type": package["type"],
@@ -104,6 +105,17 @@ def build_manifest_entry(
         "vcVersions": list(package.get("vcVersions", [])),
         "releaseNotes": list(package.get("releaseNotes", [])),
     }
+    with zipfile.ZipFile(zip_path) as archive:
+        contents = []
+        primary = main_dll(package)
+        for file in package['files']:
+            digest = hashlib.sha256(archive.read(file['source'])).hexdigest().upper()
+            contents.append({'destination': file['destination'], 'sha256': digest})
+            if PurePosixPath(file['source']).name == primary:
+                entry['mainDll'] = primary
+                entry['mainDllSha256'] = digest
+        entry['contentFiles'] = contents
+    return entry
 
 
 def main() -> int:
@@ -133,6 +145,10 @@ def main() -> int:
         if package_id in seen_ids:
             fail(f"같은 Release에 동일한 패키지 ID가 두 번 들어 있습니다: {package_id}")
         seen_ids.add(package_id)
+        old = existing.get(package_id)
+        if old and version_tuple(str(package['version'])) < version_tuple(str(old['version'])):
+            print(f"SKIPPED: older release for {package_id}")
+            continue
         existing[package_id] = build_manifest_entry(
             package=package,
             zip_path=zip_path,
