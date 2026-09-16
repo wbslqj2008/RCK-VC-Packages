@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-16T01:48:07Z",
+  "updatedAt": "2026-09-16T01:52:41Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -93,12 +93,12 @@
       "id": "rck.rckstudio",
       "name": "RCKStudio",
       "type": "addon",
-      "version": "1.0.2",
+      "version": "2.0.0",
       "description": "VC 최적화 Python IDE",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-35045489637-1/rck.rckstudio-1.0.2.zip",
-      "sha256": "B4E75B1FCFAF3DAE125698D7BE5BCE12E4EBBD26C30B362E702D0CC590E79B3E",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-35045782558-1/rck.rckstudio-2.0.0.zip",
+      "sha256": "54AAF377F3728928E248D057D4F83DECF29C1AF15152FAC05CDCFD533DE0C023",
       "contentSha256": "38E6942D086F5409A79571A72D9239FFBDEE3322FC52D00BB7A46AF6ADA29A3D",
-      "publishedAt": "2026-09-16T01:48:07Z",
+      "publishedAt": "2026-09-16T01:52:41Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
