@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-16T05:45:27Z",
+  "updatedAt": "2026-09-16T05:45:47Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -35,12 +35,12 @@
       "id": "rck.cycletime",
       "name": "CycleTime",
       "type": "addon",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "VC Cycle Time 측정 및 관리",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-35045401896-1/rck.cycletime-1.0.1.zip",
-      "sha256": "325E5996F42A08F13FA06E96609A1FF01C3A1B6041C1DBB55C013839B954FC35",
-      "contentSha256": "0BFA74E93EC56E5BE5CE879F6915B613D189EFFECBB0D95E24B83F3689D3A7BC",
-      "publishedAt": "2026-09-16T01:46:41Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-35060810803-1/rck.cycletime-1.0.2.zip",
+      "sha256": "ED601D4BA6EE22589692D0CC0615148F81F2B5F64E176BB02DD95A2EB4B9B928",
+      "contentSha256": "6E8EDFA9058FC3EA230A03FC2EA5C902B3B87B5E3AB162AF5FA6B997F6C7C45A",
+      "publishedAt": "2026-09-16T05:45:47Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -49,7 +49,7 @@
         "5.1"
       ],
       "releaseNotes": [
-        "GitHub Release 초기 배포"
+        "GitHub Release 초기 배포, 담당 : 김명겸 선임"
       ],
       "contentFiles": [
         {
