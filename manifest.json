@@ -1,16 +1,17 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-30T08:48:55Z",
+  "updatedAt": "2026-09-16T01:46:41Z",
   "packages": [
     {
       "id": "rck.codelens",
       "name": "CodeLens",
       "type": "addon",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "우클릭으로 Python 스크립트 열기",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/v1.0.0/rck.codelens-1.0.0.zip",
-      "sha256": "8528E00EDE34E571B38A7923C4E47BE9658E07D7E981245F5F96AF59D5355B4C",
-      "publishedAt": "2026-07-30T08:48:55Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-35045401896-1/rck.codelens-1.0.1.zip",
+      "sha256": "56FD6EFD347775F584B564BE10FF2C60E6EA6B7EF40A859B2461822FF1D5C72E",
+      "contentSha256": "EB4F994F53877E5A37F16318941B98B13CB5234007F6E0DC1C705DAB59298647",
+      "publishedAt": "2026-09-16T01:46:41Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -20,17 +21,26 @@
       ],
       "releaseNotes": [
         "GitHub Release 초기 배포"
-      ]
+      ],
+      "contentFiles": [
+        {
+          "destination": "vcRoot/Plugin.CodeLens.dll",
+          "sha256": "C6F035706661A804775AA589253231C52D7C69680B095F073708ED697DCAF49E"
+        }
+      ],
+      "mainDll": "Plugin.CodeLens.dll",
+      "mainDllSha256": "C6F035706661A804775AA589253231C52D7C69680B095F073708ED697DCAF49E"
     },
     {
       "id": "rck.cycletime",
       "name": "CycleTime",
       "type": "addon",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "VC Cycle Time 측정 및 관리",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/v1.0.0/rck.cycletime-1.0.0.zip",
-      "sha256": "7FDBCBA5526B82A523F4052F71D3CCB124B56F2903F77CB81C7FD62C70EA2B36",
-      "publishedAt": "2026-07-30T08:48:55Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-35045401896-1/rck.cycletime-1.0.1.zip",
+      "sha256": "325E5996F42A08F13FA06E96609A1FF01C3A1B6041C1DBB55C013839B954FC35",
+      "contentSha256": "0BFA74E93EC56E5BE5CE879F6915B613D189EFFECBB0D95E24B83F3689D3A7BC",
+      "publishedAt": "2026-09-16T01:46:41Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -40,17 +50,26 @@
       ],
       "releaseNotes": [
         "GitHub Release 초기 배포"
-      ]
+      ],
+      "contentFiles": [
+        {
+          "destination": "vcRoot/Plugin.CycleTime.dll",
+          "sha256": "5009AE185012EB6397605B63CB3759C83C391CC86DC716BDDDD299E464AB3CC1"
+        }
+      ],
+      "mainDll": "Plugin.CycleTime.dll",
+      "mainDllSha256": "5009AE185012EB6397605B63CB3759C83C391CC86DC716BDDDD299E464AB3CC1"
     },
     {
       "id": "rck.productify",
       "name": "Productify",
       "type": "addon",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Product URI 업데이트",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/v1.0.0/rck.productify-1.0.0.zip",
-      "sha256": "9EDE6FC8A4F4872FC737E28833A6240DC64A208AB14B2486A6111B0828B3997B",
-      "publishedAt": "2026-07-30T08:48:55Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-35045401896-1/rck.productify-1.0.1.zip",
+      "sha256": "8FF704A36E88147246E389667BA20B5D7BE09F4A60267374778D70983A5139D2",
+      "contentSha256": "474CEA7D2909EEA131F1E79D535E8AA22C5275704830ABEB368D786F630684B9",
+      "publishedAt": "2026-09-16T01:46:41Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -60,17 +79,26 @@
       ],
       "releaseNotes": [
         "GitHub Release 초기 배포"
-      ]
+      ],
+      "contentFiles": [
+        {
+          "destination": "vcRoot/Plugin.Productify.dll",
+          "sha256": "6DC481BCC4FDC1DAB817F8497350945525315BD8C632C30321A9510457605187"
+        }
+      ],
+      "mainDll": "Plugin.Productify.dll",
+      "mainDllSha256": "6DC481BCC4FDC1DAB817F8497350945525315BD8C632C30321A9510457605187"
     },
     {
       "id": "rck.rckstudio",
       "name": "RCKStudio",
       "type": "addon",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "VC 최적화 Python IDE",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/v1.0.0/rck.rckstudio-1.0.0.zip",
-      "sha256": "524FFD464A4AB87B8850F50C6CC29CED6AD6FBA85BA0B39D9ADD578EEE3347A4",
-      "publishedAt": "2026-07-30T08:48:55Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-35045401896-1/rck.rckstudio-1.0.1.zip",
+      "sha256": "8685C5748B6238838E4950F2A41F71D6658918B38D61017F119B3887E0996227",
+      "contentSha256": "2C55BA3C5285747406503311E7A590E50D38A39EC315DB463722D4FECA7A5129",
+      "publishedAt": "2026-09-16T01:46:41Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -80,17 +108,54 @@
       ],
       "releaseNotes": [
         "GitHub Release 초기 배포"
-      ]
+      ],
+      "contentFiles": [
+        {
+          "destination": "vcRoot/AvalonDock.dll",
+          "sha256": "A00406D3D5DEABB74F41535C21CE0548E21C7C9315DADB895736096020E81849"
+        },
+        {
+          "destination": "vcRoot/ICSharpCode.AvalonEdit.dll",
+          "sha256": "B0032716709359F7361D5A2DDC8E2AD457A1448A093FB4900E0336312B0A10C7"
+        },
+        {
+          "destination": "vcRoot/IronPython.dll",
+          "sha256": "2D8129B8ECD23441B0D0C4A8A31FF3A22C70D52BFEB8B33D81F9E00015CB2CAB"
+        },
+        {
+          "destination": "vcRoot/IronPython.Modules.dll",
+          "sha256": "3781F592A071B0164F5A80E5C646F85919EE37D8994CCAEFBB8B27C4AA40E438"
+        },
+        {
+          "destination": "vcRoot/Microsoft.Dynamic.dll",
+          "sha256": "CCA2606589EC21508C34B09BC2AA021B570AD401127AB786D80658149232980E"
+        },
+        {
+          "destination": "vcRoot/Microsoft.Scripting.dll",
+          "sha256": "3D28E3695F2F11913FCC1BAD2CBD27632C18C1DB23FE369D3235034AEC325CDA"
+        },
+        {
+          "destination": "vcRoot/Microsoft.Scripting.Metadata.dll",
+          "sha256": "4CCD37B1B0AA2B13850CD82A4392557D29B87AD0ABEB0495D67318EA53BC2A7D"
+        },
+        {
+          "destination": "vcRoot/Plugin.RCKStudio.dll",
+          "sha256": "5A14ADD68BE78A31F247F10E7E1EF57B3E9EF548DBEC0DAF2279C5CBF109467B"
+        }
+      ],
+      "mainDll": "Plugin.RCKStudio.dll",
+      "mainDllSha256": "5A14ADD68BE78A31F247F10E7E1EF57B3E9EF548DBEC0DAF2279C5CBF109467B"
     },
     {
       "id": "rck.shortcut",
       "name": "ShortCut",
       "type": "addon",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "VC 기능 단축키 모음",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/v1.0.0/rck.shortcut-1.0.0.zip",
-      "sha256": "72E08CFDD9850BF3199AF0F38A4C13CF71486A4C9B0BD368128CF08A18B8EAF3",
-      "publishedAt": "2026-07-30T08:48:55Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-35045401896-1/rck.shortcut-1.0.1.zip",
+      "sha256": "FD5E8BD04697F1E99AF8C75466B39CB3B2C7CC28BB4E5B507CF07B606567EBB6",
+      "contentSha256": "9E3854F2E7FB911C491C620297A5AD8446345B306AF6B5F82A3BF5B35ED7DA81",
+      "publishedAt": "2026-09-16T01:46:41Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -100,17 +165,26 @@
       ],
       "releaseNotes": [
         "GitHub Release 초기 배포"
-      ]
+      ],
+      "contentFiles": [
+        {
+          "destination": "vcRoot/Plugin.ShortCut.dll",
+          "sha256": "587DA11EADC76F16E1F724DCC7C32E383E06231BC5A3EFF9E7BCCC453E879FA5"
+        }
+      ],
+      "mainDll": "Plugin.ShortCut.dll",
+      "mainDllSha256": "587DA11EADC76F16E1F724DCC7C32E383E06231BC5A3EFF9E7BCCC453E879FA5"
     },
     {
       "id": "rck.signallinker",
       "name": "SignalLinker",
       "type": "addon",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Signal 연결 관리",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/v1.0.0/rck.signallinker-1.0.0.zip",
-      "sha256": "B127471E849314FF61682B080EE237A2BF9CFC9E4DF9784D3BDD64897F0A7F1F",
-      "publishedAt": "2026-07-30T08:48:55Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-35045401896-1/rck.signallinker-1.0.1.zip",
+      "sha256": "7C2A8EEB1C124D34FEF147F7F9F8111E9C98D2779F63768D298C6431378EF7FC",
+      "contentSha256": "85EBAE860BD04CD727D2A6D6B5C7C5A904D6452FE16B2881551589B159D7B6FF",
+      "publishedAt": "2026-09-16T01:46:41Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -120,17 +194,26 @@
       ],
       "releaseNotes": [
         "GitHub Release 초기 배포"
-      ]
+      ],
+      "contentFiles": [
+        {
+          "destination": "vcRoot/Plugin.SignalLinker.dll",
+          "sha256": "EEEA4584807EF5D80CFA34E22ADA220FC9B2DF08728C1A3686288FAF5AC29E3B"
+        }
+      ],
+      "mainDll": "Plugin.SignalLinker.dll",
+      "mainDllSha256": "EEEA4584807EF5D80CFA34E22ADA220FC9B2DF08728C1A3686288FAF5AC29E3B"
     },
     {
       "id": "rck.turborename",
       "name": "TurboRename",
       "type": "addon",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Component 이름 일괄 변경",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/v1.0.0/rck.turborename-1.0.0.zip",
-      "sha256": "644EFD94C274A94CF1ACF5F61A658C6270B1C5D99EC83DBAAF3C146E932DA4B6",
-      "publishedAt": "2026-07-30T08:48:55Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-35045401896-1/rck.turborename-1.0.1.zip",
+      "sha256": "7D7357241A6C6E661B3BFAEC1CA88F8A8C9BB659E74F16E8216592C69CCAE228",
+      "contentSha256": "8957517441F8D9E9D9D7546509C383045E0D015113DD5EC3F43452815B5F25EB",
+      "publishedAt": "2026-09-16T01:46:41Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -140,7 +223,15 @@
       ],
       "releaseNotes": [
         "GitHub Release 초기 배포"
-      ]
+      ],
+      "contentFiles": [
+        {
+          "destination": "vcRoot/Plugin.TurboRename.dll",
+          "sha256": "3CE7B0989DDA1172F7A8595A7EB6C0428338999A1C7E40F8218B6968632C47B4"
+        }
+      ],
+      "mainDll": "Plugin.TurboRename.dll",
+      "mainDllSha256": "3CE7B0989DDA1172F7A8595A7EB6C0428338999A1C7E40F8218B6968632C47B4"
     }
   ]
 }
