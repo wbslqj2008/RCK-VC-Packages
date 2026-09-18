@@ -3,7 +3,7 @@
   "id": "rck.rckstudio",
   "name": "RCKStudio",
   "type": "addon",
-  "version": "2.1.1",
+  "version": "2.1.7",
   "description": "VC 최적화 Python IDE",
   "restartRequired": true,
   "systemPackage": false,
@@ -12,7 +12,7 @@
     "5.1"
   ],
   "releaseNotes": [
-    "모델링 기능 추가"
+    "버전관리 기능 추가"
   ],
   "files": [
     {
