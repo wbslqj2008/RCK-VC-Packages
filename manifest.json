@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-18T08:51:25Z",
+  "updatedAt": "2026-09-18T08:51:50Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -93,12 +93,12 @@
       "id": "rck.rckstudio",
       "name": "RCKStudio",
       "type": "addon",
-      "version": "2.1.3",
+      "version": "2.1.4",
       "description": "VC 최적화 Python IDE",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-35326495168-1/rck.rckstudio-2.1.3.zip",
-      "sha256": "4FF8DF3E5737662B3FFF1E3B2D1314322FA797586125A4C0DF5B7A74CC6FDC3E",
-      "contentSha256": "1BC2AB6B42AC4D40769809F9E1026C125357820B34AB341935864061D4205C8F",
-      "publishedAt": "2026-09-18T08:51:25Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-35326529513-1/rck.rckstudio-2.1.4.zip",
+      "sha256": "98CCA37A0D245973AA1C254AC15E6AAE2093F8AA6C43D562196FADB516D8CD12",
+      "contentSha256": "BD49E8250F19857AA2B87F048ABC4DE0B4F1FECAAC1F2366F7C900376380926E",
+      "publishedAt": "2026-09-18T08:51:50Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -140,11 +140,11 @@
         },
         {
           "destination": "vcRoot/Plugin.RCKStudio.dll",
-          "sha256": "09839403C78F680ACBFD58692A3C9B97A4754FC898D6176B33507E0A778BF2A9"
+          "sha256": "CBB92C53DC778D9CA7E50916D42569626289BEA0FC05B70E91BC505D2CDA6BA6"
         }
       ],
       "mainDll": "Plugin.RCKStudio.dll",
-      "mainDllSha256": "09839403C78F680ACBFD58692A3C9B97A4754FC898D6176B33507E0A778BF2A9"
+      "mainDllSha256": "CBB92C53DC778D9CA7E50916D42569626289BEA0FC05B70E91BC505D2CDA6BA6"
     },
     {
       "id": "rck.shortcut",
