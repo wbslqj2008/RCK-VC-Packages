@@ -38,7 +38,7 @@ def main_dll(package: dict) -> str | None:
     return dlls[0] if len(dlls) == 1 else None
 
 
-def build(root: Path, output: Path, repository: str, tag: str, bump: str = 'patch', force_package: str = '') -> dict:
+def build(root: Path, output: Path, repository: str, tag: str, bump: str = 'patch', force_package: str = '', release_notes: str = '') -> dict:
     manifest_path = root / 'manifest.json'
     manifest = json.loads(manifest_path.read_text(encoding='utf-8-sig'))
     previous = {p['id']: p for p in manifest.get('packages', [])}
@@ -91,6 +91,9 @@ def build(root: Path, output: Path, repository: str, tag: str, bump: str = 'patc
         else:
             next_version = (base[0], base[1], base[2] + 1)
         package['version'] = '.'.join(map(str, next_version))
+        note = release_notes.strip()
+        notes = [note] if note else package.get('releaseNotes', [])
+        package['releaseNotes'] = notes
         zip_name = f"{package_id}-{package['version']}.zip"
         zip_path = output / zip_name
         with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as archive:
@@ -111,7 +114,7 @@ def build(root: Path, output: Path, repository: str, tag: str, bump: str = 'patc
             'sha256': hashlib.sha256(zip_path.read_bytes()).hexdigest().upper(),
             'contentSha256': fingerprint, 'publishedAt': now, 'archiveType': 'zip',
             'restartRequired': package['restartRequired'], 'systemPackage': package.get('systemPackage', False),
-            'vcVersions': package['vcVersions'], 'releaseNotes': package.get('releaseNotes', []),
+            'vcVersions': package['vcVersions'], 'releaseNotes': notes,
             'contentFiles': [{'destination': dest, 'sha256': digest} for _, _, dest, digest in payloads],
         }
         if primary:
@@ -139,5 +142,6 @@ if __name__ == '__main__':
     parser.add_argument('--tag', required=True)
     parser.add_argument('--bump', choices=['patch', 'minor', 'major'], default='patch')
     parser.add_argument('--force-package', default='')
+    parser.add_argument('--release-notes', default='')
     args = parser.parse_args()
-    print(json.dumps(build(args.repo_root, args.output_dir, args.repository, args.tag, args.bump, args.force_package)))
+    print(json.dumps(build(args.repo_root, args.output_dir, args.repository, args.tag, args.bump, args.force_package, args.release_notes)))

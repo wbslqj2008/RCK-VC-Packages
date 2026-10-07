@@ -72,6 +72,19 @@ class AutoPublishTests(unittest.TestCase):
         summary, _, _ = self.run_build('major', bump='major', force_package='rck.studio')
         self.assertEqual(summary['changed'], ['rck.studio-1.0.0.zip'])
 
+    def test_release_notes_override_manifest_and_package_metadata(self):
+        _, manifest, _ = self.run_build('initial')
+        self.save(manifest)
+        note = 'Ctrl+wheel editor zoom fix'
+        summary, updated, output = self.run_build(
+            'release-notes', force_package='rck.studio', release_notes=note)
+        self.assertEqual(summary['changed'], ['rck.studio-0.0.11.zip'])
+        studio = next(package for package in updated['packages'] if package['id'] == 'rck.studio')
+        self.assertEqual(studio['releaseNotes'], [note])
+        with zipfile.ZipFile(output / 'rck.studio-0.0.11.zip') as archive:
+            metadata = json.loads(archive.read('package.json'))
+            self.assertEqual(metadata['releaseNotes'], [note])
+
     def test_two_changes_before_job_starts_are_both_published(self):
         _, manifest, _ = self.run_build('initial')
         self.save(manifest)

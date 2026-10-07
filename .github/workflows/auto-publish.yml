@@ -18,6 +18,10 @@ on:
         description: '강제로 배포할 패키지 ID (예: rck.rckstudio, 비우면 변경된 패키지만)'
         type: string
         default: ''
+      release_notes:
+        description: '릴리즈 노트 (비우면 최근 packages 변경 커밋 제목 사용)'
+        type: string
+        default: ''
 
 permissions:
   contents: write
@@ -43,11 +47,16 @@ jobs:
         env:
           BUMP: ${{ inputs.bump || 'patch' }}
           FORCE_PACKAGE: ${{ inputs.package_id || '' }}
+          RELEASE_NOTES_INPUT: ${{ inputs.release_notes || '' }}
         shell: bash
         run: |
           set -euo pipefail
           TAG="auto-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
-          python scripts/auto_publish.py --output-dir .auto-release --repository "$GITHUB_REPOSITORY" --tag "$TAG" --bump "$BUMP" --force-package "$FORCE_PACKAGE"
+          RELEASE_NOTES="$RELEASE_NOTES_INPUT"
+          if [ -z "$(printf '%s' "$RELEASE_NOTES" | tr -d '[:space:]')" ]; then
+            RELEASE_NOTES="$(git log -1 --pretty=%s -- packages)"
+          fi
+          python scripts/auto_publish.py --output-dir .auto-release --repository "$GITHUB_REPOSITORY" --tag "$TAG" --bump "$BUMP" --force-package "$FORCE_PACKAGE" --release-notes "$RELEASE_NOTES"
           COUNT=$(python -c 'import json; print(json.load(open(".auto-release/summary.json"))["count"])')
           echo "count=$COUNT" >> "$GITHUB_OUTPUT"
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"

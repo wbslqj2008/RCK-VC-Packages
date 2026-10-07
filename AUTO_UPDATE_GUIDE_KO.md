@@ -32,6 +32,11 @@ Actions의 `DLL 업로드 자동 배포` → Run workflow에서 필요할 때 �
 - bump=patch, package_id=rck.rckstudio: 파일이 같아도 해당 애드온 강제 재배포
 - package_id를 비우면 실제 변경된 애드온에만 선택한 bump를 적용
 
+`release_notes` 입력란은 기본값이 공란입니다. 문구를 입력하면 해당 문구를
+manifest와 배포 ZIP의 릴리즈 노트로 사용합니다. 비워 두면 가장 최근에
+`packages/`를 변경한 커밋의 제목을 자동으로 사용합니다. AddonManager의
+상세 화면에는 이렇게 기록된 릴리즈 노트가 표시됩니다.
+
 처음 자동화를 켤 때 기존 manifest에 contentSha256이 없으면 비교 기준을 만들기 위해 기존 패키지를 한 번 새로 배포합니다. 현재 1.0.0인 기존 패키지는 1.0.1이 됩니다. 이후부터 실제 변경 시에만 증가합니다.
 신규 패키지는 package.json에 있는 초기 버전으로 처음 게시하고, 이후 게시 때부터 자동 증가합니다.
 
