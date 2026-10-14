@@ -207,6 +207,9 @@ def build(root: Path, output: Path, repository: str, tag: str, bump: str = 'patc
         if primary:
             entry['mainDll'] = primary
             entry['mainDllSha256'] = primary_files[0][2]
+        for field in ('developer', 'documentationDestination', 'documentationUrl'):
+            if package.get(field):
+                entry[field] = package[field]
         previous[package_id] = entry
         changed.append(zip_name)
         package_updates.append({'path': metadata_path.relative_to(root).as_posix(), 'id': package_id, 'version': package['version']})

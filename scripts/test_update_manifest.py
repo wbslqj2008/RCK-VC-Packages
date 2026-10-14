@@ -9,7 +9,7 @@ import zipfile
 from pathlib import Path
 from unittest.mock import patch
 
-from update_manifest import main, read_package
+from update_manifest import main, read_package, build_manifest_entry
 
 
 class ReleaseImportTests(unittest.TestCase):
@@ -39,6 +39,20 @@ class ReleaseImportTests(unittest.TestCase):
         with patch.object(sys, 'argv', args), contextlib.redirect_stdout(io.StringIO()):
             self.assertEqual(main(), 0)
         return json.loads(self.manifest.read_text())['packages'][0]
+
+    def test_release_import_preserves_documentation_and_developer(self):
+        self.package.update(developer='Lee Junyong', documentationDestination='ecatalog/AddonManager/guide.pdf',
+                            documentationUrl='https://example.com/guide.pdf')
+        self.package['files'].append({'source': 'guide.pdf', 'destination': 'ecatalog/AddonManager/guide.pdf'})
+        asset = self.write_zip()
+        with zipfile.ZipFile(asset, 'a') as archive:
+            archive.writestr('guide.pdf', b'%PDF-1.4 guide')
+        package = read_package(asset)
+        entry = build_manifest_entry(package, asset, 'owner/repo', 'test-release', '')
+        for field in ('developer', 'documentationDestination', 'documentationUrl'):
+            self.assertEqual(entry[field], self.package[field])
+        self.assertEqual(len(entry['contentFiles']), 2)
+        self.assertFalse(entry['restartRequired'])
 
     def test_ecatalog_zip_must_only_target_ecatalog(self):
         self.package['files'][0]['destination'] = 'vcRoot/Plugin.Other.dll'

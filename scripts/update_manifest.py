@@ -108,6 +108,9 @@ def build_manifest_entry(
         "vcVersions": list(package.get("vcVersions", [])),
         "releaseNotes": list(package.get("releaseNotes", [])),
     }
+    for field in ('developer', 'documentationDestination', 'documentationUrl'):
+        if package.get(field):
+            entry[field] = package[field]
     with zipfile.ZipFile(zip_path) as archive:
         contents = []
         primary = main_dll(package)

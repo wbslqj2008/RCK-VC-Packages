@@ -38,6 +38,32 @@ class AutoPublishTests(unittest.TestCase):
         manifest = json.loads((output / 'manifest.next.json').read_text())
         return summary, manifest, output
 
+    def test_ecatalog_with_pdf_and_developer_survives_publication(self):
+        folder = self.root / 'packages/RenderingOptimization'
+        folder.mkdir()
+        (folder / 'Rendering Optimization.vcmx').write_bytes(b'original component bytes')
+        (folder / 'guide.pdf').write_bytes(b'%PDF-1.4 guide')
+        package = {'id': 'rck.ecatalog.rendering-optimization', 'name': 'Rendering Optimization',
+                   'type': 'ecatalog', 'version': '1.0.0', 'description': 'Two rendering modes',
+                   'developer': 'Lee Junyong', 'restartRequired': False, 'vcVersions': ['5.1'],
+                   'documentationDestination': 'ecatalog/AddonManager/guide.pdf',
+                   'documentationUrl': 'https://example.com/guide.pdf',
+                   'files': [{'source': name, 'destination': 'ecatalog/AddonManager/' + name}
+                             for name in ('Rendering Optimization.vcmx', 'guide.pdf')]}
+        (folder / 'package.json').write_text(json.dumps(package))
+        _, manifest, output = self.run_build('ecatalog')
+        entry = next(p for p in manifest['packages'] if p['id'] == package['id'])
+        self.assertFalse(entry['restartRequired'])
+        for field in ('developer', 'documentationDestination', 'documentationUrl'):
+            self.assertEqual(entry[field], package[field])
+        self.assertEqual(len(entry['contentFiles']), 2)
+        with zipfile.ZipFile(output / (package['id'] + '-1.0.0.zip')) as archive:
+            self.assertEqual(archive.read('Rendering Optimization.vcmx'), b'original component bytes')
+            self.assertEqual(archive.read('guide.pdf'), b'%PDF-1.4 guide')
+        self.save(manifest)
+        unchanged, _, _ = self.run_build('ecatalog-unchanged')
+        self.assertEqual(unchanged['count'], 0)
+
     def test_bootstrap_and_no_change(self):
         summary, manifest, output = self.run_build('bootstrap')
         self.assertEqual(summary['count'], 2)
