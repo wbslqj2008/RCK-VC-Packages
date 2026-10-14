@@ -87,3 +87,4 @@ jobs:
           fi
           git commit -m "chore: update package manifest for ${TAG}"
           git push origin "HEAD:${DEFAULT_BRANCH}"
+

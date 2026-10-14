@@ -3,8 +3,11 @@ import json
 import tempfile
 import unittest
 import zipfile
+from unittest.mock import patch
+from types import SimpleNamespace
 from pathlib import Path
 from auto_publish import build
+from apply_publish import apply
 
 
 class AutoPublishTests(unittest.TestCase):
@@ -77,7 +80,7 @@ class AutoPublishTests(unittest.TestCase):
         self.save(manifest)
         note = 'Ctrl+wheel editor zoom fix'
         summary, updated, output = self.run_build(
-            'release-notes', force_package='rck.studio', release_notes=note)
+            'release-notes', force_package='rck.studio', release_notes=note, force=True)
         self.assertEqual(summary['changed'], ['rck.studio-0.0.11.zip'])
         studio = next(package for package in updated['packages'] if package['id'] == 'rck.studio')
         self.assertEqual(studio['releaseNotes'], [note])
@@ -112,6 +115,125 @@ class AutoPublishTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.run_build('unsafe')
 
+    def test_manual_minor_does_not_bump_other_changed_package(self):
+        _, manifest, _ = self.run_build('initial')
+        self.save(manifest)
+        (self.root / 'packages/CodeLens/payload/Plugin.CodeLens.dll').write_bytes(b'unrelated pending upload')
+        summary, updated, _ = self.run_build('targeted', bump='minor', force_package='rck.studio')
+        self.assertEqual(summary['changed'], ['rck.studio-0.1.0.zip'])
+        codelens = next(p for p in updated['packages'] if p['id'] == 'rck.codelens')
+        self.assertEqual(codelens['version'], '0.0.10')
+
+    def test_studio_shorthand_and_patch(self):
+        path = self.root / 'packages/Studio/package.json'
+        package = json.loads(path.read_text())
+        package['id'] = 'rck.rckstudio'
+        path.write_text(json.dumps(package))
+        for p in self.manifest['packages']:
+            if p['id'] == 'rck.studio':
+                p['id'] = 'rck.rckstudio'
+        self.save(self.manifest)
+        _, manifest, _ = self.run_build('initial')
+        self.save(manifest)
+        summary, _, _ = self.run_build('short-id', force_package='rck.studio', bump='patch', force=True)
+        self.assertEqual(summary['changed'], ['rck.rckstudio-0.0.11.zip'])
+        self.assertEqual(summary['package_id'], 'rck.rckstudio')
+
+    def test_minor_major_require_explicit_package(self):
+        with self.assertRaises(ValueError):
+            self.run_build('ambiguous', bump='major')
+
+    def test_inconsistent_manifest_is_repaired_with_a_new_valid_package(self):
+        _, manifest, _ = self.run_build('initial')
+        studio = next(p for p in manifest['packages'] if p['id'] == 'rck.studio')
+        studio['version'] = '3.1.7'  # URL and ZIP still contain 0.0.10.
+        self.save(manifest)
+        summary, updated, output = self.run_build('repair')
+        self.assertEqual(summary['changed'], ['rck.studio-3.1.8.zip'])
+        package = next(p for p in updated['packages'] if p['id'] == 'rck.studio')
+        self.assertTrue(package['downloadUrl'].endswith('rck.studio-3.1.8.zip'))
+        with zipfile.ZipFile(output / 'rck.studio-3.1.8.zip') as archive:
+            self.assertEqual(json.loads(archive.read('package.json'))['version'], package['version'])
+
+    def test_ecatalog_is_published_and_cannot_write_vc_dlls(self):
+        folder = self.root / 'packages/Conveyor'
+        folder.mkdir()
+        (folder / 'Conveyor.vcmx').write_bytes(b'VCMX component')
+        metadata = {'id': 'rck.ecatalog.conveyor', 'name': 'Conveyor', 'type': 'ecatalog', 'version': '1.0.0',
+                    'description': 'Sensor conveyor', 'restartRequired': False, 'vcVersions': ['5.1'],
+                    'files': [{'source': 'Conveyor.vcmx', 'destination': 'ecatalog/rck.ecatalog.conveyor/Conveyor.vcmx'}]}
+        (folder / 'package.json').write_text(json.dumps(metadata))
+        _, manifest, _ = self.run_build('catalog')
+        package = next(p for p in manifest['packages'] if p['id'] == metadata['id'])
+        self.assertFalse(package['restartRequired'])
+        self.assertEqual(package['contentFiles'][0]['destination'], metadata['files'][0]['destination'])
+        metadata['files'][0]['destination'] = 'vcRoot/Plugin.Other.dll'
+        (folder / 'package.json').write_text(json.dumps(metadata))
+        with self.assertRaises(ValueError):
+            self.run_build('bad-catalog')
+
+    def test_manual_patch_after_automatic_release_does_not_bump_twice(self):
+        _, manifest, output = self.run_build('automatic')
+        apply(self.root, output)
+        summary, updated, _ = self.run_build('manual-patch', force_package='rck.studio')
+        self.assertEqual(summary['count'], 0)
+        self.assertEqual(updated, manifest)
+
+    def test_applied_package_version_matches_manifest_and_zip(self):
+        _, manifest, output = self.run_build('automatic')
+        original = json.loads((self.root / 'packages/Studio/package.json').read_text())
+        self.assertEqual(original['version'], '0.0.9')  # Build does not alter sources before release upload.
+        apply(self.root, output)
+        source = json.loads((self.root / 'packages/Studio/package.json').read_text())
+        entry = next(p for p in manifest['packages'] if p['id'] == source['id'])
+        with zipfile.ZipFile(output / f"{entry['id']}-{entry['version']}.zip") as archive:
+            metadata = json.loads(archive.read('package.json'))
+        self.assertEqual(source['version'], entry['version'])
+        self.assertEqual(source['version'], metadata['version'])
+        self.assertEqual(self.run_build('unchanged')[0]['count'], 0)
+
+    def test_previous_release_hashes_are_retained(self):
+        _, manifest, output = self.run_build('first')
+        apply(self.root, output)
+        previous = next(p for p in manifest['packages'] if p['id'] == 'rck.studio')
+        (self.root / 'packages/Studio/payload/Plugin.Studio.dll').write_bytes(b'newer DLL')
+        _, updated, _ = self.run_build('second')
+        package = next(p for p in updated['packages'] if p['id'] == 'rck.studio')
+        snapshot = package['versions'][0]
+        self.assertEqual(snapshot['version'], previous['version'])
+        self.assertEqual(snapshot['mainDllSha256'], previous['mainDllSha256'])
+        self.assertEqual(snapshot['contentFiles'], previous['contentFiles'])
+
+    def test_apply_rejects_mismatched_version_before_modifying_sources(self):
+        _, _, output = self.run_build('first')
+        before = (self.root / 'manifest.json').read_bytes()
+        updates = json.loads((output / 'package-updates.json').read_text())
+        updates[0]['version'] = '99.0.0'
+        (output / 'package-updates.json').write_text(json.dumps(updates))
+        with self.assertRaises(ValueError):
+            apply(self.root, output)
+        self.assertEqual((self.root / 'manifest.json').read_bytes(), before)
+
+    def test_existing_git_history_is_added_without_a_patch_bump(self):
+        _, initial, output = self.run_build('initial')
+        apply(self.root, output)
+        old = next(p for p in initial['packages'] if p['id'] == 'rck.studio')
+        old = dict(old, version='0.0.8', downloadUrl='https://github.com/owner/repo/releases/download/older/rck.studio-0.0.8.zip')
+        old['mainDllSha256'] = 'A' * 64
+        old['contentFiles'] = [{'destination': 'vcRoot/Plugin.Studio.dll', 'sha256': 'A' * 64}]
+        (self.root / '.git').mkdir()
+        history = json.dumps({'packages': [old]})
+        with patch('auto_publish.subprocess.run', side_effect=[
+            SimpleNamespace(stdout=('a' * 40) + '\n'), SimpleNamespace(stdout=history)
+        ]):
+            summary, updated, _ = self.run_build('history-backfill')
+        self.assertEqual(summary['count'], 0)
+        self.assertTrue(summary['manifest_changed'])
+        current = next(p for p in updated['packages'] if p['id'] == 'rck.studio')
+        self.assertEqual(current['version'], '0.0.10')
+        self.assertTrue(any(p['version'] == '0.0.8' and p['mainDllSha256'] == 'A' * 64 for p in current['versions']))
+
 
 if __name__ == '__main__':
     unittest.main()
+

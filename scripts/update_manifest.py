@@ -13,7 +13,7 @@ import zipfile
 from datetime import datetime, timezone
 from pathlib import Path, PurePosixPath
 from typing import Any
-from auto_publish import main_dll, version_tuple
+from auto_publish import main_dll, version_tuple, version_history
 
 
 REQUIRED_PACKAGE_FIELDS = {
@@ -68,6 +68,9 @@ def read_package(zip_path: Path) -> dict[str, Any]:
                     fail(f"{zip_path.name}: 안전하지 않은 source 경로: {source}")
                 if not is_safe_relative_path(destination):
                     fail(f"{zip_path.name}: 안전하지 않은 destination 경로: {destination}")
+                prefix = 'ecatalog/' if package['type'] == 'ecatalog' else 'vcRoot/'
+                if package['type'] not in ('addon', 'ecatalog') or not destination.replace('\\', '/').startswith(prefix):
+                    fail(f"{zip_path.name}: {package['type']} 설치 경로는 {prefix}로 시작해야 합니다.")
                 if source not in names:
                     fail(f"{zip_path.name}: package.json에 지정된 파일이 ZIP에 없습니다: {source}")
 
@@ -149,13 +152,17 @@ def main() -> int:
         if old and version_tuple(str(package['version'])) < version_tuple(str(old['version'])):
             print(f"SKIPPED: older release for {package_id}")
             continue
-        existing[package_id] = build_manifest_entry(
+        entry = build_manifest_entry(
             package=package,
             zip_path=zip_path,
             repository=args.repository,
             tag=args.tag,
             published_at=args.published_at,
         )
+        if old and old.get('contentFiles') == entry['contentFiles'] and old.get('contentSha256'):
+            entry['contentSha256'] = old['contentSha256']
+        entry['versions'] = version_history(old)
+        existing[package_id] = entry
         print(f"UPDATED: {package_id} {package['version']} <- {zip_path.name}")
 
     manifest["schemaVersion"] = 1
@@ -175,3 +182,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
