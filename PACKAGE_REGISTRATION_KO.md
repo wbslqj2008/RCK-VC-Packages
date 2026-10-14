@@ -1,5 +1,9 @@
 패키지 JSON 자동 생성 도구
 
+[등록 도구 ZIP 다운로드](https://github.com/wbslqj2008/RCK-VC-Packages/raw/refs/heads/main/downloads/package-registration-tool.zip)
+
+ZIP을 모두 풀고 tools/패키지등록.cmd를 실행하세요.
+
 tools/패키지등록.cmd를 더블클릭하면 등록 창이 열립니다. 관리자 권한은 필요하지 않습니다.
 
 1. 종류를 애드온 DLL 또는 eCatalog VCMX로 선택합니다.
