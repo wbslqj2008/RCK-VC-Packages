@@ -1,6 +1,8 @@
 import hashlib
 import json
 import tempfile
+import subprocess
+import sys
 import unittest
 import zipfile
 from unittest.mock import patch
@@ -213,6 +215,17 @@ class AutoPublishTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             apply(self.root, output)
         self.assertEqual((self.root / 'manifest.json').read_bytes(), before)
+
+    def test_apply_cli_accepts_default_relative_repo_root(self):
+        _, manifest, output = self.run_build('cli')
+        script = Path(__file__).with_name('apply_publish.py').resolve()
+        result = subprocess.run([sys.executable, str(script), '--output-dir', str(output)], cwd=self.root,
+                                check=True, capture_output=True, text=True)
+        self.assertEqual(len(json.loads(result.stdout)), 2)
+        applied = json.loads((self.root / 'manifest.json').read_text())
+        self.assertEqual(applied, manifest)
+        metadata = json.loads((self.root / 'packages/Studio/package.json').read_text())
+        self.assertEqual(metadata['version'], '0.0.10')
 
     def test_existing_git_history_is_added_without_a_patch_bump(self):
         _, initial, output = self.run_build('initial')

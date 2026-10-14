@@ -9,6 +9,8 @@ from auto_publish import safe_path, version_tuple
 
 
 def apply(root: Path, output: Path) -> list[str]:
+    root = root.resolve()
+    output = output.resolve()
     manifest_text = (output / 'manifest.next.json').read_text(encoding='utf-8-sig')
     manifest = json.loads(manifest_text)
     entries = {p['id']: p for p in manifest['packages']}
