@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-14T05:19:55Z",
+  "updatedAt": "2026-10-14T07:05:23Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -29,7 +29,31 @@
         }
       ],
       "mainDll": "Plugin.CodeLens.dll",
-      "mainDllSha256": "C6F035706661A804775AA589253231C52D7C69680B095F073708ED697DCAF49E"
+      "mainDllSha256": "C6F035706661A804775AA589253231C52D7C69680B095F073708ED697DCAF49E",
+      "versions": [
+        {
+          "version": "1.0.2",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/Plugin.CodeLens.dll",
+              "sha256": "C6F035706661A804775AA589253231C52D7C69680B095F073708ED697DCAF49E"
+            }
+          ],
+          "mainDll": "Plugin.CodeLens.dll",
+          "mainDllSha256": "C6F035706661A804775AA589253231C52D7C69680B095F073708ED697DCAF49E"
+        },
+        {
+          "version": "1.0.1",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/Plugin.CodeLens.dll",
+              "sha256": "C6F035706661A804775AA589253231C52D7C69680B095F073708ED697DCAF49E"
+            }
+          ],
+          "mainDll": "Plugin.CodeLens.dll",
+          "mainDllSha256": "C6F035706661A804775AA589253231C52D7C69680B095F073708ED697DCAF49E"
+        }
+      ]
     },
     {
       "id": "rck.cycletime",
@@ -58,7 +82,31 @@
         }
       ],
       "mainDll": "Plugin.CycleTime.dll",
-      "mainDllSha256": "5009AE185012EB6397605B63CB3759C83C391CC86DC716BDDDD299E464AB3CC1"
+      "mainDllSha256": "5009AE185012EB6397605B63CB3759C83C391CC86DC716BDDDD299E464AB3CC1",
+      "versions": [
+        {
+          "version": "1.0.2",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/Plugin.CycleTime.dll",
+              "sha256": "5009AE185012EB6397605B63CB3759C83C391CC86DC716BDDDD299E464AB3CC1"
+            }
+          ],
+          "mainDll": "Plugin.CycleTime.dll",
+          "mainDllSha256": "5009AE185012EB6397605B63CB3759C83C391CC86DC716BDDDD299E464AB3CC1"
+        },
+        {
+          "version": "1.0.1",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/Plugin.CycleTime.dll",
+              "sha256": "5009AE185012EB6397605B63CB3759C83C391CC86DC716BDDDD299E464AB3CC1"
+            }
+          ],
+          "mainDll": "Plugin.CycleTime.dll",
+          "mainDllSha256": "5009AE185012EB6397605B63CB3759C83C391CC86DC716BDDDD299E464AB3CC1"
+        }
+      ]
     },
     {
       "id": "rck.productify",
@@ -87,18 +135,61 @@
         }
       ],
       "mainDll": "Plugin.Productify.dll",
-      "mainDllSha256": "6DC481BCC4FDC1DAB817F8497350945525315BD8C632C30321A9510457605187"
+      "mainDllSha256": "6DC481BCC4FDC1DAB817F8497350945525315BD8C632C30321A9510457605187",
+      "versions": [
+        {
+          "version": "1.0.1",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/Plugin.Productify.dll",
+              "sha256": "6DC481BCC4FDC1DAB817F8497350945525315BD8C632C30321A9510457605187"
+            }
+          ],
+          "mainDll": "Plugin.Productify.dll",
+          "mainDllSha256": "6DC481BCC4FDC1DAB817F8497350945525315BD8C632C30321A9510457605187"
+        }
+      ]
+    },
+    {
+      "id": "rck.addon-manager",
+      "name": "RCK Addon Manager",
+      "type": "addon",
+      "version": "1.10.1",
+      "description": "Visual Components Add-on 및 eCatalog 패키지 관리자",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38526097538-1/rck.addon-manager-1.10.1.zip",
+      "sha256": "F95CC9E97B2C6E06F1628974E615FF30F6B76893675E7B0FAAB0AC43096F69E3",
+      "contentSha256": "3C770E3E71D170ECFDD7E612A37FC82C96DC9F690B1694683C83E7C09868AF19",
+      "publishedAt": "2026-10-14T07:05:23Z",
+      "archiveType": "zip",
+      "restartRequired": true,
+      "systemPackage": true,
+      "vcVersions": [
+        "5.0",
+        "5.1"
+      ],
+      "releaseNotes": [
+        "Connect Addon Manager bootstrap updates and automatic package releases"
+      ],
+      "contentFiles": [
+        {
+          "destination": "vcRoot/Plugin.RCKAddonManager.dll",
+          "sha256": "49769C4FC343D268C83591DC1B412FEFC2458F4280842F731E47EBC3A269E9AA"
+        }
+      ],
+      "versions": [],
+      "mainDll": "Plugin.RCKAddonManager.dll",
+      "mainDllSha256": "49769C4FC343D268C83591DC1B412FEFC2458F4280842F731E47EBC3A269E9AA"
     },
     {
       "id": "rck.rckstudio",
       "name": "RCKStudio",
       "type": "addon",
-      "version": "3.1.7",
+      "version": "3.1.8",
       "description": "VC 최적화 Python IDE",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38516040155-1/rck.rckstudio-2.1.7.zip",
-      "sha256": "3BFEB9C9C4CB1CC35557018D868F96500D01C7B22C1FC2596E6BA116D504D8F8",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38526097538-1/rck.rckstudio-3.1.8.zip",
+      "sha256": "BCAFFF12E794957ED54431C5B162F609979537D766DC9064AFFF169A1614AB16",
       "contentSha256": "CF73D7A70FBD1ADDF224A61BFAC966FDA5E49F1E92A92A8D65FD0B73E285CC15",
-      "publishedAt": "2026-10-14T05:19:55Z",
+      "publishedAt": "2026-10-14T07:05:23Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -107,7 +198,7 @@
         "5.1"
       ],
       "releaseNotes": [
-        "Add files via upload"
+        "Connect Addon Manager bootstrap updates and automatic package releases"
       ],
       "contentFiles": [
         {
@@ -143,6 +234,476 @@
           "sha256": "7913FA96B28C89B40FA4906A0DD62D504ABEB38CDAF4674F2645616E3B9B333D"
         }
       ],
+      "versions": [
+        {
+          "version": "2.1.7",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/AvalonDock.dll",
+              "sha256": "A00406D3D5DEABB74F41535C21CE0548E21C7C9315DADB895736096020E81849"
+            },
+            {
+              "destination": "vcRoot/ICSharpCode.AvalonEdit.dll",
+              "sha256": "B0032716709359F7361D5A2DDC8E2AD457A1448A093FB4900E0336312B0A10C7"
+            },
+            {
+              "destination": "vcRoot/IronPython.dll",
+              "sha256": "2D8129B8ECD23441B0D0C4A8A31FF3A22C70D52BFEB8B33D81F9E00015CB2CAB"
+            },
+            {
+              "destination": "vcRoot/IronPython.Modules.dll",
+              "sha256": "3781F592A071B0164F5A80E5C646F85919EE37D8994CCAEFBB8B27C4AA40E438"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Dynamic.dll",
+              "sha256": "CCA2606589EC21508C34B09BC2AA021B570AD401127AB786D80658149232980E"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Scripting.dll",
+              "sha256": "3D28E3695F2F11913FCC1BAD2CBD27632C18C1DB23FE369D3235034AEC325CDA"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Scripting.Metadata.dll",
+              "sha256": "4CCD37B1B0AA2B13850CD82A4392557D29B87AD0ABEB0495D67318EA53BC2A7D"
+            },
+            {
+              "destination": "vcRoot/Plugin.RCKStudio.dll",
+              "sha256": "7913FA96B28C89B40FA4906A0DD62D504ABEB38CDAF4674F2645616E3B9B333D"
+            }
+          ],
+          "mainDll": "Plugin.RCKStudio.dll",
+          "mainDllSha256": "7913FA96B28C89B40FA4906A0DD62D504ABEB38CDAF4674F2645616E3B9B333D"
+        },
+        {
+          "version": "2.1.6",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/AvalonDock.dll",
+              "sha256": "A00406D3D5DEABB74F41535C21CE0548E21C7C9315DADB895736096020E81849"
+            },
+            {
+              "destination": "vcRoot/ICSharpCode.AvalonEdit.dll",
+              "sha256": "B0032716709359F7361D5A2DDC8E2AD457A1448A093FB4900E0336312B0A10C7"
+            },
+            {
+              "destination": "vcRoot/IronPython.dll",
+              "sha256": "2D8129B8ECD23441B0D0C4A8A31FF3A22C70D52BFEB8B33D81F9E00015CB2CAB"
+            },
+            {
+              "destination": "vcRoot/IronPython.Modules.dll",
+              "sha256": "3781F592A071B0164F5A80E5C646F85919EE37D8994CCAEFBB8B27C4AA40E438"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Dynamic.dll",
+              "sha256": "CCA2606589EC21508C34B09BC2AA021B570AD401127AB786D80658149232980E"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Scripting.dll",
+              "sha256": "3D28E3695F2F11913FCC1BAD2CBD27632C18C1DB23FE369D3235034AEC325CDA"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Scripting.Metadata.dll",
+              "sha256": "4CCD37B1B0AA2B13850CD82A4392557D29B87AD0ABEB0495D67318EA53BC2A7D"
+            },
+            {
+              "destination": "vcRoot/Plugin.RCKStudio.dll",
+              "sha256": "7913FA96B28C89B40FA4906A0DD62D504ABEB38CDAF4674F2645616E3B9B333D"
+            }
+          ],
+          "mainDll": "Plugin.RCKStudio.dll",
+          "mainDllSha256": "7913FA96B28C89B40FA4906A0DD62D504ABEB38CDAF4674F2645616E3B9B333D"
+        },
+        {
+          "version": "2.1.5",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/AvalonDock.dll",
+              "sha256": "A00406D3D5DEABB74F41535C21CE0548E21C7C9315DADB895736096020E81849"
+            },
+            {
+              "destination": "vcRoot/ICSharpCode.AvalonEdit.dll",
+              "sha256": "B0032716709359F7361D5A2DDC8E2AD457A1448A093FB4900E0336312B0A10C7"
+            },
+            {
+              "destination": "vcRoot/IronPython.dll",
+              "sha256": "2D8129B8ECD23441B0D0C4A8A31FF3A22C70D52BFEB8B33D81F9E00015CB2CAB"
+            },
+            {
+              "destination": "vcRoot/IronPython.Modules.dll",
+              "sha256": "3781F592A071B0164F5A80E5C646F85919EE37D8994CCAEFBB8B27C4AA40E438"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Dynamic.dll",
+              "sha256": "CCA2606589EC21508C34B09BC2AA021B570AD401127AB786D80658149232980E"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Scripting.dll",
+              "sha256": "3D28E3695F2F11913FCC1BAD2CBD27632C18C1DB23FE369D3235034AEC325CDA"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Scripting.Metadata.dll",
+              "sha256": "4CCD37B1B0AA2B13850CD82A4392557D29B87AD0ABEB0495D67318EA53BC2A7D"
+            },
+            {
+              "destination": "vcRoot/Plugin.RCKStudio.dll",
+              "sha256": "DE98B7AB399397643D333EF8C2E5EA2F73CCBCA7CBB53AF3D2022D9640ACD115"
+            }
+          ],
+          "mainDll": "Plugin.RCKStudio.dll",
+          "mainDllSha256": "DE98B7AB399397643D333EF8C2E5EA2F73CCBCA7CBB53AF3D2022D9640ACD115"
+        },
+        {
+          "version": "2.1.4",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/AvalonDock.dll",
+              "sha256": "A00406D3D5DEABB74F41535C21CE0548E21C7C9315DADB895736096020E81849"
+            },
+            {
+              "destination": "vcRoot/ICSharpCode.AvalonEdit.dll",
+              "sha256": "B0032716709359F7361D5A2DDC8E2AD457A1448A093FB4900E0336312B0A10C7"
+            },
+            {
+              "destination": "vcRoot/IronPython.dll",
+              "sha256": "2D8129B8ECD23441B0D0C4A8A31FF3A22C70D52BFEB8B33D81F9E00015CB2CAB"
+            },
+            {
+              "destination": "vcRoot/IronPython.Modules.dll",
+              "sha256": "3781F592A071B0164F5A80E5C646F85919EE37D8994CCAEFBB8B27C4AA40E438"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Dynamic.dll",
+              "sha256": "CCA2606589EC21508C34B09BC2AA021B570AD401127AB786D80658149232980E"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Scripting.dll",
+              "sha256": "3D28E3695F2F11913FCC1BAD2CBD27632C18C1DB23FE369D3235034AEC325CDA"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Scripting.Metadata.dll",
+              "sha256": "4CCD37B1B0AA2B13850CD82A4392557D29B87AD0ABEB0495D67318EA53BC2A7D"
+            },
+            {
+              "destination": "vcRoot/Plugin.RCKStudio.dll",
+              "sha256": "CBB92C53DC778D9CA7E50916D42569626289BEA0FC05B70E91BC505D2CDA6BA6"
+            }
+          ],
+          "mainDll": "Plugin.RCKStudio.dll",
+          "mainDllSha256": "CBB92C53DC778D9CA7E50916D42569626289BEA0FC05B70E91BC505D2CDA6BA6"
+        },
+        {
+          "version": "2.1.3",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/AvalonDock.dll",
+              "sha256": "A00406D3D5DEABB74F41535C21CE0548E21C7C9315DADB895736096020E81849"
+            },
+            {
+              "destination": "vcRoot/ICSharpCode.AvalonEdit.dll",
+              "sha256": "B0032716709359F7361D5A2DDC8E2AD457A1448A093FB4900E0336312B0A10C7"
+            },
+            {
+              "destination": "vcRoot/IronPython.dll",
+              "sha256": "2D8129B8ECD23441B0D0C4A8A31FF3A22C70D52BFEB8B33D81F9E00015CB2CAB"
+            },
+            {
+              "destination": "vcRoot/IronPython.Modules.dll",
+              "sha256": "3781F592A071B0164F5A80E5C646F85919EE37D8994CCAEFBB8B27C4AA40E438"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Dynamic.dll",
+              "sha256": "CCA2606589EC21508C34B09BC2AA021B570AD401127AB786D80658149232980E"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Scripting.dll",
+              "sha256": "3D28E3695F2F11913FCC1BAD2CBD27632C18C1DB23FE369D3235034AEC325CDA"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Scripting.Metadata.dll",
+              "sha256": "4CCD37B1B0AA2B13850CD82A4392557D29B87AD0ABEB0495D67318EA53BC2A7D"
+            },
+            {
+              "destination": "vcRoot/Plugin.RCKStudio.dll",
+              "sha256": "09839403C78F680ACBFD58692A3C9B97A4754FC898D6176B33507E0A778BF2A9"
+            }
+          ],
+          "mainDll": "Plugin.RCKStudio.dll",
+          "mainDllSha256": "09839403C78F680ACBFD58692A3C9B97A4754FC898D6176B33507E0A778BF2A9"
+        },
+        {
+          "version": "2.1.2",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/AvalonDock.dll",
+              "sha256": "A00406D3D5DEABB74F41535C21CE0548E21C7C9315DADB895736096020E81849"
+            },
+            {
+              "destination": "vcRoot/ICSharpCode.AvalonEdit.dll",
+              "sha256": "B0032716709359F7361D5A2DDC8E2AD457A1448A093FB4900E0336312B0A10C7"
+            },
+            {
+              "destination": "vcRoot/IronPython.dll",
+              "sha256": "2D8129B8ECD23441B0D0C4A8A31FF3A22C70D52BFEB8B33D81F9E00015CB2CAB"
+            },
+            {
+              "destination": "vcRoot/IronPython.Modules.dll",
+              "sha256": "3781F592A071B0164F5A80E5C646F85919EE37D8994CCAEFBB8B27C4AA40E438"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Dynamic.dll",
+              "sha256": "CCA2606589EC21508C34B09BC2AA021B570AD401127AB786D80658149232980E"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Scripting.dll",
+              "sha256": "3D28E3695F2F11913FCC1BAD2CBD27632C18C1DB23FE369D3235034AEC325CDA"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Scripting.Metadata.dll",
+              "sha256": "4CCD37B1B0AA2B13850CD82A4392557D29B87AD0ABEB0495D67318EA53BC2A7D"
+            },
+            {
+              "destination": "vcRoot/Plugin.RCKStudio.dll",
+              "sha256": "09839403C78F680ACBFD58692A3C9B97A4754FC898D6176B33507E0A778BF2A9"
+            }
+          ],
+          "mainDll": "Plugin.RCKStudio.dll",
+          "mainDllSha256": "09839403C78F680ACBFD58692A3C9B97A4754FC898D6176B33507E0A778BF2A9"
+        },
+        {
+          "version": "2.1.1",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/AvalonDock.dll",
+              "sha256": "A00406D3D5DEABB74F41535C21CE0548E21C7C9315DADB895736096020E81849"
+            },
+            {
+              "destination": "vcRoot/ICSharpCode.AvalonEdit.dll",
+              "sha256": "B0032716709359F7361D5A2DDC8E2AD457A1448A093FB4900E0336312B0A10C7"
+            },
+            {
+              "destination": "vcRoot/IronPython.dll",
+              "sha256": "2D8129B8ECD23441B0D0C4A8A31FF3A22C70D52BFEB8B33D81F9E00015CB2CAB"
+            },
+            {
+              "destination": "vcRoot/IronPython.Modules.dll",
+              "sha256": "3781F592A071B0164F5A80E5C646F85919EE37D8994CCAEFBB8B27C4AA40E438"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Dynamic.dll",
+              "sha256": "CCA2606589EC21508C34B09BC2AA021B570AD401127AB786D80658149232980E"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Scripting.dll",
+              "sha256": "3D28E3695F2F11913FCC1BAD2CBD27632C18C1DB23FE369D3235034AEC325CDA"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Scripting.Metadata.dll",
+              "sha256": "4CCD37B1B0AA2B13850CD82A4392557D29B87AD0ABEB0495D67318EA53BC2A7D"
+            },
+            {
+              "destination": "vcRoot/Plugin.RCKStudio.dll",
+              "sha256": "09839403C78F680ACBFD58692A3C9B97A4754FC898D6176B33507E0A778BF2A9"
+            }
+          ],
+          "mainDll": "Plugin.RCKStudio.dll",
+          "mainDllSha256": "09839403C78F680ACBFD58692A3C9B97A4754FC898D6176B33507E0A778BF2A9"
+        },
+        {
+          "version": "2.1.0",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/AvalonDock.dll",
+              "sha256": "A00406D3D5DEABB74F41535C21CE0548E21C7C9315DADB895736096020E81849"
+            },
+            {
+              "destination": "vcRoot/ICSharpCode.AvalonEdit.dll",
+              "sha256": "B0032716709359F7361D5A2DDC8E2AD457A1448A093FB4900E0336312B0A10C7"
+            },
+            {
+              "destination": "vcRoot/IronPython.dll",
+              "sha256": "2D8129B8ECD23441B0D0C4A8A31FF3A22C70D52BFEB8B33D81F9E00015CB2CAB"
+            },
+            {
+              "destination": "vcRoot/IronPython.Modules.dll",
+              "sha256": "3781F592A071B0164F5A80E5C646F85919EE37D8994CCAEFBB8B27C4AA40E438"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Dynamic.dll",
+              "sha256": "CCA2606589EC21508C34B09BC2AA021B570AD401127AB786D80658149232980E"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Scripting.dll",
+              "sha256": "3D28E3695F2F11913FCC1BAD2CBD27632C18C1DB23FE369D3235034AEC325CDA"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Scripting.Metadata.dll",
+              "sha256": "4CCD37B1B0AA2B13850CD82A4392557D29B87AD0ABEB0495D67318EA53BC2A7D"
+            },
+            {
+              "destination": "vcRoot/Plugin.RCKStudio.dll",
+              "sha256": "BB4C8940429C4D94ED08E7A90F12C153965B9A9C5D9211A2F81478A6E9AAE276"
+            }
+          ],
+          "mainDll": "Plugin.RCKStudio.dll",
+          "mainDllSha256": "BB4C8940429C4D94ED08E7A90F12C153965B9A9C5D9211A2F81478A6E9AAE276"
+        },
+        {
+          "version": "2.0.1",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/AvalonDock.dll",
+              "sha256": "A00406D3D5DEABB74F41535C21CE0548E21C7C9315DADB895736096020E81849"
+            },
+            {
+              "destination": "vcRoot/ICSharpCode.AvalonEdit.dll",
+              "sha256": "B0032716709359F7361D5A2DDC8E2AD457A1448A093FB4900E0336312B0A10C7"
+            },
+            {
+              "destination": "vcRoot/IronPython.dll",
+              "sha256": "2D8129B8ECD23441B0D0C4A8A31FF3A22C70D52BFEB8B33D81F9E00015CB2CAB"
+            },
+            {
+              "destination": "vcRoot/IronPython.Modules.dll",
+              "sha256": "3781F592A071B0164F5A80E5C646F85919EE37D8994CCAEFBB8B27C4AA40E438"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Dynamic.dll",
+              "sha256": "CCA2606589EC21508C34B09BC2AA021B570AD401127AB786D80658149232980E"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Scripting.dll",
+              "sha256": "3D28E3695F2F11913FCC1BAD2CBD27632C18C1DB23FE369D3235034AEC325CDA"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Scripting.Metadata.dll",
+              "sha256": "4CCD37B1B0AA2B13850CD82A4392557D29B87AD0ABEB0495D67318EA53BC2A7D"
+            },
+            {
+              "destination": "vcRoot/Plugin.RCKStudio.dll",
+              "sha256": "BB4C8940429C4D94ED08E7A90F12C153965B9A9C5D9211A2F81478A6E9AAE276"
+            }
+          ],
+          "mainDll": "Plugin.RCKStudio.dll",
+          "mainDllSha256": "BB4C8940429C4D94ED08E7A90F12C153965B9A9C5D9211A2F81478A6E9AAE276"
+        },
+        {
+          "version": "2.0.0",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/AvalonDock.dll",
+              "sha256": "A00406D3D5DEABB74F41535C21CE0548E21C7C9315DADB895736096020E81849"
+            },
+            {
+              "destination": "vcRoot/ICSharpCode.AvalonEdit.dll",
+              "sha256": "B0032716709359F7361D5A2DDC8E2AD457A1448A093FB4900E0336312B0A10C7"
+            },
+            {
+              "destination": "vcRoot/IronPython.dll",
+              "sha256": "2D8129B8ECD23441B0D0C4A8A31FF3A22C70D52BFEB8B33D81F9E00015CB2CAB"
+            },
+            {
+              "destination": "vcRoot/IronPython.Modules.dll",
+              "sha256": "3781F592A071B0164F5A80E5C646F85919EE37D8994CCAEFBB8B27C4AA40E438"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Dynamic.dll",
+              "sha256": "CCA2606589EC21508C34B09BC2AA021B570AD401127AB786D80658149232980E"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Scripting.dll",
+              "sha256": "3D28E3695F2F11913FCC1BAD2CBD27632C18C1DB23FE369D3235034AEC325CDA"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Scripting.Metadata.dll",
+              "sha256": "4CCD37B1B0AA2B13850CD82A4392557D29B87AD0ABEB0495D67318EA53BC2A7D"
+            },
+            {
+              "destination": "vcRoot/Plugin.RCKStudio.dll",
+              "sha256": "6BC0A2DF9DDB019094F62E656C266370E9A7490A3EFB8EA13C556F6507FC5B91"
+            }
+          ],
+          "mainDll": "Plugin.RCKStudio.dll",
+          "mainDllSha256": "6BC0A2DF9DDB019094F62E656C266370E9A7490A3EFB8EA13C556F6507FC5B91"
+        },
+        {
+          "version": "1.0.2",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/AvalonDock.dll",
+              "sha256": "A00406D3D5DEABB74F41535C21CE0548E21C7C9315DADB895736096020E81849"
+            },
+            {
+              "destination": "vcRoot/ICSharpCode.AvalonEdit.dll",
+              "sha256": "B0032716709359F7361D5A2DDC8E2AD457A1448A093FB4900E0336312B0A10C7"
+            },
+            {
+              "destination": "vcRoot/IronPython.dll",
+              "sha256": "2D8129B8ECD23441B0D0C4A8A31FF3A22C70D52BFEB8B33D81F9E00015CB2CAB"
+            },
+            {
+              "destination": "vcRoot/IronPython.Modules.dll",
+              "sha256": "3781F592A071B0164F5A80E5C646F85919EE37D8994CCAEFBB8B27C4AA40E438"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Dynamic.dll",
+              "sha256": "CCA2606589EC21508C34B09BC2AA021B570AD401127AB786D80658149232980E"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Scripting.dll",
+              "sha256": "3D28E3695F2F11913FCC1BAD2CBD27632C18C1DB23FE369D3235034AEC325CDA"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Scripting.Metadata.dll",
+              "sha256": "4CCD37B1B0AA2B13850CD82A4392557D29B87AD0ABEB0495D67318EA53BC2A7D"
+            },
+            {
+              "destination": "vcRoot/Plugin.RCKStudio.dll",
+              "sha256": "6BC0A2DF9DDB019094F62E656C266370E9A7490A3EFB8EA13C556F6507FC5B91"
+            }
+          ],
+          "mainDll": "Plugin.RCKStudio.dll",
+          "mainDllSha256": "6BC0A2DF9DDB019094F62E656C266370E9A7490A3EFB8EA13C556F6507FC5B91"
+        },
+        {
+          "version": "1.0.1",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/AvalonDock.dll",
+              "sha256": "A00406D3D5DEABB74F41535C21CE0548E21C7C9315DADB895736096020E81849"
+            },
+            {
+              "destination": "vcRoot/ICSharpCode.AvalonEdit.dll",
+              "sha256": "B0032716709359F7361D5A2DDC8E2AD457A1448A093FB4900E0336312B0A10C7"
+            },
+            {
+              "destination": "vcRoot/IronPython.dll",
+              "sha256": "2D8129B8ECD23441B0D0C4A8A31FF3A22C70D52BFEB8B33D81F9E00015CB2CAB"
+            },
+            {
+              "destination": "vcRoot/IronPython.Modules.dll",
+              "sha256": "3781F592A071B0164F5A80E5C646F85919EE37D8994CCAEFBB8B27C4AA40E438"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Dynamic.dll",
+              "sha256": "CCA2606589EC21508C34B09BC2AA021B570AD401127AB786D80658149232980E"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Scripting.dll",
+              "sha256": "3D28E3695F2F11913FCC1BAD2CBD27632C18C1DB23FE369D3235034AEC325CDA"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Scripting.Metadata.dll",
+              "sha256": "4CCD37B1B0AA2B13850CD82A4392557D29B87AD0ABEB0495D67318EA53BC2A7D"
+            },
+            {
+              "destination": "vcRoot/Plugin.RCKStudio.dll",
+              "sha256": "5A14ADD68BE78A31F247F10E7E1EF57B3E9EF548DBEC0DAF2279C5CBF109467B"
+            }
+          ],
+          "mainDll": "Plugin.RCKStudio.dll",
+          "mainDllSha256": "5A14ADD68BE78A31F247F10E7E1EF57B3E9EF548DBEC0DAF2279C5CBF109467B"
+        }
+      ],
       "mainDll": "Plugin.RCKStudio.dll",
       "mainDllSha256": "7913FA96B28C89B40FA4906A0DD62D504ABEB38CDAF4674F2645616E3B9B333D"
     },
@@ -173,7 +734,20 @@
         }
       ],
       "mainDll": "Plugin.ShortCut.dll",
-      "mainDllSha256": "587DA11EADC76F16E1F724DCC7C32E383E06231BC5A3EFF9E7BCCC453E879FA5"
+      "mainDllSha256": "587DA11EADC76F16E1F724DCC7C32E383E06231BC5A3EFF9E7BCCC453E879FA5",
+      "versions": [
+        {
+          "version": "1.0.1",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/Plugin.ShortCut.dll",
+              "sha256": "587DA11EADC76F16E1F724DCC7C32E383E06231BC5A3EFF9E7BCCC453E879FA5"
+            }
+          ],
+          "mainDll": "Plugin.ShortCut.dll",
+          "mainDllSha256": "587DA11EADC76F16E1F724DCC7C32E383E06231BC5A3EFF9E7BCCC453E879FA5"
+        }
+      ]
     },
     {
       "id": "rck.signallinker",
@@ -202,7 +776,20 @@
         }
       ],
       "mainDll": "Plugin.SignalLinker.dll",
-      "mainDllSha256": "EEEA4584807EF5D80CFA34E22ADA220FC9B2DF08728C1A3686288FAF5AC29E3B"
+      "mainDllSha256": "EEEA4584807EF5D80CFA34E22ADA220FC9B2DF08728C1A3686288FAF5AC29E3B",
+      "versions": [
+        {
+          "version": "1.0.1",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/Plugin.SignalLinker.dll",
+              "sha256": "EEEA4584807EF5D80CFA34E22ADA220FC9B2DF08728C1A3686288FAF5AC29E3B"
+            }
+          ],
+          "mainDll": "Plugin.SignalLinker.dll",
+          "mainDllSha256": "EEEA4584807EF5D80CFA34E22ADA220FC9B2DF08728C1A3686288FAF5AC29E3B"
+        }
+      ]
     },
     {
       "id": "rck.turborename",
@@ -231,7 +818,20 @@
         }
       ],
       "mainDll": "Plugin.TurboRename.dll",
-      "mainDllSha256": "3CE7B0989DDA1172F7A8595A7EB6C0428338999A1C7E40F8218B6968632C47B4"
+      "mainDllSha256": "3CE7B0989DDA1172F7A8595A7EB6C0428338999A1C7E40F8218B6968632C47B4",
+      "versions": [
+        {
+          "version": "1.0.1",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/Plugin.TurboRename.dll",
+              "sha256": "3CE7B0989DDA1172F7A8595A7EB6C0428338999A1C7E40F8218B6968632C47B4"
+            }
+          ],
+          "mainDll": "Plugin.TurboRename.dll",
+          "mainDllSha256": "3CE7B0989DDA1172F7A8595A7EB6C0428338999A1C7E40F8218B6968632C47B4"
+        }
+      ]
     }
   ]
 }

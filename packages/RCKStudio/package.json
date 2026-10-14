@@ -3,7 +3,7 @@
   "id": "rck.rckstudio",
   "name": "RCKStudio",
   "type": "addon",
-  "version": "2.1.7",
+  "version": "3.1.8",
   "description": "VC 최적화 Python IDE",
   "restartRequired": true,
   "systemPackage": false,
