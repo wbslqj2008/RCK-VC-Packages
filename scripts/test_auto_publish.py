@@ -38,6 +38,22 @@ class AutoPublishTests(unittest.TestCase):
         manifest = json.loads((output / 'manifest.next.json').read_text())
         return summary, manifest, output
 
+    def test_declared_main_dll_allows_display_name_with_dependencies(self):
+        path = self.root / 'packages/Studio/package.json'
+        metadata = json.loads(path.read_text())
+        metadata['name'] = 'Rendering Tools for Engineers'
+        metadata['mainDll'] = 'Plugin.Studio.dll'
+        metadata['files'].append({'source': 'payload/Helper.dll', 'destination': 'vcRoot/Helper.dll'})
+        (path.parent / 'payload/Helper.dll').write_bytes(b'dependency')
+        path.write_text(json.dumps(metadata))
+        _, manifest, _ = self.run_build('explicit-main')
+        studio = next(p for p in manifest['packages'] if p['id'] == 'rck.studio')
+        self.assertEqual(studio['mainDll'], 'Plugin.Studio.dll')
+        metadata['mainDll'] = 'Missing.dll'
+        path.write_text(json.dumps(metadata))
+        with self.assertRaisesRegex(ValueError, 'exactly one'):
+            self.run_build('missing-main')
+
     def test_ecatalog_with_pdf_and_developer_survives_publication(self):
         folder = self.root / 'packages/RenderingOptimization'
         folder.mkdir()

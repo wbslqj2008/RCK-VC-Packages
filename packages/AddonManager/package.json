@@ -1,24 +1,24 @@
 {
-  "schemaVersion": 1,
-  "id": "rck.addon-manager",
-  "name": "RCK Addon Manager",
-  "type": "addon",
-  "version": "1.10.2",
-  "description": "Visual Components Add-on 및 eCatalog 패키지 관리자",
-  "restartRequired": true,
-  "systemPackage": true,
-  "vcVersions": [
-    "5.0",
-    "5.1"
-  ],
-  "releaseNotes": [
-    "eCatalog 개발자 표시 및 사용 안내 PDF 열기",
-    "eCatalog 컴포넌트/PDF를 AddonManager 폴더에 설치하고 VC 재시작 없이 적용"
-  ],
-  "files": [
-    {
-      "source": "Plugin.RCKAddonManager.dll",
-      "destination": "vcRoot/Plugin.RCKAddonManager.dll"
-    }
-  ]
+    "schemaVersion":  1,
+    "id":  "rck.addon-manager",
+    "name":  "RCK Addon Manager",
+    "type":  "addon",
+    "version":  "1.10.3",
+    "description":  "Visual Components Add-on 및 eCatalog 패키지 관리자",
+    "restartRequired":  true,
+    "systemPackage":  true,
+    "vcVersions":  [
+                       "5.0",
+                       "5.1"
+                   ],
+    "releaseNotes":  [
+                         "eCatalog 기본 설치 경로를 Public Documents의 VC 버전별 Models/Components로 수정",
+                         "이전 RCK eCatalog 및 My Models 기본 설정을 새 경로로 전환; DLL 설치 위치 유지"
+                     ],
+    "files":  [
+                  {
+                      "source":  "Plugin.RCKAddonManager.dll",
+                      "destination":  "vcRoot/Plugin.RCKAddonManager.dll"
+                  }
+              ]
 }

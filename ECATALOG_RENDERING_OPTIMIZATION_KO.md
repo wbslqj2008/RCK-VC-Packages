@@ -11,9 +11,9 @@ Rendering Optimization eCatalog 배포
 설치 경로
 
 매니저에 설정한 eCatalog 경로 아래 AddonManager 폴더에 두 파일을 설치합니다.
-예: 문서\Visual Components\5.1\My Models\AddonManager\Rendering Optimization.vcmx
+예: C:\Users\Public\Documents\Visual Components\5.1\Models\Components\AddonManager\Rendering Optimization.vcmx
 폴더가 없으면 생성하고, 있으면 그대로 사용합니다. 다른 패키지 파일은 유지합니다.
-처음 사용하는 사용자의 기본 eCatalog 경로는 My Models입니다. 기존 사용자 설정 경로는 유지하므로 필요하면 매니저 설정에서 실제 VC eCatalog 소스 폴더를 선택합니다.
+1.10.3부터 기본 eCatalog 경로는 Public Documents\Visual Components\<VC 버전>\Models\Components입니다. 이전 버전이 사용했던 RCK eCatalog/My Models 기본값은 새 기본값으로 바꾸며, 그 밖의 사용자 지정 경로는 유지합니다. 실제로 설치할 하위 폴더는 AddonManager입니다. 애드온 DLL 설치 위치는 VC 설치 폴더 그대로입니다.
 
 사용 안내
 

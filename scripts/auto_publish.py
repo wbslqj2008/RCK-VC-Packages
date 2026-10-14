@@ -29,6 +29,14 @@ def version_tuple(text: str) -> tuple[int, int, int]:
 
 def main_dll(package: dict) -> str | None:
     names = [PurePosixPath(f['source'].replace('\\', '/')).name for f in package['files']]
+    declared = package.get('mainDll')
+    if declared:
+        if not isinstance(declared, str) or not declared.lower().endswith('.dll') or '/' in declared or '\\' in declared:
+            raise ValueError('mainDll must be a DLL filename')
+        matches = [name for name in names if name.casefold() == declared.casefold()]
+        if len(matches) != 1:
+            raise ValueError('mainDll must identify exactly one payload file')
+        return matches[0]
     compact = ''.join(package['name'].split())
     for candidate in (f'Plugin.{compact}.dll', f'{compact}.dll'):
         matches = [n for n in names if n.casefold() == candidate.casefold()]
