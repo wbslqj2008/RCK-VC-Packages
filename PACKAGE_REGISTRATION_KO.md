@@ -2,8 +2,6 @@
 
 [등록 도구 ZIP 다운로드](https://github.com/wbslqj2008/RCK-VC-Packages/raw/refs/heads/main/downloads/package-registration-tool.zip)
 
-ZIP을 모두 풀고 tools/패키지등록.cmd를 실행하세요.
-
 tools/패키지등록.cmd를 더블클릭하면 등록 창이 열립니다. 관리자 권한은 필요하지 않습니다.
 
 1. 종류를 애드온 DLL 또는 eCatalog VCMX로 선택합니다.
@@ -16,7 +14,7 @@ tools/패키지등록.cmd를 더블클릭하면 등록 창이 열립니다. 관�
 처음 생성한 배포 버전은 1.0.0입니다. 이후 기존 패키지의 DLL/VCMX/PDF를 교체하면 patch가 자동 증가합니다. JSON의 version을 직접 올리지 않습니다. 파일을 추가·제거하면 같은 등록 도구로 새 파일 목록을 생성해 기존 패키지의 package.json에 반영할 수 있습니다. 기존에 배포한 고유 ID를 유지해야 합니다.
 
 애드온에는 type=addon, restartRequired=true, vcRoot/파일명을 생성합니다. 이름이 DLL 파일명과 달라도 mainDll에 선택한 메인 DLL을 기록하므로 의존 DLL과 구분됩니다.
-eCatalog에는 type=ecatalog, restartRequired=false, ecatalog/AddonManager/파일명을 생성합니다. VCMX와 PDF는 Public Documents\Visual Components\<VC 버전>\Models\Components\AddonManager에 설치됩니다. 애드온 DLL은 VC 설치 폴더에 설치합니다.
+eCatalog에는 type=ecatalog, restartRequired=false, ecatalog/AddonManager/파일명을 생성합니다. VCMX만 Public Documents\Visual Components\<VC 버전>\AddonManager에 설치합니다. PDF는 documentation 폴더로 GitHub에 업로드하고 사용 안내 링크로 제공합니다. eCatalog 최초 업로드 폴더는 생성 도구가 안내하는 packages/<eCatalog ID의 마지막 부분>을 사용해야 PDF 링크가 맞습니다. 애드온 DLL은 VC 설치 폴더에 설치합니다.
 
 자동 생성 도구는 로컬 업로드 폴더를 만들며 GitHub 계정으로 업로드하거나 VC 설치 파일을 변경하지 않습니다. 새로운 출력 폴더를 사용하고 기존 패키지 폴더를 덮어쓰지 않습니다.
 

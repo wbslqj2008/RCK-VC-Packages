@@ -107,7 +107,8 @@ $createButton.Add_Click({
             & (Join-Path $PSScriptRoot 'New-EcatalogPackage.ps1') -Files $script:componentFiles -PackageId $idBox.Text -Name $nameBox.Text -Description $descriptionBox.Text -Developer $developerBox.Text -PdfPath $pdfBox.Text -VcVersions $versions -OutputFolder $outputRoot | Out-Null
             $output = Join-Path $outputRoot 'repository-package'
         }
-        [Windows.Forms.MessageBox]::Show($form, "생성 완료! 이 폴더의 package.json과 배포 파일을 GitHub packages 아래 새 폴더에 함께 올리고 main에 반영하세요.`n`n$output", '패키지 등록 도구', 'OK', 'Information') | Out-Null
+        $uploadFolder = if ($kind.SelectedIndex -eq 1) { 'packages/' + $idBox.Text.Substring('rck.ecatalog.'.Length) } else { 'packages 아래 새 폴더' }
+        [Windows.Forms.MessageBox]::Show($form, "생성 완료! 이 폴더의 package.json과 배포 파일을 GitHub $uploadFolder 에 함께 올리고 main에 반영하세요. documentation 폴더가 있으면 함께 올려 주세요. PDF는 eCatalog 설치 파일에 포함되지 않습니다.`n`n$output", '패키지 등록 도구', 'OK', 'Information') | Out-Null
         Start-Process -FilePath 'explorer.exe' -ArgumentList ('"' + $output + '"')
     } catch {
         [Windows.Forms.MessageBox]::Show($form, $_.Exception.Message, '등록 정보 확인', 'OK', 'Error') | Out-Null

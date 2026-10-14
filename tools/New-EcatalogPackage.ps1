@@ -6,6 +6,7 @@ param(
     [string]$Developer = '',
     [string]$PdfPath = '',
     [string]$DocumentationUrl = '',
+    [string]$RepositoryFolder = '',
     [string[]]$VcVersions = @('5.0', '5.1'),
     [string]$Version = '',
     [string]$OutputFolder = '',
@@ -18,6 +19,8 @@ $ErrorActionPreference = 'Stop'
 if ($PackageId -notmatch '^rck\.ecatalog\.[a-z0-9][a-z0-9_-]*$') { throw 'PackageId는 rck.ecatalog.sensor-conveyor처럼 입력하십시오.' }
 if ([string]::IsNullOrWhiteSpace($Name) -or [string]::IsNullOrWhiteSpace($Description)) { throw '이름과 설명이 필요합니다.' }
 if ($Repository -notmatch '^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$') { throw 'GitHub 저장소는 OWNER/REPO 형식이어야 합니다.' }
+if (-not $RepositoryFolder) { $RepositoryFolder = $PackageId.Substring('rck.ecatalog.'.Length) }
+if ($RepositoryFolder -notmatch '^[A-Za-z0-9][A-Za-z0-9._-]*$') { throw 'GitHub 패키지 폴더 이름이 올바르지 않습니다.' }
 if (-not $Version) {
     $Version = '1.0.0'
     if ($ManifestPath) {
@@ -56,14 +59,12 @@ try {
     }
     if ($archiveFiles.Count -eq 0) { throw 'VCMX 파일을 한 개 이상 선택하십시오.' }
     $documentationDestination = ''
+    $pdfSource = ''
     if ($PdfPath) {
         $pdfSource = (Resolve-Path -LiteralPath $PdfPath).Path
         if ([IO.Path]::GetExtension($pdfSource) -ne '.pdf' -or -not [IO.File]::Exists($pdfSource)) { throw '사용 안내는 PDF 파일이어야 합니다.' }
         $pdfName = [IO.Path]::GetFileName($pdfSource)
-        $documentationDestination = "ecatalog/AddonManager/$pdfName"
-        Copy-Item -LiteralPath $pdfSource -Destination (Join-Path $tempRoot $pdfName)
-        $archiveFiles += [ordered]@{ source = $pdfName; destination = $documentationDestination }
-        $contentFiles += [ordered]@{ destination = $documentationDestination; sha256 = (Get-FileHash -LiteralPath $pdfSource -Algorithm SHA256).Hash }
+        if (-not $DocumentationUrl) { $DocumentationUrl = "https://raw.githubusercontent.com/$Repository/main/packages/$RepositoryFolder/documentation/" + [Uri]::EscapeDataString($pdfName) }
     }
     $metadata = [ordered]@{
         schemaVersion = 1; id = $PackageId; name = $Name; type = 'ecatalog'; version = $Version; files = $archiveFiles
@@ -74,6 +75,11 @@ try {
     $sourcePackage = Join-Path $OutputFolder 'repository-package'
     New-Item -ItemType Directory -Path $sourcePackage -Force | Out-Null
     foreach ($file in $archiveFiles) { Copy-Item -LiteralPath (Join-Path $tempRoot $file.source) -Destination (Join-Path $sourcePackage $file.source) -Force }
+    if ($pdfSource) {
+        $docs = Join-Path $sourcePackage 'documentation'
+        New-Item -ItemType Directory -Path $docs -Force | Out-Null
+        Copy-Item -LiteralPath $pdfSource -Destination (Join-Path $docs $pdfName) -Force
+    }
     Write-PackageJson (Join-Path $sourcePackage 'package.json') $metadata
     $assetName = "$PackageId-$Version.zip"
     $zipPath = Join-Path $OutputFolder $assetName
@@ -90,4 +96,5 @@ try {
     Write-Output "ZIP: $zipPath"
     Write-Output "Manifest: $(Join-Path $OutputFolder 'manifest-entry.json')"
     Write-Output "Release tag: $ReleaseTag"
+    Write-Output "GitHub 폴더: packages/$RepositoryFolder (PDF는 documentation 폴더와 함께 업로드; 설치 ZIP에는 포함되지 않음)"
 } finally { Remove-PackageTemp $tempRoot }
