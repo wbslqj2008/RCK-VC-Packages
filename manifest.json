@@ -93,7 +93,7 @@
       "id": "rck.rckstudio",
       "name": "RCKStudio",
       "type": "addon",
-      "version": "2.1.7",
+      "version": "3.1.7",
       "description": "VC 최적화 Python IDE",
       "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38516040155-1/rck.rckstudio-2.1.7.zip",
       "sha256": "3BFEB9C9C4CB1CC35557018D868F96500D01C7B22C1FC2596E6BA116D504D8F8",
