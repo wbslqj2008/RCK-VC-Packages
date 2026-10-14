@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-07T00:00:54Z",
+  "updatedAt": "2026-10-14T05:18:16Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -93,12 +93,12 @@
       "id": "rck.rckstudio",
       "name": "RCKStudio",
       "type": "addon",
-      "version": "2.1.5",
+      "version": "2.1.6",
       "description": "VC 최적화 Python IDE",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-37549660805-1/rck.rckstudio-2.1.5.zip",
-      "sha256": "A1C4586B1A461B2F151DBAB0909EC0791097F29198AF97D8CE623F15F4EE7939",
-      "contentSha256": "D3C4B61E97706A2290317A49E640F893B07F1093B04ED91CF17DAD4EFC13D968",
-      "publishedAt": "2026-10-07T00:00:54Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38515895853-1/rck.rckstudio-2.1.6.zip",
+      "sha256": "25BCC1C5E42C2872748D4743A0C1A2C04095A2BF4D942C83DF597B4FF08AB4B4",
+      "contentSha256": "CF73D7A70FBD1ADDF224A61BFAC966FDA5E49F1E92A92A8D65FD0B73E285CC15",
+      "publishedAt": "2026-10-14T05:18:16Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -107,7 +107,7 @@
         "5.1"
       ],
       "releaseNotes": [
-        "버전관리 기능 추가"
+        "Add files via upload"
       ],
       "contentFiles": [
         {
@@ -140,11 +140,11 @@
         },
         {
           "destination": "vcRoot/Plugin.RCKStudio.dll",
-          "sha256": "DE98B7AB399397643D333EF8C2E5EA2F73CCBCA7CBB53AF3D2022D9640ACD115"
+          "sha256": "7913FA96B28C89B40FA4906A0DD62D504ABEB38CDAF4674F2645616E3B9B333D"
         }
       ],
       "mainDll": "Plugin.RCKStudio.dll",
-      "mainDllSha256": "DE98B7AB399397643D333EF8C2E5EA2F73CCBCA7CBB53AF3D2022D9640ACD115"
+      "mainDllSha256": "7913FA96B28C89B40FA4906A0DD62D504ABEB38CDAF4674F2645616E3B9B333D"
     },
     {
       "id": "rck.shortcut",
