@@ -163,6 +163,8 @@ def build(root: Path, output: Path, repository: str, tag: str, bump: str = 'patc
         if old and old.get('contentSha256') == fingerprint and not explicit_release and not inconsistent:
             if archived.get(package_id):
                 old['versions'] = version_history(old, archived[package_id])
+            if package['version'] != old['version']:
+                package_updates.append({'path': metadata_path.relative_to(root).as_posix(), 'id': package_id, 'version': old['version']})
             continue
         source_version = version_tuple(package['version'])
         base = version_tuple(old['version']) if old else source_version
@@ -218,7 +220,8 @@ def build(root: Path, output: Path, repository: str, tag: str, bump: str = 'patc
     (output / 'manifest.next.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     (output / 'package-updates.json').write_text(json.dumps(package_updates, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     summary = {'changed': changed, 'count': len(changed), 'tag': tag, 'package_id': force_package, 'bump': bump,
-               'releases': releases, 'manifest_changed': before != json.dumps(manifest, sort_keys=True)}
+               'releases': releases, 'manifest_changed': before != json.dumps(manifest, sort_keys=True),
+               'metadata_changed': bool(package_updates)}
     (output / 'summary.json').write_text(json.dumps(summary), encoding='utf-8')
     return summary
 

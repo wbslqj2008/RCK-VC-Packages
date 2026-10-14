@@ -62,6 +62,7 @@ jobs:
           COUNT=$(python -c 'import json; print(json.load(open(".auto-release/summary.json"))["count"])')
           echo "count=$COUNT" >> "$GITHUB_OUTPUT"
           python -c 'import json; print("manifest_changed=" + str(json.load(open(".auto-release/summary.json"))["manifest_changed"]).lower())' >> "$GITHUB_OUTPUT"
+          python -c 'import json; print("metadata_changed=" + str(json.load(open(".auto-release/summary.json"))["metadata_changed"]).lower())' >> "$GITHUB_OUTPUT"
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"
           echo "source_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
@@ -77,6 +78,8 @@ jobs:
               print('변경된 파일이 없어 배포하지 않았습니다.')
               if result['manifest_changed']:
                   print('기존 배포의 파일 비교 기록을 갱신합니다.')
+              if result['metadata_changed']:
+                  print('package.json 버전을 현재 배포 버전에 맞춥니다. 새 버전을 발행하지 않습니다.')
           PY
       - name: GitHub Release 게시
         if: steps.packages.outputs.count != '0'
@@ -89,7 +92,7 @@ jobs:
           set -euo pipefail
           gh release create "$TAG" .auto-release/*.zip --target "$SOURCE_SHA" --title "자동 패키지 업데이트 $TAG" --notes '변경된 Add-on 및 eCatalog 패키지를 자동 생성했습니다.'
       - name: Manifest 반영
-        if: steps.packages.outputs.count != '0' || steps.packages.outputs.manifest_changed == 'true'
+        if: steps.packages.outputs.count != '0' || steps.packages.outputs.manifest_changed == 'true' || steps.packages.outputs.metadata_changed == 'true'
         env:
           TAG: ${{ steps.packages.outputs.tag }}
         shell: bash

@@ -246,6 +246,34 @@ class AutoPublishTests(unittest.TestCase):
         self.assertEqual(current['version'], '0.0.10')
         self.assertTrue(any(p['version'] == '0.0.8' and p['mainDllSha256'] == 'A' * 64 for p in current['versions']))
 
+    def test_stale_source_version_is_synchronized_without_new_release(self):
+        _, initial, output = self.run_build('initial')
+        self.save(initial)
+        summary, unchanged, repaired = self.run_build('metadata-only')
+        self.assertEqual(summary['count'], 0)
+        self.assertTrue(summary['metadata_changed'])
+        self.assertEqual(unchanged, initial)
+        apply(self.root, repaired)
+        metadata = json.loads((self.root / 'packages/Studio/package.json').read_text())
+        self.assertEqual(metadata['version'], '0.0.10')
+        after, _, _ = self.run_build('already-synced')
+        self.assertEqual(after['count'], 0)
+        self.assertFalse(after['metadata_changed'])
+
+    def test_editing_only_source_version_does_not_raise_release_version(self):
+        _, _, output = self.run_build('initial')
+        apply(self.root, output)
+        path = self.root / 'packages/Studio/package.json'
+        metadata = json.loads(path.read_text())
+        metadata['version'] = '99.0.0'
+        path.write_text(json.dumps(metadata))
+        summary, updated, repair = self.run_build('version-only')
+        self.assertEqual(summary['count'], 0)
+        self.assertTrue(summary['metadata_changed'])
+        self.assertEqual(next(p for p in updated['packages'] if p['id'] == 'rck.studio')['version'], '0.0.10')
+        apply(self.root, repair)
+        self.assertEqual(json.loads(path.read_text())['version'], '0.0.10')
+
 
 if __name__ == '__main__':
     unittest.main()
