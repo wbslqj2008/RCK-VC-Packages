@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-14T07:05:23Z",
+  "updatedAt": "2026-10-14T07:58:21Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -154,12 +154,12 @@
       "id": "rck.addon-manager",
       "name": "RCK Addon Manager",
       "type": "addon",
-      "version": "1.10.1",
+      "version": "1.10.2",
       "description": "Visual Components Add-on 및 eCatalog 패키지 관리자",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38526097538-1/rck.addon-manager-1.10.1.zip",
-      "sha256": "F95CC9E97B2C6E06F1628974E615FF30F6B76893675E7B0FAAB0AC43096F69E3",
-      "contentSha256": "3C770E3E71D170ECFDD7E612A37FC82C96DC9F690B1694683C83E7C09868AF19",
-      "publishedAt": "2026-10-14T07:05:23Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38531858268-1/rck.addon-manager-1.10.2.zip",
+      "sha256": "EB257441D56A6F736795B417F9018F2EE6E8DCFB244EFC2D9F2871FB19A3536D",
+      "contentSha256": "7141647FB3BEBFE3DD2A03738EA45518F8A8CEC4EC5CF7BBC902E75A0DE5EE65",
+      "publishedAt": "2026-10-14T07:58:21Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": true,
@@ -168,12 +168,12 @@
         "5.1"
       ],
       "releaseNotes": [
-        "Connect Addon Manager bootstrap updates and automatic package releases"
+        "Publish Rendering Optimization eCatalog with PDF guide and manager 1.10.2"
       ],
       "contentFiles": [
         {
           "destination": "vcRoot/Plugin.RCKAddonManager.dll",
-          "sha256": "49769C4FC343D268C83591DC1B412FEFC2458F4280842F731E47EBC3A269E9AA"
+          "sha256": "A7C16BC674C375146FA492190DE6643F093AD1691B33A2F3518C9F4123084E01"
         }
       ],
       "versions": [
@@ -190,7 +190,7 @@
         }
       ],
       "mainDll": "Plugin.RCKAddonManager.dll",
-      "mainDllSha256": "49769C4FC343D268C83591DC1B412FEFC2458F4280842F731E47EBC3A269E9AA"
+      "mainDllSha256": "A7C16BC674C375146FA492190DE6643F093AD1691B33A2F3518C9F4123084E01"
     },
     {
       "id": "rck.rckstudio",
@@ -883,6 +883,40 @@
           "mainDllSha256": "3CE7B0989DDA1172F7A8595A7EB6C0428338999A1C7E40F8218B6968632C47B4"
         }
       ]
+    },
+    {
+      "id": "rck.ecatalog.rendering-optimization",
+      "name": "Rendering Optimization",
+      "type": "ecatalog",
+      "version": "1.0.0",
+      "description": "10월 12일(월)에 보내 드린 Rendering Optimization 을, 보내 주신 평치구역+.vcmx 의 큰 박스 더미(Folding Box #371)까지 가볍게 그리도록 보완해 다시 전달드립니다.\n앞서 보내 드린 Rendering Optimization.vcmx 는 지우고, 이번 파일로 바꿔 주시면 됩니다.\n\n[바뀐 점]\n1. 단추가 두 개가 되었습니다.\n   - Original Look : 겉모습이 복잡한 더미용(날개가 열린 박스, 무늬·텍스처가 있는 박스, 흩어진 박스)\n     원본 겉면은 그대로 두고, 바깥에서 보이지 않는 면만 빼고 그립니다.\n   - Simple Boxes : 겉모습이 단순한 더미용(같은 박스를 반듯하게 쌓은 큰 더미)\n     박스마다 직육면체 하나로 그려 훨씬 가볍습니다.\n2. Rendering Optimization 하나는 한 묶음을 한 방식으로만 맡습니다.\n   그래서 두 방식을 함께 쓰시려면 Rendering Optimization 을 2개 놓아 주시면 됩니다.(Original Look 용 1개, Simple Boxes 용 1개).\n\n[첨부]\n1. Rendering Optimization.vcmx — 레이아웃에 끌어다 놓아 쓰는 컴포넌트(앞서 보내 드린 판을 대신합니다)\n2. 평치구역+_최적화.vcmx — 보내 주신 평치구역+ 에 컴포넌트 2개를 놓아 최적화해 둔 레이아웃\n   - Rendering Optimization (Original Look) : 기존 7줄\n   - Rendering Optimization (Simple Boxes) : Folding Box #371\n3. Rendering_Optimization_사용안내.pdf — 사용 안내(11쪽, 4쪽에 컴포넌트 2개 설명)\n\n[사용 방법 — 보내 주신 평치구역+.vcmx 에 쓰실 때]\n1. VC 5.1 을 먼저 켜신 뒤 File > Open 으로 보내 주신 평치구역+.vcmx 를 열어주세요.\n\n2. 앞서 놓으신 Rendering Optimization 이 있으면 클릭 → Optimization 탭 → Unoptimize 를 누른 뒤 지워 주세요.\n\n3. 첨부한 Rendering Optimization.vcmx 를 3D 화면으로 두 번 끌어다 놓아주세요.\n   Cell Graph 의 #Undefined 폴더에 Rendering Optimization 과 Rendering Optimization #2 가 생깁니다.\n   (구분하기 쉽게 Default 탭의 Name 칸에서 이름을 바꾸셔도 됩니다.)\n\n4. 겉모습이 복잡한 더미: 박스를 고르신 뒤(하나는 클릭, 여러 개는 Ctrl+클릭 또는 Ctrl+드래그)\n   Ctrl 을 떼고 Cell Graph 에서 첫 번째 Rendering Optimization 클릭 → Optimization 탭 → Original Look\n\n5. 큰 더미(#371 등): 더미를 고르신 뒤 Cell Graph 에서 두 번째 Rendering Optimization 클릭 → Optimization 탭 → Simple Boxes\n\n6. 단추가 Unoptimize 로 바뀌면 끝입니다. 되돌리실 때는 그 컴포넌트를 클릭하고 Unoptimize 를 눌러주세요.\n\n※ 단추는 시뮬레이션을 Reset 한 상태에서 눌러 주세요.\n※ 최적화한 상태로 저장하시면 다시 열어도 그대로 유지됩니다.\n※ 첨부한 평치구역+_최적화.vcmx 는 위 과정을 마친 상태라, 여시면 바로 확인하실 수 있습니다.\n\n[효과]\n- Original Look : 평치구역 35묶음 삼각형 684,288개 → 346,158개(약 절반), 화면 움직임 약 3배(초당 7.1장 → 22.1장)\n- Simple Boxes : #371 삼각형 635,904개 → 4,120개, 평치구역+ 화면 움직임 약 3배(초당 8.2장 → 25~26장)\n",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38531858268-1/rck.ecatalog.rendering-optimization-1.0.0.zip",
+      "sha256": "B8C5D467E49C958F4C0FF9BB0D3988CF3F65AF2A62A0B16FB23584108259933F",
+      "contentSha256": "1A91EC13A8FD6E20C63BDB8DA1699B520F93001B25EE6A6562DC378ADCEA3202",
+      "publishedAt": "2026-10-14T07:58:21Z",
+      "archiveType": "zip",
+      "restartRequired": false,
+      "systemPackage": false,
+      "vcVersions": [
+        "5.1"
+      ],
+      "releaseNotes": [
+        "Publish Rendering Optimization eCatalog with PDF guide and manager 1.10.2"
+      ],
+      "contentFiles": [
+        {
+          "destination": "ecatalog/AddonManager/Rendering Optimization.vcmx",
+          "sha256": "70ADE181C5FC2E774F5038D9FC18A9541702F7C05F7630875DB9D32633658997"
+        },
+        {
+          "destination": "ecatalog/AddonManager/Rendering_Optimization_사용안내.pdf",
+          "sha256": "1E5792BF89537A823E2802E794D48827BE8FF572BE3B1C639E573F2A1ED8F788"
+        }
+      ],
+      "versions": [],
+      "developer": "이준용 연구원",
+      "documentationDestination": "ecatalog/AddonManager/Rendering_Optimization_사용안내.pdf",
+      "documentationUrl": "https://raw.githubusercontent.com/wbslqj2008/RCK-VC-Packages/main/packages/RenderingOptimization/Rendering_Optimization_%EC%82%AC%EC%9A%A9%EC%95%88%EB%82%B4.pdf"
     }
   ]
 }
