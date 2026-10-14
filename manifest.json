@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-14T07:58:21Z",
+  "updatedAt": "2026-10-14T08:15:07Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -154,12 +154,12 @@
       "id": "rck.addon-manager",
       "name": "RCK Addon Manager",
       "type": "addon",
-      "version": "1.10.2",
+      "version": "1.10.3",
       "description": "Visual Components Add-on 및 eCatalog 패키지 관리자",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38531858268-1/rck.addon-manager-1.10.2.zip",
-      "sha256": "EB257441D56A6F736795B417F9018F2EE6E8DCFB244EFC2D9F2871FB19A3536D",
-      "contentSha256": "7141647FB3BEBFE3DD2A03738EA45518F8A8CEC4EC5CF7BBC902E75A0DE5EE65",
-      "publishedAt": "2026-10-14T07:58:21Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38533769439-1/rck.addon-manager-1.10.3.zip",
+      "sha256": "3FA0EDEAC575EE7C6318C194D74BB5218B3B543A49AC5AE47BFB23323BE2356D",
+      "contentSha256": "9A5B241D6E7E51070A31A2F192530C09B50851D0F2F794065DF29E621DECC624",
+      "publishedAt": "2026-10-14T08:15:07Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": true,
@@ -168,15 +168,26 @@
         "5.1"
       ],
       "releaseNotes": [
-        "Publish Rendering Optimization eCatalog with PDF guide and manager 1.10.2"
+        "Fix eCatalog root in manager 1.10.3 and add automatic package JSON wizard"
       ],
       "contentFiles": [
         {
           "destination": "vcRoot/Plugin.RCKAddonManager.dll",
-          "sha256": "A7C16BC674C375146FA492190DE6643F093AD1691B33A2F3518C9F4123084E01"
+          "sha256": "FA23A349F7FDB5C90BC12A525DF38672DE9DCBBE7F017FF0300DB6E2B02F30AF"
         }
       ],
       "versions": [
+        {
+          "version": "1.10.2",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/Plugin.RCKAddonManager.dll",
+              "sha256": "A7C16BC674C375146FA492190DE6643F093AD1691B33A2F3518C9F4123084E01"
+            }
+          ],
+          "mainDll": "Plugin.RCKAddonManager.dll",
+          "mainDllSha256": "A7C16BC674C375146FA492190DE6643F093AD1691B33A2F3518C9F4123084E01"
+        },
         {
           "version": "1.10.1",
           "contentFiles": [
@@ -190,7 +201,7 @@
         }
       ],
       "mainDll": "Plugin.RCKAddonManager.dll",
-      "mainDllSha256": "A7C16BC674C375146FA492190DE6643F093AD1691B33A2F3518C9F4123084E01"
+      "mainDllSha256": "FA23A349F7FDB5C90BC12A525DF38672DE9DCBBE7F017FF0300DB6E2B02F30AF"
     },
     {
       "id": "rck.rckstudio",
@@ -913,7 +924,21 @@
           "sha256": "1E5792BF89537A823E2802E794D48827BE8FF572BE3B1C639E573F2A1ED8F788"
         }
       ],
-      "versions": [],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "contentFiles": [
+            {
+              "destination": "ecatalog/AddonManager/Rendering Optimization.vcmx",
+              "sha256": "70ADE181C5FC2E774F5038D9FC18A9541702F7C05F7630875DB9D32633658997"
+            },
+            {
+              "destination": "ecatalog/AddonManager/Rendering_Optimization_사용안내.pdf",
+              "sha256": "1E5792BF89537A823E2802E794D48827BE8FF572BE3B1C639E573F2A1ED8F788"
+            }
+          ]
+        }
+      ],
       "developer": "이준용 연구원",
       "documentationDestination": "ecatalog/AddonManager/Rendering_Optimization_사용안내.pdf",
       "documentationUrl": "https://raw.githubusercontent.com/wbslqj2008/RCK-VC-Packages/main/packages/RenderingOptimization/Rendering_Optimization_%EC%82%AC%EC%9A%A9%EC%95%88%EB%82%B4.pdf"
