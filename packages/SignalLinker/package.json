@@ -3,7 +3,7 @@
   "id": "rck.signallinker",
   "name": "SignalLinker",
   "type": "addon",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Signal 연결 관리",
   "restartRequired": true,
   "systemPackage": false,

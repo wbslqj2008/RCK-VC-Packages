@@ -3,7 +3,7 @@
   "id": "rck.codelens",
   "name": "CodeLens",
   "type": "addon",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "우클릭으로 Python 스크립트 열기",
   "restartRequired": true,
   "systemPackage": false,

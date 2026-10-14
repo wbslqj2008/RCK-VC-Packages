@@ -176,7 +176,19 @@
           "sha256": "49769C4FC343D268C83591DC1B412FEFC2458F4280842F731E47EBC3A269E9AA"
         }
       ],
-      "versions": [],
+      "versions": [
+        {
+          "version": "1.10.1",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/Plugin.RCKAddonManager.dll",
+              "sha256": "49769C4FC343D268C83591DC1B412FEFC2458F4280842F731E47EBC3A269E9AA"
+            }
+          ],
+          "mainDll": "Plugin.RCKAddonManager.dll",
+          "mainDllSha256": "49769C4FC343D268C83591DC1B412FEFC2458F4280842F731E47EBC3A269E9AA"
+        }
+      ],
       "mainDll": "Plugin.RCKAddonManager.dll",
       "mainDllSha256": "49769C4FC343D268C83591DC1B412FEFC2458F4280842F731E47EBC3A269E9AA"
     },
@@ -235,6 +247,45 @@
         }
       ],
       "versions": [
+        {
+          "version": "3.1.8",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/AvalonDock.dll",
+              "sha256": "A00406D3D5DEABB74F41535C21CE0548E21C7C9315DADB895736096020E81849"
+            },
+            {
+              "destination": "vcRoot/ICSharpCode.AvalonEdit.dll",
+              "sha256": "B0032716709359F7361D5A2DDC8E2AD457A1448A093FB4900E0336312B0A10C7"
+            },
+            {
+              "destination": "vcRoot/IronPython.dll",
+              "sha256": "2D8129B8ECD23441B0D0C4A8A31FF3A22C70D52BFEB8B33D81F9E00015CB2CAB"
+            },
+            {
+              "destination": "vcRoot/IronPython.Modules.dll",
+              "sha256": "3781F592A071B0164F5A80E5C646F85919EE37D8994CCAEFBB8B27C4AA40E438"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Dynamic.dll",
+              "sha256": "CCA2606589EC21508C34B09BC2AA021B570AD401127AB786D80658149232980E"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Scripting.dll",
+              "sha256": "3D28E3695F2F11913FCC1BAD2CBD27632C18C1DB23FE369D3235034AEC325CDA"
+            },
+            {
+              "destination": "vcRoot/Microsoft.Scripting.Metadata.dll",
+              "sha256": "4CCD37B1B0AA2B13850CD82A4392557D29B87AD0ABEB0495D67318EA53BC2A7D"
+            },
+            {
+              "destination": "vcRoot/Plugin.RCKStudio.dll",
+              "sha256": "7913FA96B28C89B40FA4906A0DD62D504ABEB38CDAF4674F2645616E3B9B333D"
+            }
+          ],
+          "mainDll": "Plugin.RCKStudio.dll",
+          "mainDllSha256": "7913FA96B28C89B40FA4906A0DD62D504ABEB38CDAF4674F2645616E3B9B333D"
+        },
         {
           "version": "2.1.7",
           "contentFiles": [

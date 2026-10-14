@@ -3,7 +3,7 @@
   "id": "rck.turborename",
   "name": "TurboRename",
   "type": "addon",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Component 이름 일괄 변경",
   "restartRequired": true,
   "systemPackage": false,

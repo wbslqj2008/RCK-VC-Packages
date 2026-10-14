@@ -3,7 +3,7 @@
   "id": "rck.cycletime",
   "name": "CycleTime",
   "type": "addon",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "VC Cycle Time 측정 및 관리",
   "restartRequired": true,
   "systemPackage": false,
