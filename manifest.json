@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-14T09:14:27Z",
+  "updatedAt": "2026-10-15T01:03:57Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -154,12 +154,12 @@
       "id": "rck.addon-manager",
       "name": "RCK Addon Manager",
       "type": "addon",
-      "version": "1.10.4",
+      "version": "1.10.5",
       "description": "Visual Components Add-on 및 eCatalog 패키지 관리자",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38540870952-1/rck.addon-manager-1.10.4.zip",
-      "sha256": "271E486F4A744D58105603388FE58B263671B6FFB0AFF3D2896DF2AF6FFEF4A8",
-      "contentSha256": "06A98D0E6330221CC3FF4E757998670DFBF038A14C35E68341270C89662EAC9B",
-      "publishedAt": "2026-10-14T09:14:27Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38663557602-1/rck.addon-manager-1.10.5.zip",
+      "sha256": "442D748A7361F657C50D7D5E0FA043FB4F0144B535B5AE7826F3A80C4D3026F2",
+      "contentSha256": "8D0CC0EDD557D939450CAB3C656C1D96EF70D31B6F2CCD71DB503B0C8C312CA2",
+      "publishedAt": "2026-10-15T01:03:57Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": true,
@@ -168,15 +168,26 @@
         "5.1"
       ],
       "releaseNotes": [
-        "Keep custom eCatalog outside synchronized Models cache and exclude installed PDF"
+        "Register local eCatalog automatically on VC startup with readiness retry"
       ],
       "contentFiles": [
         {
           "destination": "vcRoot/Plugin.RCKAddonManager.dll",
-          "sha256": "EDC3C09BBBB319B06D50AF7E9EBC64BA790B552C9767316099EEADAF66FC8B49"
+          "sha256": "5D1B700C904FD8EA86DF4262E7F83B7D40D09380CF049D222E37A458DB635EA1"
         }
       ],
       "versions": [
+        {
+          "version": "1.10.4",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/Plugin.RCKAddonManager.dll",
+              "sha256": "EDC3C09BBBB319B06D50AF7E9EBC64BA790B552C9767316099EEADAF66FC8B49"
+            }
+          ],
+          "mainDll": "Plugin.RCKAddonManager.dll",
+          "mainDllSha256": "EDC3C09BBBB319B06D50AF7E9EBC64BA790B552C9767316099EEADAF66FC8B49"
+        },
         {
           "version": "1.10.3",
           "contentFiles": [
@@ -212,7 +223,7 @@
         }
       ],
       "mainDll": "Plugin.RCKAddonManager.dll",
-      "mainDllSha256": "EDC3C09BBBB319B06D50AF7E9EBC64BA790B552C9767316099EEADAF66FC8B49"
+      "mainDllSha256": "5D1B700C904FD8EA86DF4262E7F83B7D40D09380CF049D222E37A458DB635EA1"
     },
     {
       "id": "rck.rckstudio",
@@ -932,6 +943,15 @@
         }
       ],
       "versions": [
+        {
+          "version": "1.0.1",
+          "contentFiles": [
+            {
+              "destination": "ecatalog/AddonManager/Rendering Optimization.vcmx",
+              "sha256": "70ADE181C5FC2E774F5038D9FC18A9541702F7C05F7630875DB9D32633658997"
+            }
+          ]
+        },
         {
           "version": "1.0.0",
           "contentFiles": [
