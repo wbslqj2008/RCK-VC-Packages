@@ -1,25 +1,25 @@
 {
-  "schemaVersion": 1,
-  "id": "rck.addon-manager",
-  "name": "RCK Addon Manager",
-  "type": "addon",
-  "version": "1.10.4",
-  "description": "Visual Components Add-on 및 eCatalog 패키지 관리자",
-  "restartRequired": true,
-  "systemPackage": true,
-  "vcVersions": [
-    "5.0",
-    "5.1"
-  ],
-  "releaseNotes": [
-    "Models 밖의 AddonManager 폴더에 eCatalog 설치: VC Refresh로 삭제되는 문제 수정",
-    "VC 로컬 소스 자동 등록 및 해당 소스만 색인",
-    "PDF를 eCatalog 설치 파일에서 제외하고 GitHub 사용 안내 링크로 제공; PDF만 남으면 미설치로 판정"
-  ],
-  "files": [
-    {
-      "source": "Plugin.RCKAddonManager.dll",
-      "destination": "vcRoot/Plugin.RCKAddonManager.dll"
-    }
-  ]
+    "schemaVersion":  1,
+    "id":  "rck.addon-manager",
+    "name":  "RCK Addon Manager",
+    "type":  "addon",
+    "version":  "1.10.5",
+    "description":  "Visual Components Add-on 및 eCatalog 패키지 관리자",
+    "restartRequired":  true,
+    "systemPackage":  true,
+    "vcVersions":  [
+                       "5.0",
+                       "5.1"
+                   ],
+    "releaseNotes":  [
+                         "VC 시작 시 AddonManager 로컬 소스 자동 등록",
+                         "VC eCatalog 초기화 대기 및 등록 자동 재시도",
+                         "등록된 로컬 소스만 색인하고 중복 등록 방지"
+                     ],
+    "files":  [
+                  {
+                      "source":  "Plugin.RCKAddonManager.dll",
+                      "destination":  "vcRoot/Plugin.RCKAddonManager.dll"
+                  }
+              ]
 }
