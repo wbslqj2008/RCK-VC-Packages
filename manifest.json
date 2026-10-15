@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-15T01:54:36Z",
+  "updatedAt": "2026-10-15T02:18:46Z",
   "packages": [
     {
       "id": "rck.codelens",
       "name": "CodeLens",
       "type": "addon",
-      "version": "1.0.2",
+      "version": "2.1.2",
       "description": "우클릭으로 Python 스크립트 열기",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-35060788700-1/rck.codelens-1.0.2.zip",
-      "sha256": "5AC33BE4ABD197B20C4339161CC09C37548111CCA230B71AD882E530810DF8C9",
-      "contentSha256": "FFFD6DDB4EE9CDB7361BF1310670E8F0916A1D833585C6590AC2886BD764B7B2",
-      "publishedAt": "2026-09-16T05:45:27Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38670306024-1/rck.codelens-2.1.2.zip",
+      "sha256": "EADDA442BF0ADACDFB821136063759AC60F0FA3500D7F87ECAF44861FEC66698",
+      "contentSha256": "830959106F613F5505EC07FD46EA3B05E121B53262ED7E2AEFCC7B4522ACBDE1",
+      "publishedAt": "2026-10-15T02:18:46Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -20,7 +20,7 @@
         "5.1"
       ],
       "releaseNotes": [
-        "예외 처리 및 5.1 마이그레이션"
+        "Local Studio와 충돌하는 문제 수정"
       ],
       "contentFiles": [
         {
@@ -28,8 +28,6 @@
           "sha256": "C6F035706661A804775AA589253231C52D7C69680B095F073708ED697DCAF49E"
         }
       ],
-      "mainDll": "Plugin.CodeLens.dll",
-      "mainDllSha256": "C6F035706661A804775AA589253231C52D7C69680B095F073708ED697DCAF49E",
       "versions": [
         {
           "version": "1.0.2",
@@ -53,18 +51,20 @@
           "mainDll": "Plugin.CodeLens.dll",
           "mainDllSha256": "C6F035706661A804775AA589253231C52D7C69680B095F073708ED697DCAF49E"
         }
-      ]
+      ],
+      "mainDll": "Plugin.CodeLens.dll",
+      "mainDllSha256": "C6F035706661A804775AA589253231C52D7C69680B095F073708ED697DCAF49E"
     },
     {
       "id": "rck.cycletime",
       "name": "CycleTime",
       "type": "addon",
-      "version": "1.0.2",
+      "version": "1.0.0",
       "description": "VC Cycle Time 측정 및 관리",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-35060810803-1/rck.cycletime-1.0.2.zip",
-      "sha256": "ED601D4BA6EE22589692D0CC0615148F81F2B5F64E176BB02DD95A2EB4B9B928",
-      "contentSha256": "6E8EDFA9058FC3EA230A03FC2EA5C902B3B87B5E3AB162AF5FA6B997F6C7C45A",
-      "publishedAt": "2026-09-16T05:45:47Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38670306024-1/rck.cycletime-1.0.0.zip",
+      "sha256": "BEFFEC8D2E320109E2B5299A19F9B58850F59CAB4B42BA80E4F2FD1D9EA11ABC",
+      "contentSha256": "0959D2818509E39971B7B5E9EF4E3BD9A10C6F3987E1FD59D0207B40EA86729E",
+      "publishedAt": "2026-10-15T02:18:46Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -73,7 +73,7 @@
         "5.1"
       ],
       "releaseNotes": [
-        "GitHub Release 초기 배포, 담당 : 김명겸 선임"
+        "초기커밋"
       ],
       "contentFiles": [
         {
@@ -81,8 +81,6 @@
           "sha256": "5009AE185012EB6397605B63CB3759C83C391CC86DC716BDDDD299E464AB3CC1"
         }
       ],
-      "mainDll": "Plugin.CycleTime.dll",
-      "mainDllSha256": "5009AE185012EB6397605B63CB3759C83C391CC86DC716BDDDD299E464AB3CC1",
       "versions": [
         {
           "version": "1.0.2",
@@ -106,7 +104,9 @@
           "mainDll": "Plugin.CycleTime.dll",
           "mainDllSha256": "5009AE185012EB6397605B63CB3759C83C391CC86DC716BDDDD299E464AB3CC1"
         }
-      ]
+      ],
+      "mainDll": "Plugin.CycleTime.dll",
+      "mainDllSha256": "5009AE185012EB6397605B63CB3759C83C391CC86DC716BDDDD299E464AB3CC1"
     },
     {
       "id": "rck.productify",
@@ -114,10 +114,10 @@
       "type": "addon",
       "version": "1.0.1",
       "description": "Product URI 업데이트",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-35045401896-1/rck.productify-1.0.1.zip",
-      "sha256": "8FF704A36E88147246E389667BA20B5D7BE09F4A60267374778D70983A5139D2",
-      "contentSha256": "474CEA7D2909EEA131F1E79D535E8AA22C5275704830ABEB368D786F630684B9",
-      "publishedAt": "2026-09-16T01:46:41Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38670306024-1/rck.productify-1.0.1.zip",
+      "sha256": "7F7F86846DF564E97403B0F406969270B2222937ECEA30EFC15E60E329C30905",
+      "contentSha256": "75528FD00419D293181F2BADC923009E65CBA8CFB249DEB7A99C475B2600E56E",
+      "publishedAt": "2026-10-15T02:18:46Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -126,7 +126,7 @@
         "5.1"
       ],
       "releaseNotes": [
-        "GitHub Release 초기 배포"
+        "5.0에서 5.1로 마이그레이션"
       ],
       "contentFiles": [
         {
@@ -134,8 +134,6 @@
           "sha256": "6DC481BCC4FDC1DAB817F8497350945525315BD8C632C30321A9510457605187"
         }
       ],
-      "mainDll": "Plugin.Productify.dll",
-      "mainDllSha256": "6DC481BCC4FDC1DAB817F8497350945525315BD8C632C30321A9510457605187",
       "versions": [
         {
           "version": "1.0.1",
@@ -148,18 +146,20 @@
           "mainDll": "Plugin.Productify.dll",
           "mainDllSha256": "6DC481BCC4FDC1DAB817F8497350945525315BD8C632C30321A9510457605187"
         }
-      ]
+      ],
+      "mainDll": "Plugin.Productify.dll",
+      "mainDllSha256": "6DC481BCC4FDC1DAB817F8497350945525315BD8C632C30321A9510457605187"
     },
     {
       "id": "rck.addon-manager",
       "name": "RCK Addon Manager",
       "type": "addon",
-      "version": "1.10.5",
+      "version": "2.0.5",
       "description": "Visual Components Add-on 및 eCatalog 패키지 관리자",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38663557602-1/rck.addon-manager-1.10.5.zip",
-      "sha256": "442D748A7361F657C50D7D5E0FA043FB4F0144B535B5AE7826F3A80C4D3026F2",
-      "contentSha256": "8D0CC0EDD557D939450CAB3C656C1D96EF70D31B6F2CCD71DB503B0C8C312CA2",
-      "publishedAt": "2026-10-15T01:03:57Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38670306024-1/rck.addon-manager-2.0.5.zip",
+      "sha256": "488964566FB417E49A80EFCF562E248A425466ACDB7CF3DEAE2BD7829F6BAE66",
+      "contentSha256": "033E8C8161E6B3422F0BE94FBB9983387825AC6AEB4256AF8E09C36A35B545C5",
+      "publishedAt": "2026-10-15T02:18:46Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": true,
@@ -168,12 +168,13 @@
         "5.1"
       ],
       "releaseNotes": [
-        "Register local eCatalog automatically on VC startup with readiness retry"
+        "DLL 버전 열을 제거하고 설치 배포 버전과 최신 배포 버전 중심으로 화면 정리",
+        "배포 버전 재정리 시 실제 설치 파일과 최신 배포 파일을 비교하여 설치 버전 표시 개선"
       ],
       "contentFiles": [
         {
           "destination": "vcRoot/Plugin.RCKAddonManager.dll",
-          "sha256": "5D1B700C904FD8EA86DF4262E7F83B7D40D09380CF049D222E37A458DB635EA1"
+          "sha256": "0BA538CB2F44E3BE4E604DE11F00A270389A19F91F2E71157CB0BA3A1C14E669"
         }
       ],
       "versions": [
@@ -234,7 +235,7 @@
         }
       ],
       "mainDll": "Plugin.RCKAddonManager.dll",
-      "mainDllSha256": "5D1B700C904FD8EA86DF4262E7F83B7D40D09380CF049D222E37A458DB635EA1"
+      "mainDllSha256": "0BA538CB2F44E3BE4E604DE11F00A270389A19F91F2E71157CB0BA3A1C14E669"
     },
     {
       "id": "rck.rckstudio",
@@ -242,10 +243,10 @@
       "type": "addon",
       "version": "3.1.8",
       "description": "VC 최적화 Python IDE",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38526097538-1/rck.rckstudio-3.1.8.zip",
-      "sha256": "BCAFFF12E794957ED54431C5B162F609979537D766DC9064AFFF169A1614AB16",
-      "contentSha256": "CF73D7A70FBD1ADDF224A61BFAC966FDA5E49F1E92A92A8D65FD0B73E285CC15",
-      "publishedAt": "2026-10-14T07:05:23Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38670306024-1/rck.rckstudio-3.1.8.zip",
+      "sha256": "FF5599CB7E8CB31DAD6B4EB919A94F6C1FAF68234198724CAFCD2C341DE587F2",
+      "contentSha256": "124FD9AF82DFF2F999B059EC910FD083608A8EF9EF096B2D117538CB1053F2E1",
+      "publishedAt": "2026-10-15T02:18:46Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -254,7 +255,7 @@
         "5.1"
       ],
       "releaseNotes": [
-        "Connect Addon Manager bootstrap updates and automatic package releases"
+        "파이썬 리딩방식 변경, AI 툴 개선 및 직렬화 구조 재변경, VC Py3이 우선 탐색 후 (깊이우선) .NET 애드온 동작하는 방식으로 변경, 성능향상,Py2 or Py3 선택기추가"
       ],
       "contentFiles": [
         {
@@ -806,12 +807,12 @@
       "id": "rck.shortcut",
       "name": "ShortCut",
       "type": "addon",
-      "version": "1.0.1",
+      "version": "1.0.4",
       "description": "VC 기능 단축키 모음",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-35045401896-1/rck.shortcut-1.0.1.zip",
-      "sha256": "FD5E8BD04697F1E99AF8C75466B39CB3B2C7CC28BB4E5B507CF07B606567EBB6",
-      "contentSha256": "9E3854F2E7FB911C491C620297A5AD8446345B306AF6B5F82A3BF5B35ED7DA81",
-      "publishedAt": "2026-09-16T01:46:41Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38670306024-1/rck.shortcut-1.0.4.zip",
+      "sha256": "1E70777B13F49DAEC924D07A57959794BF106A262B3990E76D06B79B1A5C2295",
+      "contentSha256": "D1C85B2D79D8F460FF12E669687A72EB585464E4115AEDB8F578D3BCF71A91A1",
+      "publishedAt": "2026-10-15T02:18:46Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -820,7 +821,7 @@
         "5.1"
       ],
       "releaseNotes": [
-        "GitHub Release 초기 배포"
+        "카메라 레이캐스트 방식 변경"
       ],
       "contentFiles": [
         {
@@ -828,8 +829,6 @@
           "sha256": "587DA11EADC76F16E1F724DCC7C32E383E06231BC5A3EFF9E7BCCC453E879FA5"
         }
       ],
-      "mainDll": "Plugin.ShortCut.dll",
-      "mainDllSha256": "587DA11EADC76F16E1F724DCC7C32E383E06231BC5A3EFF9E7BCCC453E879FA5",
       "versions": [
         {
           "version": "1.0.1",
@@ -842,7 +841,9 @@
           "mainDll": "Plugin.ShortCut.dll",
           "mainDllSha256": "587DA11EADC76F16E1F724DCC7C32E383E06231BC5A3EFF9E7BCCC453E879FA5"
         }
-      ]
+      ],
+      "mainDll": "Plugin.ShortCut.dll",
+      "mainDllSha256": "587DA11EADC76F16E1F724DCC7C32E383E06231BC5A3EFF9E7BCCC453E879FA5"
     },
     {
       "id": "rck.signallinker",
@@ -850,10 +851,10 @@
       "type": "addon",
       "version": "1.0.1",
       "description": "Signal 연결 관리",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-35045401896-1/rck.signallinker-1.0.1.zip",
-      "sha256": "7C2A8EEB1C124D34FEF147F7F9F8111E9C98D2779F63768D298C6431378EF7FC",
-      "contentSha256": "85EBAE860BD04CD727D2A6D6B5C7C5A904D6452FE16B2881551589B159D7B6FF",
-      "publishedAt": "2026-09-16T01:46:41Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38670306024-1/rck.signallinker-1.0.1.zip",
+      "sha256": "78128EA540F74015A65F54255C5AF3F8A076D8E8BAFBDD708269AFDBAC3D6B1F",
+      "contentSha256": "BBEFE79BBF04BCD81603E00DA7AE1BCC1FE40181F46E7F92D56C26AB0531B3F6",
+      "publishedAt": "2026-10-15T02:18:46Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -862,7 +863,7 @@
         "5.1"
       ],
       "releaseNotes": [
-        "GitHub Release 초기 배포"
+        "5.0에서 5.1로 마이그레이션"
       ],
       "contentFiles": [
         {
@@ -870,8 +871,6 @@
           "sha256": "EEEA4584807EF5D80CFA34E22ADA220FC9B2DF08728C1A3686288FAF5AC29E3B"
         }
       ],
-      "mainDll": "Plugin.SignalLinker.dll",
-      "mainDllSha256": "EEEA4584807EF5D80CFA34E22ADA220FC9B2DF08728C1A3686288FAF5AC29E3B",
       "versions": [
         {
           "version": "1.0.1",
@@ -884,18 +883,20 @@
           "mainDll": "Plugin.SignalLinker.dll",
           "mainDllSha256": "EEEA4584807EF5D80CFA34E22ADA220FC9B2DF08728C1A3686288FAF5AC29E3B"
         }
-      ]
+      ],
+      "mainDll": "Plugin.SignalLinker.dll",
+      "mainDllSha256": "EEEA4584807EF5D80CFA34E22ADA220FC9B2DF08728C1A3686288FAF5AC29E3B"
     },
     {
       "id": "rck.turborename",
       "name": "TurboRename",
       "type": "addon",
-      "version": "1.0.1",
+      "version": "2.0.1",
       "description": "Component 이름 일괄 변경",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-35045401896-1/rck.turborename-1.0.1.zip",
-      "sha256": "7D7357241A6C6E661B3BFAEC1CA88F8A8C9BB659E74F16E8216592C69CCAE228",
-      "contentSha256": "8957517441F8D9E9D9D7546509C383045E0D015113DD5EC3F43452815B5F25EB",
-      "publishedAt": "2026-09-16T01:46:41Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38670306024-1/rck.turborename-2.0.1.zip",
+      "sha256": "9E7FE07D22E523B11C7FFDA75415CFA4631E41491EF9C4A19CEBE289D08EDB28",
+      "contentSha256": "402CE65FD551167B57D5262BE2743D110B3CD6CDFBBDCA2E1D421DE3B6844ED2",
+      "publishedAt": "2026-10-15T02:18:46Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -904,7 +905,7 @@
         "5.1"
       ],
       "releaseNotes": [
-        "GitHub Release 초기 배포"
+        "SortMate 병합 및 도킹 방식 수정"
       ],
       "contentFiles": [
         {
@@ -912,8 +913,6 @@
           "sha256": "3CE7B0989DDA1172F7A8595A7EB6C0428338999A1C7E40F8218B6968632C47B4"
         }
       ],
-      "mainDll": "Plugin.TurboRename.dll",
-      "mainDllSha256": "3CE7B0989DDA1172F7A8595A7EB6C0428338999A1C7E40F8218B6968632C47B4",
       "versions": [
         {
           "version": "1.0.1",
@@ -926,7 +925,9 @@
           "mainDll": "Plugin.TurboRename.dll",
           "mainDllSha256": "3CE7B0989DDA1172F7A8595A7EB6C0428338999A1C7E40F8218B6968632C47B4"
         }
-      ]
+      ],
+      "mainDll": "Plugin.TurboRename.dll",
+      "mainDllSha256": "3CE7B0989DDA1172F7A8595A7EB6C0428338999A1C7E40F8218B6968632C47B4"
     },
     {
       "id": "rck.ecatalog.rendering-optimization",
@@ -955,6 +956,15 @@
       ],
       "versions": [
         {
+          "version": "1.0.2",
+          "contentFiles": [
+            {
+              "destination": "ecatalog/AddonManager/Rendering Optimization.vcmx",
+              "sha256": "F5B0A731F8D9283AF7D937EA53BC2E3FCCAE822D303D2BAB689199965CAFA5DC"
+            }
+          ]
+        },
+        {
           "version": "1.0.1",
           "contentFiles": [
             {
@@ -980,5 +990,8 @@
       "developer": "이준용 연구원",
       "documentationUrl": "https://raw.githubusercontent.com/wbslqj2008/RCK-VC-Packages/main/packages/RenderingOptimization/Rendering_Optimization_%EC%82%AC%EC%9A%A9%EC%95%88%EB%82%B4.pdf"
     }
+  ],
+  "appliedReleasePlans": [
+    "2026-10-15-package-version-baseline"
   ]
 }
