@@ -3,7 +3,7 @@
   "id": "rck.addon-manager",
   "name": "RCK Addon Manager",
   "type": "addon",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "Visual Components Add-on 및 eCatalog 패키지 관리자",
   "restartRequired": true,
   "systemPackage": true,
@@ -12,8 +12,7 @@
     "5.1"
   ],
   "releaseNotes": [
-    "DLL 버전 열을 제거하고 설치 배포 버전과 최신 배포 버전 중심으로 화면 정리",
-    "배포 버전 재정리 시 실제 설치 파일과 최신 배포 파일을 비교하여 설치 버전 표시 개선"
+    "최신 패키지 중복 설치 차단, 별도 복구·재설치 및 실행 직전 재검사 추가"
   ],
   "files": [
     {
