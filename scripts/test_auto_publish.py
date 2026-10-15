@@ -32,6 +32,50 @@ class AutoPublishTests(unittest.TestCase):
     def save(self, manifest):
         (self.root / 'manifest.json').write_text(json.dumps(manifest))
 
+    def test_explicit_version_plan_corrects_versions_and_preserves_individual_notes_once(self):
+        _, _, initial = self.run_build('initial-plan-source')
+        apply(self.root, initial)
+        for name in ('Studio', 'CodeLens'):
+            path = self.root / 'packages' / name / 'package.json'
+            metadata = json.loads(path.read_text())
+            metadata['releaseNotes'] = [name + ' specific changes']
+            path.write_text(json.dumps(metadata))
+        plan = self.root / 'release-plan.json'
+        plan.write_text(json.dumps({'schemaVersion': 1, 'id': 'reviewed-baseline',
+                                    'versions': {'rck.studio': '0.0.1', 'rck.codelens': '2.1.2'}}))
+        summary, corrected, output = self.run_build('corrected', release_plan=plan, release_notes='generic commit title')
+        self.assertEqual(summary['count'], 2)
+        self.assertEqual(summary['release_plan_id'], 'reviewed-baseline')
+        self.assertEqual(corrected['appliedReleasePlans'], ['reviewed-baseline'])
+        for package in corrected['packages']:
+            expected = '0.0.1' if package['id'] == 'rck.studio' else '2.1.2'
+            self.assertEqual(package['version'], expected)
+            self.assertEqual(package['releaseNotes'], [package['name'] + ' specific changes'])
+            with zipfile.ZipFile(output / f"{package['id']}-{expected}.zip") as archive:
+                metadata = json.loads(archive.read('package.json'))
+                self.assertEqual(metadata['version'], expected)
+                self.assertEqual(metadata['releaseNotes'], package['releaseNotes'])
+        apply(self.root, output)
+        unchanged, same, _ = self.run_build('plan-rerun', release_plan=plan)
+        self.assertEqual(unchanged['count'], 0)
+        self.assertEqual(same, corrected)
+        (self.root / 'packages/Studio/payload/Plugin.Studio.dll').write_bytes(b'next real update')
+        next_summary, next_manifest, _ = self.run_build('patch-after-plan', release_plan=plan)
+        self.assertEqual(next_summary['changed'], ['rck.studio-0.0.2.zip'])
+        self.assertEqual(next_manifest['appliedReleasePlans'], ['reviewed-baseline'])
+
+    def test_version_plan_rejects_invalid_targets_and_ambiguous_manual_bumps(self):
+        plan = self.root / 'release-plan.json'
+        original = (self.root / 'manifest.json').read_bytes()
+        for versions in ({'missing': '1.0.0'}, {'rck.studio': 'bad'}, {}):
+            plan.write_text(json.dumps({'schemaVersion': 1, 'id': 'invalid-plan', 'versions': versions}))
+            with self.assertRaises(ValueError):
+                self.run_build('invalid-plan', release_plan=plan)
+            self.assertEqual((self.root / 'manifest.json').read_bytes(), original)
+        plan.write_text(json.dumps({'schemaVersion': 1, 'id': 'pending-plan', 'versions': {'rck.studio': '1.0.0'}}))
+        with self.assertRaisesRegex(ValueError, 'pending release plan'):
+            self.run_build('ambiguous-plan', release_plan=plan, bump='major', force_package='rck.studio')
+
     def run_build(self, tag, **kwargs):
         output = self.root / tag
         summary = build(self.root, output, 'owner/repo', tag, **kwargs)

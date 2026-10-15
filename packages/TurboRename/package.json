@@ -3,7 +3,7 @@
   "id": "rck.turborename",
   "name": "TurboRename",
   "type": "addon",
-  "version": "1.0.1",
+  "version": "2.0.1",
   "description": "Component 이름 일괄 변경",
   "restartRequired": true,
   "systemPackage": false,
@@ -12,7 +12,7 @@
     "5.1"
   ],
   "releaseNotes": [
-    "GitHub Release 초기 배포"
+    "SortMate 병합 및 도킹 방식 수정"
   ],
   "files": [
     {

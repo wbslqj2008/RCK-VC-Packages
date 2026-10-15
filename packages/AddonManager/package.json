@@ -3,7 +3,7 @@
   "id": "rck.addon-manager",
   "name": "RCK Addon Manager",
   "type": "addon",
-  "version": "1.10.5",
+  "version": "2.0.5",
   "description": "Visual Components Add-on 및 eCatalog 패키지 관리자",
   "restartRequired": true,
   "systemPackage": true,
@@ -12,9 +12,8 @@
     "5.1"
   ],
   "releaseNotes": [
-    "VC 시작 시 AddonManager 로컬 소스 자동 등록",
-    "VC eCatalog 초기화 대기 및 등록 자동 재시도",
-    "등록된 로컬 소스만 색인하고 중복 등록 방지"
+    "DLL 버전 열을 제거하고 설치 배포 버전과 최신 배포 버전 중심으로 화면 정리",
+    "배포 버전 재정리 시 실제 설치 파일과 최신 배포 파일을 비교하여 설치 버전 표시 개선"
   ],
   "files": [
     {

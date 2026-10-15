@@ -117,7 +117,7 @@ DLL 내부 FileVersion은 위 네 항목과 별개입니다.
 | 기존 Actions 이름만 보임 | 이전 화면/실행을 보고 있음 | 새로고침 후 현재 워크플로와 최근 실행 확인 |
 | 성공이라고 뜨지만 새 Release가 없음 | 변경 없음으로 건너뜀 또는 기록 동기화만 수행함 | Summary의 배포 결과 확인 |
 | Release에 ZIP은 있지만 매니저 목록은 그대로임 | Manifest 반영 단계 실패 가능 | 해당 실행의 마지막 단계 로그 확인 |
-| 매니저가 최신이라고 하는데 DLL 숫자가 낮음 | DLL 버전과 배포 버전이 다른 기준임 | DLL 버전·설치 배포 버전·해시 비교 근거를 함께 확인 |
+| 매니저가 최신이라고 하는데 DLL 내부 숫자가 낮음 | DLL 내부 버전과 배포 버전이 다른 기준임 | 목록의 설치 배포 버전·최신 배포 버전과 파일 비교 근거를 확인 |
 
 ## 7. Addon Manager 본체를 업데이트할 때
 
@@ -139,3 +139,17 @@ DLL 내부 FileVersion은 위 네 항목과 별개입니다.
 
 - [파일 업로드 안내](https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)
 - [현재 배포 워크플로](https://github.com/wbslqj2008/RCK-VC-Packages/blob/main/.github/workflows/auto-publish.yml)
+
+## 9. 배포 번호를 지정한 값으로 정리할 때
+
+일반 업로드는 기존처럼 자동 patch로 배포합니다. 과거 배포 번호를 바로잡을 때만 루트의 `release-plan.json`을 사용합니다.
+
+- `schemaVersion`은 `1`, `id`는 이 정리 작업만의 새로운 식별자, `versions`는 패키지 ID와 정확한 배포 버전의 대응표입니다.
+- 패키지별 변경 내용은 해당 `packages/<폴더>/package.json`의 `releaseNotes`에 적습니다.
+- `main`에 반영하면 지정 번호로 ZIP을 새로 만들고 ZIP 내부 버전·파일명·manifest·원본 package.json을 일치시킵니다. 같은 번호 또는 낮은 번호로 정정하는 경우도 포함합니다.
+- Release 업로드가 성공한 뒤에만 manifest의 `appliedReleasePlans`에 작업 ID를 기록합니다. 같은 ID는 다시 적용하지 않아 이후 실제 변경은 정리된 번호 다음 patch로 증가합니다.
+- 새로운 정정 작업에는 반드시 새로운 ID를 사용합니다. 아직 적용하지 않은 정정 작업과 수동 minor/major 실행을 혼합하지 않습니다.
+
+2026-10-15 정리: CodeLens 2.1.2, CycleTime 1.0.0, Productify 1.0.1, Addon Manager 2.0.5, RCKStudio 3.1.8(변경 내용 수정), ShortCut 1.0.4, SignalLinker 1.0.1, TurboRename 2.0.1.
+
+Addon Manager 2.0.5부터 목록의 DLL 버전 열을 제거했습니다. 현재 배포 파일과 완전히 일치하면 과거 설치 기록의 번호보다 현재 배포 번호를 우선하여 표시합니다.

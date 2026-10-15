@@ -99,7 +99,7 @@ def load_manifest_history(root: Path) -> dict[str, list[dict]]:
     return versions
 
 
-def build(root: Path, output: Path, repository: str, tag: str, bump: str = 'patch', force_package: str = '', release_notes: str = '', *, force: bool = False) -> dict:
+def build(root: Path, output: Path, repository: str, tag: str, bump: str = 'patch', force_package: str = '', release_notes: str = '', *, force: bool = False, release_plan: Path | None = None) -> dict:
     manifest_path = root / 'manifest.json'
     manifest = json.loads(manifest_path.read_text(encoding='utf-8-sig'))
     before = json.dumps(manifest, sort_keys=True)
@@ -107,6 +107,28 @@ def build(root: Path, output: Path, repository: str, tag: str, bump: str = 'patc
     archived = load_manifest_history(root)
     metadata_paths = sorted((root / 'packages').glob('*/package.json'))
     available_ids = [json.loads(p.read_text(encoding='utf-8-sig'))['id'] for p in metadata_paths]
+    # Explicit release-number corrections are applied once, after upload succeeds.
+    # Keeping the plan in the repository must not reset later automatic patches.
+    overrides = {}
+    plan_id = None
+    if release_plan is not None:
+        plan = json.loads(release_plan.read_text(encoding='utf-8-sig'))
+        if plan.get('schemaVersion') != 1 or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]*', plan.get('id', '')):
+            raise ValueError('Invalid release plan schema or id')
+        versions = plan.get('versions')
+        if not isinstance(versions, dict) or not versions:
+            raise ValueError('Release plan must contain package versions')
+        for package_id, version in versions.items():
+            if package_id not in available_ids:
+                raise ValueError(f'Unknown release plan package: {package_id}')
+            if not isinstance(version, str):
+                raise ValueError(f'Invalid release plan version: {package_id}')
+            version_tuple(version)
+        if plan['id'] not in manifest.get('appliedReleasePlans', []):
+            if force_package or bump != 'patch' or force:
+                raise ValueError('Apply a pending release plan without package/bump/force overrides')
+            plan_id = plan['id']
+            overrides = versions
     # Preserve a real rck.studio ID, but accept the common shorthand in this repository.
     if force_package == 'rck.studio' and force_package not in available_ids and 'rck.rckstudio' in available_ids:
         force_package = 'rck.rckstudio'
@@ -160,7 +182,7 @@ def build(root: Path, output: Path, repository: str, tag: str, bump: str = 'patc
         identity['content'] = sorted((name, dest, digest) for _, name, dest, digest in payloads)
         fingerprint = hashlib.sha256(json.dumps(identity, sort_keys=True, ensure_ascii=False).encode()).hexdigest().upper()
         old = previous.get(package_id)
-        explicit_release = force or bump in ('minor', 'major')
+        explicit_release = force or bump in ('minor', 'major') or package_id in overrides
         old_asset_version = None
         if old:
             asset_name = urllib.parse.unquote(urllib.parse.urlparse(old.get('downloadUrl', '')).path.rsplit('/', 1)[-1])
@@ -176,7 +198,9 @@ def build(root: Path, output: Path, repository: str, tag: str, bump: str = 'patc
             continue
         source_version = version_tuple(package['version'])
         base = version_tuple(old['version']) if old else source_version
-        if not old:
+        if package_id in overrides:
+            next_version = version_tuple(overrides[package_id])
+        elif not old:
             next_version = base
         elif bump == 'major':
             next_version = (base[0] + 1, 0, 0)
@@ -185,7 +209,8 @@ def build(root: Path, output: Path, repository: str, tag: str, bump: str = 'patc
         else:
             next_version = (base[0], base[1], base[2] + 1)
         package['version'] = '.'.join(map(str, next_version))
-        note = release_notes.strip()
+        # A version correction retains each package's individually authored notes.
+        note = '' if package_id in overrides else release_notes.strip()
         notes = [note] if note else package.get('releaseNotes', [])
         package['releaseNotes'] = notes
         zip_name = f"{package_id}-{package['version']}.zip"
@@ -225,6 +250,8 @@ def build(root: Path, output: Path, repository: str, tag: str, bump: str = 'patc
     if force_package and force_package not in seen:
         raise ValueError(f'Unknown package id: {force_package}')
     manifest['schemaVersion'] = 1
+    if plan_id:
+        manifest.setdefault('appliedReleasePlans', []).append(plan_id)
     if changed:
         manifest['updatedAt'] = now
     manifest['packages'] = sorted(previous.values(), key=lambda p: (p['type'], p['name'].casefold()))
@@ -232,7 +259,7 @@ def build(root: Path, output: Path, repository: str, tag: str, bump: str = 'patc
     (output / 'package-updates.json').write_text(json.dumps(package_updates, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     summary = {'changed': changed, 'count': len(changed), 'tag': tag, 'package_id': force_package, 'bump': bump,
                'releases': releases, 'manifest_changed': before != json.dumps(manifest, sort_keys=True),
-               'metadata_changed': bool(package_updates)}
+               'metadata_changed': bool(package_updates), 'release_plan_id': plan_id}
     (output / 'summary.json').write_text(json.dumps(summary), encoding='utf-8')
     return summary
 
@@ -247,6 +274,7 @@ if __name__ == '__main__':
     parser.add_argument('--package-id', '--force-package', dest='package_id', default='', help='Select one package. An unchanged patch is skipped.')
     parser.add_argument('--force', action='store_true', help='Explicitly publish unchanged content as a new version.')
     parser.add_argument('--release-notes', default='')
+    parser.add_argument('--release-plan', type=Path, help='Apply an explicitly reviewed version map once.')
     args = parser.parse_args()
-    print(json.dumps(build(args.repo_root, args.output_dir, args.repository, args.tag, args.bump, args.package_id, args.release_notes, force=args.force)))
+    print(json.dumps(build(args.repo_root, args.output_dir, args.repository, args.tag, args.bump, args.package_id, args.release_notes, force=args.force, release_plan=args.release_plan)))
 

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "id": "2026-10-15-package-version-baseline",
+  "versions": {
+    "rck.codelens": "2.1.2",
+    "rck.cycletime": "1.0.0",
+    "rck.productify": "1.0.1",
+    "rck.addon-manager": "2.0.5",
+    "rck.rckstudio": "3.1.8",
+    "rck.shortcut": "1.0.4",
+    "rck.signallinker": "1.0.1",
+    "rck.turborename": "2.0.1"
+  }
+}

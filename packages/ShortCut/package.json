@@ -3,7 +3,7 @@
   "id": "rck.shortcut",
   "name": "ShortCut",
   "type": "addon",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "VC 기능 단축키 모음",
   "restartRequired": true,
   "systemPackage": false,
@@ -12,7 +12,7 @@
     "5.1"
   ],
   "releaseNotes": [
-    "GitHub Release 초기 배포"
+    "카메라 레이캐스트 방식 변경"
   ],
   "files": [
     {

@@ -6,6 +6,7 @@ on:
     paths:
       - 'packages/**'
       - 'manifest.json'
+      - 'release-plan.json'
       - 'scripts/auto_publish.py'
       - 'scripts/apply_publish.py'
       - '.github/workflows/auto-publish.yml'
@@ -58,7 +59,7 @@ jobs:
           if [ -z "$(printf '%s' "$RELEASE_NOTES" | tr -d '[:space:]')" ]; then
             RELEASE_NOTES="$(git log -1 --pretty=%s -- packages)"
           fi
-          python scripts/auto_publish.py --output-dir .auto-release --repository "$GITHUB_REPOSITORY" --tag "$TAG" --bump "$BUMP" --package-id "$PACKAGE_ID" --release-notes "$RELEASE_NOTES"
+          python scripts/auto_publish.py --output-dir .auto-release --repository "$GITHUB_REPOSITORY" --tag "$TAG" --bump "$BUMP" --package-id "$PACKAGE_ID" --release-notes "$RELEASE_NOTES" --release-plan release-plan.json
           COUNT=$(python -c 'import json; print(json.load(open(".auto-release/summary.json"))["count"])')
           echo "count=$COUNT" >> "$GITHUB_OUTPUT"
           python -c 'import json; print("manifest_changed=" + str(json.load(open(".auto-release/summary.json"))["manifest_changed"]).lower())' >> "$GITHUB_OUTPUT"
@@ -70,6 +71,8 @@ jobs:
           result = json.load(open('.auto-release/summary.json'))
           print('## 배포 결과')
           print(f"버전 증가: {result['bump']}; 지정 패키지: {result['package_id'] or '변경된 패키지 전체'}")
+          if result.get('release_plan_id'):
+              print(f"지정 버전 적용: {result['release_plan_id']}")
           for name in result['changed']:
               print(f'- {name}')
           for package in result['releases']:
