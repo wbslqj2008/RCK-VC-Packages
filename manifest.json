@@ -874,6 +874,17 @@
       ],
       "versions": [
         {
+          "version": "1.0.5",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/Plugin.ShortCut.dll",
+              "sha256": "AA5A9188598EC087E7499A07B14780E4CD937166CF41A09DC9906C3CADBABC31"
+            }
+          ],
+          "mainDll": "Plugin.ShortCut.dll",
+          "mainDllSha256": "AA5A9188598EC087E7499A07B14780E4CD937166CF41A09DC9906C3CADBABC31"
+        },
+        {
           "version": "1.0.4",
           "contentFiles": [
             {
