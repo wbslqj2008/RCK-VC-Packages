@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-16T05:26:42Z",
+  "updatedAt": "2026-10-16T07:27:56Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -306,12 +306,12 @@
       "id": "rck.rckstudio",
       "name": "RCKStudio",
       "type": "addon",
-      "version": "3.1.8",
+      "version": "3.1.9",
       "description": "VC 최적화 Python IDE",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38670306024-1/rck.rckstudio-3.1.8.zip",
-      "sha256": "FF5599CB7E8CB31DAD6B4EB919A94F6C1FAF68234198724CAFCD2C341DE587F2",
-      "contentSha256": "124FD9AF82DFF2F999B059EC910FD083608A8EF9EF096B2D117538CB1053F2E1",
-      "publishedAt": "2026-10-15T02:18:46Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38867369986-1/rck.rckstudio-3.1.9.zip",
+      "sha256": "DC5E2CBDBC29CE976A40452A2EDAB2DFED9D56D5FB008DA4CC213603078B4572",
+      "contentSha256": "EB544E12990065D14041C38FE599675ADBD7AA1C6FB223044EAC7A3A439E04E7",
+      "publishedAt": "2026-10-16T07:27:56Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -320,7 +320,7 @@
         "5.1"
       ],
       "releaseNotes": [
-        "파이썬 리딩방식 변경, AI 툴 개선 및 직렬화 구조 재변경, VC Py3이 우선 탐색 후 (깊이우선) .NET 애드온 동작하는 방식으로 변경, 성능향상,Py2 or Py3 선택기추가"
+        "RCKStudio에서 사용하지 않는 IronPython 및 Microsoft.Scripting 의존성 제거"
       ],
       "contentFiles": [
         {
@@ -330,26 +330,6 @@
         {
           "destination": "vcRoot/ICSharpCode.AvalonEdit.dll",
           "sha256": "B0032716709359F7361D5A2DDC8E2AD457A1448A093FB4900E0336312B0A10C7"
-        },
-        {
-          "destination": "vcRoot/IronPython.dll",
-          "sha256": "2D8129B8ECD23441B0D0C4A8A31FF3A22C70D52BFEB8B33D81F9E00015CB2CAB"
-        },
-        {
-          "destination": "vcRoot/IronPython.Modules.dll",
-          "sha256": "3781F592A071B0164F5A80E5C646F85919EE37D8994CCAEFBB8B27C4AA40E438"
-        },
-        {
-          "destination": "vcRoot/Microsoft.Dynamic.dll",
-          "sha256": "CCA2606589EC21508C34B09BC2AA021B570AD401127AB786D80658149232980E"
-        },
-        {
-          "destination": "vcRoot/Microsoft.Scripting.dll",
-          "sha256": "3D28E3695F2F11913FCC1BAD2CBD27632C18C1DB23FE369D3235034AEC325CDA"
-        },
-        {
-          "destination": "vcRoot/Microsoft.Scripting.Metadata.dll",
-          "sha256": "4CCD37B1B0AA2B13850CD82A4392557D29B87AD0ABEB0495D67318EA53BC2A7D"
         },
         {
           "destination": "vcRoot/Plugin.RCKStudio.dll",
@@ -876,7 +856,7 @@
       "description": "VC 기능 단축키 모음",
       "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38853999258-1/rck.shortcut-2.0.1.zip",
       "sha256": "DF735D5EB0A17EEA3FB2774C5F7AEB9CA24D175F142FA1931BE2B08DA8D93C66",
-      "contentSha256": "01011F33D0F1F3686ED0F711161FB0820FCD101C49D834EDEB9088C4DCC0958C",
+      "contentSha256": "88BE669682F7432A3CA4D69A7BFFC5AA3F395F6BADC99D72AE7AA8B665C96607",
       "publishedAt": "2026-10-16T05:06:00Z",
       "archiveType": "zip",
       "restartRequired": true,
@@ -895,6 +875,17 @@
         }
       ],
       "versions": [
+        {
+          "version": "2.0.1",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/Plugin.ShortCut.dll",
+              "sha256": "80523FD94A0FF6B538E580EF5669F0FFCE1670A5032BB59B191E0CB25D3B6987"
+            }
+          ],
+          "mainDll": "Plugin.ShortCut.dll",
+          "mainDllSha256": "80523FD94A0FF6B538E580EF5669F0FFCE1670A5032BB59B191E0CB25D3B6987"
+        },
         {
           "version": "2.0.0",
           "contentFiles": [
@@ -1046,7 +1037,7 @@
       "description": "10월 12일(월)에 보내 드린 Rendering Optimization 을, 보내 주신 평치구역+.vcmx 의 큰 박스 더미(Folding Box #371)까지 가볍게 그리도록 보완해 다시 전달드립니다.\n앞서 보내 드린 Rendering Optimization.vcmx 는 지우고, 이번 파일로 바꿔 주시면 됩니다.\n\n[바뀐 점]\n1. 단추가 두 개가 되었습니다.\n   - Original Look : 겉모습이 복잡한 더미용(날개가 열린 박스, 무늬·텍스처가 있는 박스, 흩어진 박스)\n     원본 겉면은 그대로 두고, 바깥에서 보이지 않는 면만 빼고 그립니다.\n   - Simple Boxes : 겉모습이 단순한 더미용(같은 박스를 반듯하게 쌓은 큰 더미)\n     박스마다 직육면체 하나로 그려 훨씬 가볍습니다.\n2. Rendering Optimization 하나는 한 묶음을 한 방식으로만 맡습니다.\n   그래서 두 방식을 함께 쓰시려면 Rendering Optimization 을 2개 놓아 주시면 됩니다.(Original Look 용 1개, Simple Boxes 용 1개).\n\n[첨부]\n1. Rendering Optimization.vcmx — 레이아웃에 끌어다 놓아 쓰는 컴포넌트(앞서 보내 드린 판을 대신합니다)\n2. 평치구역+_최적화.vcmx — 보내 주신 평치구역+ 에 컴포넌트 2개를 놓아 최적화해 둔 레이아웃\n   - Rendering Optimization (Original Look) : 기존 7줄\n   - Rendering Optimization (Simple Boxes) : Folding Box #371\n3. Rendering_Optimization_사용안내.pdf — 사용 안내(11쪽, 4쪽에 컴포넌트 2개 설명)\n\n[사용 방법 — 보내 주신 평치구역+.vcmx 에 쓰실 때]\n1. VC 5.1 을 먼저 켜신 뒤 File > Open 으로 보내 주신 평치구역+.vcmx 를 열어주세요.\n\n2. 앞서 놓으신 Rendering Optimization 이 있으면 클릭 → Optimization 탭 → Unoptimize 를 누른 뒤 지워 주세요.\n\n3. 첨부한 Rendering Optimization.vcmx 를 3D 화면으로 두 번 끌어다 놓아주세요.\n   Cell Graph 의 #Undefined 폴더에 Rendering Optimization 과 Rendering Optimization #2 가 생깁니다.\n   (구분하기 쉽게 Default 탭의 Name 칸에서 이름을 바꾸셔도 됩니다.)\n\n4. 겉모습이 복잡한 더미: 박스를 고르신 뒤(하나는 클릭, 여러 개는 Ctrl+클릭 또는 Ctrl+드래그)\n   Ctrl 을 떼고 Cell Graph 에서 첫 번째 Rendering Optimization 클릭 → Optimization 탭 → Original Look\n\n5. 큰 더미(#371 등): 더미를 고르신 뒤 Cell Graph 에서 두 번째 Rendering Optimization 클릭 → Optimization 탭 → Simple Boxes\n\n6. 단추가 Unoptimize 로 바뀌면 끝입니다. 되돌리실 때는 그 컴포넌트를 클릭하고 Unoptimize 를 눌러주세요.\n\n※ 단추는 시뮬레이션을 Reset 한 상태에서 눌러 주세요.\n※ 최적화한 상태로 저장하시면 다시 열어도 그대로 유지됩니다.\n※ 첨부한 평치구역+_최적화.vcmx 는 위 과정을 마친 상태라, 여시면 바로 확인하실 수 있습니다.\n\n[효과]\n- Original Look : 평치구역 35묶음 삼각형 684,288개 → 346,158개(약 절반), 화면 움직임 약 3배(초당 7.1장 → 22.1장)\n- Simple Boxes : #371 삼각형 635,904개 → 4,120개, 평치구역+ 화면 움직임 약 3배(초당 8.2장 → 25~26장)\n",
       "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38668167947-1/rck.ecatalog.rendering-optimization-1.0.2.zip",
       "sha256": "25B6E793ED62C1498BAEB43C309341BA91C5976F8F6CAF80F5E437BF0611E363",
-      "contentSha256": "627A1E6A094C9045D54B41FB4CB2D78E292C137DCB55BECB46B663523F231CC3",
+      "contentSha256": "7752C8E5EB0B453D72E117BCAA1875E519E68F5CA8857994ED6559AAFFDBE831",
       "publishedAt": "2026-10-15T01:54:36Z",
       "archiveType": "zip",
       "restartRequired": false,

@@ -19,6 +19,6 @@
     "5.1"
   ],
   "releaseNotes": [
-    "eCatalog 컴포넌트 배포"
+    "fix: add Rendering Optimization catalog name and author metadata"
   ]
 }

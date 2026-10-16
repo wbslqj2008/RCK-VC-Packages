@@ -3,7 +3,7 @@
   "id": "rck.rckstudio",
   "name": "RCKStudio",
   "type": "addon",
-  "version": "3.1.8",
+  "version": "3.1.9",
   "description": "VC 최적화 Python IDE",
   "restartRequired": true,
   "systemPackage": false,
@@ -12,7 +12,7 @@
     "5.1"
   ],
   "releaseNotes": [
-    "파이썬 리딩방식 변경, AI 툴 개선 및 직렬화 구조 재변경, VC Py3이 우선 탐색 후 (깊이우선) .NET 애드온 동작하는 방식으로 변경, 성능향상,Py2 or Py3 선택기추가"
+    "RCKStudio에서 사용하지 않는 IronPython 및 Microsoft.Scripting 의존성 제거"
   ],
   "files": [
     {
