@@ -1,4 +1,4 @@
-"""Synchronize source package versions and the manifest after release upload succeeds."""
+"""Synchronize source package versions, release notes, and the published manifest."""
 from __future__ import annotations
 
 import argparse
@@ -32,6 +32,7 @@ def apply(root: Path, output: Path) -> list[str]:
         if metadata['id'] != update['id'] or entry is None or entry['version'] != update['version']:
             raise ValueError(f'Package/manifest mismatch: {update["id"]}')
         metadata['version'] = update['version']
+        metadata['releaseNotes'] = entry.get('releaseNotes', [])
         planned.append((path, json.dumps(metadata, ensure_ascii=False, indent=2) + '\n'))
     for path, text in planned:
         path.write_text(text, encoding='utf-8')

@@ -79,7 +79,7 @@ class AutoPublishTests(unittest.TestCase):
     def run_build(self, tag, **kwargs):
         output = self.root / tag
         summary = build(self.root, output, 'owner/repo', tag, **kwargs)
-        manifest = json.loads((output / 'manifest.next.json').read_text())
+        manifest = json.loads((output / 'manifest.next.json').read_text(encoding='utf-8'))
         return summary, manifest, output
 
     def test_declared_main_dll_allows_display_name_with_dependencies(self):
@@ -184,6 +184,61 @@ class AutoPublishTests(unittest.TestCase):
         summary, updated, _ = self.run_build('coalesced')
         self.assertEqual(summary['count'], 2)
         self.assertEqual([p['version'] for p in updated['packages']], ['0.0.11', '0.0.11'])
+
+    def test_commit_notes_are_synchronized_and_do_not_cause_another_release(self):
+        note = '설치 목록 분리 및 개수 표시'
+        _, manifest, output = self.run_build('notes-sync', release_notes=note)
+        source_path = self.root / 'packages/Studio/package.json'
+        original = json.loads(source_path.read_text())
+        self.assertNotIn('releaseNotes', original)
+        apply(self.root, output)
+        source = json.loads(source_path.read_text(encoding='utf-8'))
+        studio = next(p for p in manifest['packages'] if p['id'] == source['id'])
+        with zipfile.ZipFile(output / f"{source['id']}-{source['version']}.zip") as archive:
+            packaged = json.loads(archive.read('package.json'))
+        self.assertEqual(source['releaseNotes'], [note])
+        self.assertEqual(source['releaseNotes'], studio['releaseNotes'])
+        self.assertEqual(source['releaseNotes'], packaged['releaseNotes'])
+        self.assertEqual(source['description'], original['description'])
+        summary, unchanged, _ = self.run_build('notes-rerun', release_notes='automation commit')
+        self.assertEqual(summary['count'], 0)
+        self.assertFalse(summary['metadata_changed'])
+        self.assertEqual(unchanged, manifest)
+        source['releaseNotes'] = ['Manually edited release notes']
+        source_path.write_text(json.dumps(source))
+        changed, updated, _ = self.run_build('authored-notes')
+        self.assertEqual(changed['changed'], ['rck.studio-0.0.11.zip'])
+        self.assertEqual(next(p for p in updated['packages'] if p['id'] == source['id'])['releaseNotes'], source['releaseNotes'])
+
+    def test_legacy_stale_notes_are_repaired_without_a_release_or_followup_bump(self):
+        source_path = self.root / 'packages/Studio/package.json'
+        source = json.loads(source_path.read_text())
+        source['releaseNotes'] = ['Previous release notes']
+        source_path.write_text(json.dumps(source))
+        _, manifest, initial_output = self.run_build('legacy-notes', release_notes='Current published notes')
+        apply(self.root, initial_output)
+        studio = next(p for p in manifest['packages'] if p['id'] == source['id'])
+        payload = source_path.parent / source['files'][0]['source']
+        identity = {k: v for k, v in source.items() if k != 'version'}
+        identity['content'] = [(source['files'][0]['source'], source['files'][0]['destination'],
+                                hashlib.sha256(payload.read_bytes()).hexdigest().upper())]
+        studio['contentSha256'] = hashlib.sha256(json.dumps(identity, sort_keys=True, ensure_ascii=False).encode()).hexdigest().upper()
+        source['version'] = studio['version']
+        source_path.write_text(json.dumps(source))
+        self.save(manifest)
+        summary, repaired_manifest, output = self.run_build('repair-legacy')
+        self.assertEqual(summary['count'], 0)
+        self.assertTrue(summary['metadata_changed'])
+        self.assertTrue(summary['manifest_changed'])
+        self.assertEqual(list(output.glob('*.zip')), [])
+        apply(self.root, output)
+        synced = json.loads(source_path.read_text())
+        self.assertEqual(synced['version'], studio['version'])
+        self.assertEqual(synced['releaseNotes'], ['Current published notes'])
+        second, unchanged, _ = self.run_build('repair-rerun')
+        self.assertEqual(second['count'], 0)
+        self.assertFalse(second['metadata_changed'])
+        self.assertEqual(unchanged, repaired_manifest)
 
     def test_missing_payload_and_unknown_force_do_not_modify_source(self):
         before = (self.root / 'manifest.json').read_bytes()

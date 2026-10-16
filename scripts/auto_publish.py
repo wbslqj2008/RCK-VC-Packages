@@ -99,6 +99,14 @@ def load_manifest_history(root: Path) -> dict[str, list[dict]]:
     return versions
 
 
+def content_fingerprint(package: dict, payloads: list, *, legacy: bool = False) -> str:
+    identity = {k: v for k, v in package.items() if k != 'version'}
+    if not legacy:
+        identity['releaseNotes'] = package.get('releaseNotes', [])
+    identity['content'] = sorted((name, dest, digest) for _, name, dest, digest in payloads)
+    return hashlib.sha256(json.dumps(identity, sort_keys=True, ensure_ascii=False).encode()).hexdigest().upper()
+
+
 def build(root: Path, output: Path, repository: str, tag: str, bump: str = 'patch', force_package: str = '', release_notes: str = '', *, force: bool = False, release_plan: Path | None = None) -> dict:
     manifest_path = root / 'manifest.json'
     manifest = json.loads(manifest_path.read_text(encoding='utf-8-sig'))
@@ -178,9 +186,7 @@ def build(root: Path, output: Path, repository: str, tag: str, bump: str = 'patc
             archive_names.add(archive_name.casefold())
             digest = hashlib.sha256(source.read_bytes()).hexdigest().upper()
             payloads.append((source, archive_name, destination, digest))
-        identity = {k: v for k, v in package.items() if k != 'version'}
-        identity['content'] = sorted((name, dest, digest) for _, name, dest, digest in payloads)
-        fingerprint = hashlib.sha256(json.dumps(identity, sort_keys=True, ensure_ascii=False).encode()).hexdigest().upper()
+        fingerprint = content_fingerprint(package, payloads)
         old = previous.get(package_id)
         explicit_release = force or bump in ('minor', 'major') or package_id in overrides
         old_asset_version = None
@@ -190,10 +196,14 @@ def build(root: Path, output: Path, repository: str, tag: str, bump: str = 'patc
             if match:
                 old_asset_version = match.group(1)
         inconsistent = old_asset_version is not None and old_asset_version != old['version']
-        if old and old.get('contentSha256') == fingerprint and not explicit_release and not inconsistent:
+        if old and old.get('contentSha256') in (fingerprint, content_fingerprint(package, payloads, legacy=True)) and not explicit_release and not inconsistent:
             if archived.get(package_id):
                 old['versions'] = version_history(old, archived[package_id])
-            if package['version'] != old['version']:
+            # Older releases hashed the source notes before applying the commit title.
+            # Repair that identity alongside the source notes without creating a release.
+            published_notes = old.get('releaseNotes', [])
+            old['contentSha256'] = content_fingerprint(dict(package, releaseNotes=published_notes), payloads)
+            if package['version'] != old['version'] or package.get('releaseNotes', []) != published_notes:
                 package_updates.append({'path': metadata_path.relative_to(root).as_posix(), 'id': package_id, 'version': old['version']})
             continue
         source_version = version_tuple(package['version'])
@@ -213,6 +223,7 @@ def build(root: Path, output: Path, repository: str, tag: str, bump: str = 'patc
         note = '' if package_id in overrides else release_notes.strip()
         notes = [note] if note else package.get('releaseNotes', [])
         package['releaseNotes'] = notes
+        fingerprint = content_fingerprint(package, payloads)
         zip_name = f"{package_id}-{package['version']}.zip"
         zip_path = output / zip_name
         with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as archive:
