@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-16T04:24:59Z",
+  "updatedAt": "2026-10-16T04:28:17Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -850,12 +850,12 @@
       "id": "rck.shortcut",
       "name": "ShortCut",
       "type": "addon",
-      "version": "1.0.5",
+      "version": "2.0.0",
       "description": "VC 기능 단축키 모음",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38850491993-1/rck.shortcut-1.0.5.zip",
-      "sha256": "72DA0E29CA7EA9A0A9715A2E4482103482CF7440971CF5FE2949FA4122778BA4",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38850772740-1/rck.shortcut-2.0.0.zip",
+      "sha256": "A1FC7AFF96D0245475E9357C7299C32AAA76CE74238BE48220050B48DEF734FD",
       "contentSha256": "2D6F21EF7B0D5D6806E3053B987D82CF502A1FC98CEF11BFF1013CE71F828FCD",
-      "publishedAt": "2026-10-16T04:24:59Z",
+      "publishedAt": "2026-10-16T04:28:17Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -864,7 +864,7 @@
         "5.1"
       ],
       "releaseNotes": [
-        "Add files via upload"
+        "키입력 기능 추가 및 패치"
       ],
       "contentFiles": [
         {
