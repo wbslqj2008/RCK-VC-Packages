@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-16T04:28:17Z",
+  "updatedAt": "2026-10-16T05:04:32Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -176,12 +176,12 @@
       "id": "rck.addon-manager",
       "name": "RCK Addon Manager",
       "type": "addon",
-      "version": "2.0.6",
+      "version": "2.0.7",
       "description": "Visual Components Add-on 및 eCatalog 패키지 관리자",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38671657075-1/rck.addon-manager-2.0.6.zip",
-      "sha256": "BE99C85BF2286B56B7E68A3294DD3752EF0683D83C1BDAAC1CB47CEBA820136B",
-      "contentSha256": "8CC84B7C1542E4A742B78980B406E67AE037C38F12D3498CB1027E6FD6E04096",
-      "publishedAt": "2026-10-15T02:34:03Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38853872005-1/rck.addon-manager-2.0.7.zip",
+      "sha256": "FD80FCB1C93823EBC5C1B98327349EC9F2E7FC727F8E8B510A36EB91D96A34B1",
+      "contentSha256": "4F8E690C4B16B3F8D1F7637346F3093A2422950FE2BD0DD4D1852ED83D8BC99F",
+      "publishedAt": "2026-10-16T05:04:32Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": true,
@@ -190,12 +190,12 @@
         "5.1"
       ],
       "releaseNotes": [
-        "최신 패키지 중복 설치 차단, 별도 복구·재설치 및 실행 직전 재검사 추가"
+        "애드온 및 이카탈로그 갯수 보이게 변경 및 탭조절"
       ],
       "contentFiles": [
         {
           "destination": "vcRoot/Plugin.RCKAddonManager.dll",
-          "sha256": "DE9AD7D0D9FDD7D3DB63240A87E6C941795D674DA1AFC57BAF3E6EB1629C05A1"
+          "sha256": "446CA551EC4ED8D2C0D197A5CCE4C4BFDA6084D53DD2EB9D71B40F57DC5CC24E"
         }
       ],
       "versions": [
@@ -278,7 +278,7 @@
         }
       ],
       "mainDll": "Plugin.RCKAddonManager.dll",
-      "mainDllSha256": "DE9AD7D0D9FDD7D3DB63240A87E6C941795D674DA1AFC57BAF3E6EB1629C05A1"
+      "mainDllSha256": "446CA551EC4ED8D2C0D197A5CCE4C4BFDA6084D53DD2EB9D71B40F57DC5CC24E"
     },
     {
       "id": "rck.rckstudio",
