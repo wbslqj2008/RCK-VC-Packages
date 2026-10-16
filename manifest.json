@@ -180,7 +180,7 @@
       "description": "Visual Components Add-on 및 eCatalog 패키지 관리자",
       "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38855794608-1/rck.addon-manager-2.0.8.zip",
       "sha256": "F671A90FAB26A59C532D893FCC3D41D2981FD628F5DED114426CC369567DF88C",
-      "contentSha256": "54989D1937C81F310562C258EBD8A0A20199E9F5AE650B034DAD1F275397030D",
+      "contentSha256": "2D141FA7CDEFD4D5AE65D3DAEB678C76C958BCFAADE9FC7818752D8591573E3E",
       "publishedAt": "2026-10-16T05:26:42Z",
       "archiveType": "zip",
       "restartRequired": true,
@@ -199,6 +199,17 @@
         }
       ],
       "versions": [
+        {
+          "version": "2.0.8",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/Plugin.RCKAddonManager.dll",
+              "sha256": "A5A97FBB63A7D13B46A296F2D73E4041BC526190683CB193832BA6CD74F8961A"
+            }
+          ],
+          "mainDll": "Plugin.RCKAddonManager.dll",
+          "mainDllSha256": "A5A97FBB63A7D13B46A296F2D73E4041BC526190683CB193832BA6CD74F8961A"
+        },
         {
           "version": "2.0.7",
           "contentFiles": [
