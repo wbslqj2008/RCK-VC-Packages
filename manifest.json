@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-15T02:34:03Z",
+  "updatedAt": "2026-10-16T04:24:59Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -199,6 +199,17 @@
         }
       ],
       "versions": [
+        {
+          "version": "2.0.6",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/Plugin.RCKAddonManager.dll",
+              "sha256": "DE9AD7D0D9FDD7D3DB63240A87E6C941795D674DA1AFC57BAF3E6EB1629C05A1"
+            }
+          ],
+          "mainDll": "Plugin.RCKAddonManager.dll",
+          "mainDllSha256": "DE9AD7D0D9FDD7D3DB63240A87E6C941795D674DA1AFC57BAF3E6EB1629C05A1"
+        },
         {
           "version": "2.0.5",
           "contentFiles": [
@@ -839,12 +850,12 @@
       "id": "rck.shortcut",
       "name": "ShortCut",
       "type": "addon",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "description": "VC 기능 단축키 모음",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38670306024-1/rck.shortcut-1.0.4.zip",
-      "sha256": "1E70777B13F49DAEC924D07A57959794BF106A262B3990E76D06B79B1A5C2295",
-      "contentSha256": "D1C85B2D79D8F460FF12E669687A72EB585464E4115AEDB8F578D3BCF71A91A1",
-      "publishedAt": "2026-10-15T02:18:46Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38850491993-1/rck.shortcut-1.0.5.zip",
+      "sha256": "72DA0E29CA7EA9A0A9715A2E4482103482CF7440971CF5FE2949FA4122778BA4",
+      "contentSha256": "2D6F21EF7B0D5D6806E3053B987D82CF502A1FC98CEF11BFF1013CE71F828FCD",
+      "publishedAt": "2026-10-16T04:24:59Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -853,12 +864,12 @@
         "5.1"
       ],
       "releaseNotes": [
-        "카메라 레이캐스트 방식 변경"
+        "Add files via upload"
       ],
       "contentFiles": [
         {
           "destination": "vcRoot/Plugin.ShortCut.dll",
-          "sha256": "587DA11EADC76F16E1F724DCC7C32E383E06231BC5A3EFF9E7BCCC453E879FA5"
+          "sha256": "AA5A9188598EC087E7499A07B14780E4CD937166CF41A09DC9906C3CADBABC31"
         }
       ],
       "versions": [
@@ -886,7 +897,7 @@
         }
       ],
       "mainDll": "Plugin.ShortCut.dll",
-      "mainDllSha256": "587DA11EADC76F16E1F724DCC7C32E383E06231BC5A3EFF9E7BCCC453E879FA5"
+      "mainDllSha256": "AA5A9188598EC087E7499A07B14780E4CD937166CF41A09DC9906C3CADBABC31"
     },
     {
       "id": "rck.signallinker",
