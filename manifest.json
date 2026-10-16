@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-16T05:06:00Z",
+  "updatedAt": "2026-10-16T05:26:42Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -176,12 +176,12 @@
       "id": "rck.addon-manager",
       "name": "RCK Addon Manager",
       "type": "addon",
-      "version": "2.0.7",
+      "version": "2.0.8",
       "description": "Visual Components Add-on 및 eCatalog 패키지 관리자",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38853872005-1/rck.addon-manager-2.0.7.zip",
-      "sha256": "FD80FCB1C93823EBC5C1B98327349EC9F2E7FC727F8E8B510A36EB91D96A34B1",
-      "contentSha256": "4F8E690C4B16B3F8D1F7637346F3093A2422950FE2BD0DD4D1852ED83D8BC99F",
-      "publishedAt": "2026-10-16T05:04:32Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38855794608-1/rck.addon-manager-2.0.8.zip",
+      "sha256": "F671A90FAB26A59C532D893FCC3D41D2981FD628F5DED114426CC369567DF88C",
+      "contentSha256": "54989D1937C81F310562C258EBD8A0A20199E9F5AE650B034DAD1F275397030D",
+      "publishedAt": "2026-10-16T05:26:42Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": true,
@@ -190,12 +190,12 @@
         "5.1"
       ],
       "releaseNotes": [
-        "애드온 및 이카탈로그 갯수 보이게 변경 및 탭조절"
+        "설치 도우미 실행 정책 호환성 수정 및 초기 오류 진단 강화"
       ],
       "contentFiles": [
         {
           "destination": "vcRoot/Plugin.RCKAddonManager.dll",
-          "sha256": "446CA551EC4ED8D2C0D197A5CCE4C4BFDA6084D53DD2EB9D71B40F57DC5CC24E"
+          "sha256": "A5A97FBB63A7D13B46A296F2D73E4041BC526190683CB193832BA6CD74F8961A"
         }
       ],
       "versions": [
@@ -289,7 +289,7 @@
         }
       ],
       "mainDll": "Plugin.RCKAddonManager.dll",
-      "mainDllSha256": "446CA551EC4ED8D2C0D197A5CCE4C4BFDA6084D53DD2EB9D71B40F57DC5CC24E"
+      "mainDllSha256": "A5A97FBB63A7D13B46A296F2D73E4041BC526190683CB193832BA6CD74F8961A"
     },
     {
       "id": "rck.rckstudio",
