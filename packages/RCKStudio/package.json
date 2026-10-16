@@ -24,26 +24,6 @@
       "destination": "vcRoot/ICSharpCode.AvalonEdit.dll"
     },
     {
-      "source": "payload/IronPython.dll",
-      "destination": "vcRoot/IronPython.dll"
-    },
-    {
-      "source": "payload/IronPython.Modules.dll",
-      "destination": "vcRoot/IronPython.Modules.dll"
-    },
-    {
-      "source": "payload/Microsoft.Dynamic.dll",
-      "destination": "vcRoot/Microsoft.Dynamic.dll"
-    },
-    {
-      "source": "payload/Microsoft.Scripting.dll",
-      "destination": "vcRoot/Microsoft.Scripting.dll"
-    },
-    {
-      "source": "payload/Microsoft.Scripting.Metadata.dll",
-      "destination": "vcRoot/Microsoft.Scripting.Metadata.dll"
-    },
-    {
       "source": "payload/Plugin.RCKStudio.dll",
       "destination": "vcRoot/Plugin.RCKStudio.dll"
     }
