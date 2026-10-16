@@ -3,7 +3,7 @@
   "id": "rck.shortcut",
   "name": "ShortCut",
   "type": "addon",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "VC 기능 단축키 모음",
   "restartRequired": true,
   "systemPackage": false,

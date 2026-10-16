@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-16T05:04:32Z",
+  "updatedAt": "2026-10-16T05:06:00Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -861,12 +861,12 @@
       "id": "rck.shortcut",
       "name": "ShortCut",
       "type": "addon",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "description": "VC 기능 단축키 모음",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38850772740-1/rck.shortcut-2.0.0.zip",
-      "sha256": "A1FC7AFF96D0245475E9357C7299C32AAA76CE74238BE48220050B48DEF734FD",
-      "contentSha256": "2D6F21EF7B0D5D6806E3053B987D82CF502A1FC98CEF11BFF1013CE71F828FCD",
-      "publishedAt": "2026-10-16T04:28:17Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38853999258-1/rck.shortcut-2.0.1.zip",
+      "sha256": "DF735D5EB0A17EEA3FB2774C5F7AEB9CA24D175F142FA1931BE2B08DA8D93C66",
+      "contentSha256": "01011F33D0F1F3686ED0F711161FB0820FCD101C49D834EDEB9088C4DCC0958C",
+      "publishedAt": "2026-10-16T05:06:00Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -875,12 +875,12 @@
         "5.1"
       ],
       "releaseNotes": [
-        "키입력 기능 추가 및 패치"
+        "단축키 안내창 열 경우 VC 종료시 오류메세지 뜨는 버그 수정"
       ],
       "contentFiles": [
         {
           "destination": "vcRoot/Plugin.ShortCut.dll",
-          "sha256": "AA5A9188598EC087E7499A07B14780E4CD937166CF41A09DC9906C3CADBABC31"
+          "sha256": "80523FD94A0FF6B538E580EF5669F0FFCE1670A5032BB59B191E0CB25D3B6987"
         }
       ],
       "versions": [
@@ -930,7 +930,7 @@
         }
       ],
       "mainDll": "Plugin.ShortCut.dll",
-      "mainDllSha256": "AA5A9188598EC087E7499A07B14780E4CD937166CF41A09DC9906C3CADBABC31"
+      "mainDllSha256": "80523FD94A0FF6B538E580EF5669F0FFCE1670A5032BB59B191E0CB25D3B6987"
     },
     {
       "id": "rck.signallinker",
