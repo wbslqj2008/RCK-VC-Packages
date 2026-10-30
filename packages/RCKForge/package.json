@@ -3,7 +3,7 @@
   "id": "rck.rckforge",
   "name": "RCK Forge",
   "type": "addon",
-  "version": "1.0.0",
+  "version": "2.9.5",
   "description": "AutoCAD 방식 키보드 2D/3D 모델링 탭 (스냅, 작업평면, 돌출/컷, 치수, 주석)",
   "mainDll": "Plugin.RCK.Forge.dll",
   "restartRequired": true,

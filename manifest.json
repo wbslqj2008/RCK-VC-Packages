@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-30T04:05:44Z",
+  "updatedAt": "2026-10-30T04:13:36Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -176,12 +176,12 @@
       "id": "rck.addon-manager",
       "name": "RCK Addon Manager",
       "type": "addon",
-      "version": "2.0.8",
+      "version": "2.0.9",
       "description": "Visual Components Add-on 및 eCatalog 패키지 관리자",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38855794608-1/rck.addon-manager-2.0.8.zip",
-      "sha256": "F671A90FAB26A59C532D893FCC3D41D2981FD628F5DED114426CC369567DF88C",
-      "contentSha256": "2D141FA7CDEFD4D5AE65D3DAEB678C76C958BCFAADE9FC7818752D8591573E3E",
-      "publishedAt": "2026-10-16T05:26:42Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-41001690196-1/rck.addon-manager-2.0.9.zip",
+      "sha256": "91DCD13480A22A0D310AC9FC57A94BAD63D769A9FF47982704FC1951873F1ABB",
+      "contentSha256": "F822032840B9DFEA5CBFF9CC839B954DCFF0F6AED160A261CB7BFF515DCD0E4A",
+      "publishedAt": "2026-10-30T04:13:36Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": true,
@@ -190,12 +190,12 @@
         "5.1"
       ],
       "releaseNotes": [
-        "설치 도우미 실행 정책 호환성 수정 및 초기 오류 진단 강화"
+        "패키지 아이콘 추가 (Addon Manager, RCK Forge, Rendering Optimization)"
       ],
       "contentFiles": [
         {
           "destination": "vcRoot/Plugin.RCKAddonManager.dll",
-          "sha256": "A5A97FBB63A7D13B46A296F2D73E4041BC526190683CB193832BA6CD74F8961A"
+          "sha256": "C68AC6EA6ED663921E015BD753571F4AA89DD60AD5AFFCC1F6A88DE317B48FE3"
         }
       ],
       "versions": [
@@ -300,18 +300,18 @@
         }
       ],
       "mainDll": "Plugin.RCKAddonManager.dll",
-      "mainDllSha256": "A5A97FBB63A7D13B46A296F2D73E4041BC526190683CB193832BA6CD74F8961A"
+      "mainDllSha256": "C68AC6EA6ED663921E015BD753571F4AA89DD60AD5AFFCC1F6A88DE317B48FE3"
     },
     {
       "id": "rck.rckforge",
       "name": "RCK Forge",
       "type": "addon",
-      "version": "1.0.0",
+      "version": "2.9.5",
       "description": "AutoCAD 방식 키보드 2D/3D 모델링 탭 (스냅, 작업평면, 돌출/컷, 치수, 주석)",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-41000952499-1/rck.rckforge-1.0.0.zip",
-      "sha256": "9A144642E9D4EB3DA5892A50201C2C109104F242B1C42C7AF44544F8DDA71CA4",
-      "contentSha256": "13B7A9E2BC57D45F184576F11149467971214359E9116EB49337F1F1610E7453",
-      "publishedAt": "2026-10-30T04:05:44Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-41001690196-1/rck.rckforge-2.9.5.zip",
+      "sha256": "5613781C2EECF6A430596F553D4BE4B48D5A83867AAF52DB7B555F367C261AA5",
+      "contentSha256": "EDA85D52FD9509C7506FA6FB66E1A9F74A807371C9C7DC5393A4ACF28D23709D",
+      "publishedAt": "2026-10-30T04:13:36Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -319,7 +319,7 @@
         "5.1"
       ],
       "releaseNotes": [
-        "RCK Forge 패키지 최초 등록"
+        "라이브러리 경량화"
       ],
       "contentFiles": [
         {
@@ -575,7 +575,267 @@
           "sha256": "8A2F914844914866CD750A88406E22C25EA8986E83A275CB4935B505D9C9AC0B"
         }
       ],
-      "versions": [],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/Plugin.RCK.Forge.dll",
+              "sha256": "17FF40A2B8DC79E6F200EE78D30B541608DF87117B53CEED2FEF4FC86B11D0A6"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForge2D.svg",
+              "sha256": "F85AECE89CE5E3F44FBBA11E102748230B9CEC419A5BAF9337D1ABE9BB7ADF92"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForge3D.svg",
+              "sha256": "C600540AB96EE633CC3133F1CE0163AF9213AF21E49A9588E8B55189C76C61DF"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeArc.svg",
+              "sha256": "06C8FF9489051176230FAFACC15FD3AF7CBBB4E0BA95109677EDB298EEC31DA8"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeArea.svg",
+              "sha256": "D12933A43D494A153B2FB4D4D7AC2D146D626043E7104F01E51405223C634CDE"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeArray.svg",
+              "sha256": "D1B888CE17582E38C2BB7D28D05AFBAF9E95AD8F77F95AE15F34C290341605B3"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeBreak.svg",
+              "sha256": "04FBA34C89B0336166617CBA5E044F7D388539BDC3248E1A1D74AB67B3639624"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeCenterMark.svg",
+              "sha256": "7363B86DCFF2BF196039FDD971D33B1BBDA2F6355D0BF504FCDF3AF9E968A8F5"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeChamfer.svg",
+              "sha256": "74C0A27F656E159E6E933C2CD89C9B602BF2D49C9C0B0FE05452EAD071F63847"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeChamferEdge.svg",
+              "sha256": "1F84B69F2CBEE3FE38C35913F5BEB00768704D4107F0C5504BA813D7ED6579EF"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeCircle.svg",
+              "sha256": "7EF5E114055C72E328DFCC79391D54C3901075CA785B8F454E008622DD6973E8"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeColor.svg",
+              "sha256": "16707593E4A72E378E1C6368103B5009BF2F03C796F9325EDB8C141756C7C463"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeCut.svg",
+              "sha256": "04EA474674531CCB968AAA2050E00D74880C8D89C9892EA40973392BA14E5C53"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeDimAligned.svg",
+              "sha256": "05035816C6DAE826D97C501D2D51C6373765323026934DA396D3EE8E92B2E816"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeDimBaseline.svg",
+              "sha256": "28683DB22B9C6374E71681C727CEAA754449D8CD474446933B0C97E1E573EDFD"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeDimContinue.svg",
+              "sha256": "1627868915BE2862E7796B16C731786A675980742A6C6C38037288C4FFBB05A2"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeDimDiameter.svg",
+              "sha256": "065A37E57C7E803BA3A2FC4D8E7294CC3BC2546DA463C273C81603B5C3290727"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeDimLinear.svg",
+              "sha256": "051EC5AE940320760044417E26512D220B41C15871227886814A781825A6E71F"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeDimRadius.svg",
+              "sha256": "51A87FA46A316C439026C262B81032DE2985412520A9D19A7D72D92E34FE8E62"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeDivide.svg",
+              "sha256": "E29E18D6F6047B171C94A1B4371A120F17F8A0F8B0FA7E17B4FF268361EEC6E3"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeEditText.svg",
+              "sha256": "7DE3905D7F15868B54A4ACDA5458443078A0409BC4934A85B0BD312F7D96F6F7"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeEllipse.svg",
+              "sha256": "689CC18C87D3AB74DB4EA7366FD826B4679639FC35AFBE9915BAE651AD527024"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeErase.svg",
+              "sha256": "CCFE18DE17D9A8129D0B09B5E009048AEDC02D2EE4F672F5D05CDFF6654F0A4D"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeExplode.svg",
+              "sha256": "485E0C7B197DD68DF429F41EE1A2F713A3D4847B2966DDEBA46E114C35F27B75"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeExtend.svg",
+              "sha256": "6AD0DCEA1186175E985BE4857C77B93559B2AC6E584E35551037A89529F4DFCD"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeExtrude.svg",
+              "sha256": "D002D7A61CB249223993DDAA0081A6A14A95919ABE4AA7A28A1E563FEA6F7618"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeFillet.svg",
+              "sha256": "CE4837EE486BDB9FC1F6968C6CF3083603E26AAF233B32043E9F92E867A118E9"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeFilletEdge.svg",
+              "sha256": "FCE0FD736EAC7AE36D623A57D5F9F591A2DE814963F0527FB8FB5CC0F0987AB7"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeId.svg",
+              "sha256": "F9D5D36D451A3A36C05F28BDC9107CDF62E9A50D6EF27BDBD5982CCDFFCB4EBC"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeIntersect.svg",
+              "sha256": "A6B5BDC94FB5E6AD047B010494F1F12F6881A835DFA22AF2F39FB39000DCC4CA"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeJoin.svg",
+              "sha256": "241AE2A5BA9BF80C20BAAE5B3D4B0CA46FD2FD5E7656ADC9870C2A6920775074"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeLeader.svg",
+              "sha256": "A58FBBEFEEDF34063C97613BFDA2A025047262D8F1943E9BD74BD3AF95D94624"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeLengthen.svg",
+              "sha256": "969881A8B54A548AB2AB3B5C8AE5799FDFCE746139E455F73CC0F5349EDA309D"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeLine.svg",
+              "sha256": "7167D3DDB38D7E9963D1BEA0B253443C0AA18E69978A3D116E18AA0604BDFBA2"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeList.svg",
+              "sha256": "59E291CB6E45A8E011B3304C17D398E9914311C4ECE125B3EC6BCFD2A9BC33A4"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeMatchProp.svg",
+              "sha256": "6C22FC730615481B172D1E251CD845C5F4CDEFD05BE3113F7B20F3F24C47E3D9"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeMeasureLen.svg",
+              "sha256": "82C756E5CB28FA49BFBBC479A48BD1EAE80099CD1441B824FBAC7314E1B42532"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeMirror.svg",
+              "sha256": "BC6055B1A2E051284C3BE4AF6F68518DEC0F0BB139DB8DD121D2BD2261EDF12E"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeMText.svg",
+              "sha256": "621303782D1B6351D0A9954C945FCDF6CD7D6340B7596E5B2FD27F6F979A3A8C"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeOffset.svg",
+              "sha256": "EB3CBF3E9050DC23D94720640222F47684A6CE1248170472504BE72DE49CA687"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeOsnapSettings.svg",
+              "sha256": "65426092AA3C47F3BF550F7813864C4C530BE0265F431EF5777AF41F7FCF34B4"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgePlaneDelete.svg",
+              "sha256": "76F75AB8EFAE3D9C57D43458FB57BB9552525878C6B81686ACDC459FFF1E6A1B"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgePlaneMove.svg",
+              "sha256": "0949002439E15D2312ACDA578CFB3B77F19F23888489BE0E9649486A5C885A26"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgePoint.svg",
+              "sha256": "35530834CAA409EDD931FC812EAF0D6D42D29615953ABD964F86777F7923DC7D"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgePolygon.svg",
+              "sha256": "11955957AC569359AA0B99E78DD23BAABBA0C753B968274DBC105991E59F9046"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgePolyline.svg",
+              "sha256": "E771097CA16EC15C259FFCFE3908E7BE625045D3AAD88DD8448F317B068A1405"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgePressPull.svg",
+              "sha256": "2FF3BF15A70291111D9339907BD4DC36E967BFFD5B9E929BE03792D32552BEA5"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeProject.svg",
+              "sha256": "28C671DF7DAEE884FA53627E4EBC1D6AAF27D5613AED768208F30AC9DB2155DE"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeRectangle.svg",
+              "sha256": "0D0353593437464140B937585D7761C946045060491FAF2F067E30C9A7F2B461"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeRedo.svg",
+              "sha256": "0736F1EB57332505B2C4323F31CB1A6E0642FFDE78CCBA0A95E99471843020D2"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeRevolve.svg",
+              "sha256": "00ECA571A5367A31C3716CE065C564E8895688CCD6ED7E66527A81A07177B33A"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeRotate.svg",
+              "sha256": "10F6FA5B3A1F0F24216F49AC9E47A862A06554F2A2DBAA85C4B234FE2A7302A0"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeScale.svg",
+              "sha256": "8C5119BA5D6B538A2C335C6B3C689161DBFB3982DE3492D27B54E68D009B1EA5"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeSpline.svg",
+              "sha256": "09067B7F4A86AFDF74B2A1954A9759D7D5A2174944055EFFE004A66002AB6B7E"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeStretch.svg",
+              "sha256": "066A9833C45FD80AF3A0017CE8F539ACAEA48EDD220972CAD8FD92EB6181E721"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeSubtract.svg",
+              "sha256": "2C330D13440020412F8C12A719209C0E65AE438E908163F52A1B47CF9A1DD6C2"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeText.svg",
+              "sha256": "0E9523E4ACB2335783A90A9BAB823C235301901B828B4C03BD5EE21C50E3744A"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeTrim.svg",
+              "sha256": "1EB12ACA2CFF90B6B5922AEC6648258EA02A2E7F4DD0AE3ACECB006B499FB280"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeUcs.svg",
+              "sha256": "A8FF00BD31F326210FBBC29F01BEECA89E44CCD58E3D23616D23E745B718AF63"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeUndo.svg",
+              "sha256": "70C01A3E20CC6AA10395E046A04A83210ADCB8B1B2F16AD48F1AEF5BAA07A3B2"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeUnion.svg",
+              "sha256": "1A988A9B4E44954C211607A801980F17C697E4EC2E95F74843021B8324A3B727"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeWorkPlane.svg",
+              "sha256": "4E9FB17B906FAF5F7D5F8967B0394B3EC3D22FF567E7CE0C3A981C871B0A0613"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeWorld.svg",
+              "sha256": "8A2F914844914866CD750A88406E22C25EA8986E83A275CB4935B505D9C9AC0B"
+            }
+          ],
+          "mainDll": "Plugin.RCK.Forge.dll",
+          "mainDllSha256": "17FF40A2B8DC79E6F200EE78D30B541608DF87117B53CEED2FEF4FC86B11D0A6"
+        }
+      ],
       "mainDll": "Plugin.RCK.Forge.dll",
       "mainDllSha256": "17FF40A2B8DC79E6F200EE78D30B541608DF87117B53CEED2FEF4FC86B11D0A6"
     },
@@ -1388,6 +1648,7 @@
     }
   ],
   "appliedReleasePlans": [
-    "2026-10-15-package-version-baseline"
+    "2026-10-15-package-version-baseline",
+    "2026-10-30-rckforge-2.9.5"
   ]
 }
