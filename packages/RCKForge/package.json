@@ -1,0 +1,271 @@
+{
+  "schemaVersion": 1,
+  "id": "rck.rckforge",
+  "name": "RCK Forge",
+  "type": "addon",
+  "version": "1.0.0",
+  "description": "AutoCAD 방식 키보드 2D/3D 모델링 탭 (스냅, 작업평면, 돌출/컷, 치수, 주석)",
+  "mainDll": "Plugin.RCK.Forge.dll",
+  "restartRequired": true,
+  "systemPackage": false,
+  "vcVersions": [
+    "5.1"
+  ],
+  "releaseNotes": [
+    "최초 등록"
+  ],
+  "files": [
+    {
+      "source": "payload/Plugin.RCK.Forge.dll",
+      "destination": "vcRoot/Plugin.RCK.Forge.dll"
+    },
+    {
+      "source": "payload/Icons/rckForge2D.svg",
+      "destination": "vcRoot/Icons/rckForge2D.svg"
+    },
+    {
+      "source": "payload/Icons/rckForge3D.svg",
+      "destination": "vcRoot/Icons/rckForge3D.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeArc.svg",
+      "destination": "vcRoot/Icons/rckForgeArc.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeArea.svg",
+      "destination": "vcRoot/Icons/rckForgeArea.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeArray.svg",
+      "destination": "vcRoot/Icons/rckForgeArray.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeBreak.svg",
+      "destination": "vcRoot/Icons/rckForgeBreak.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeCenterMark.svg",
+      "destination": "vcRoot/Icons/rckForgeCenterMark.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeChamfer.svg",
+      "destination": "vcRoot/Icons/rckForgeChamfer.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeChamferEdge.svg",
+      "destination": "vcRoot/Icons/rckForgeChamferEdge.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeCircle.svg",
+      "destination": "vcRoot/Icons/rckForgeCircle.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeColor.svg",
+      "destination": "vcRoot/Icons/rckForgeColor.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeCut.svg",
+      "destination": "vcRoot/Icons/rckForgeCut.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeDimAligned.svg",
+      "destination": "vcRoot/Icons/rckForgeDimAligned.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeDimBaseline.svg",
+      "destination": "vcRoot/Icons/rckForgeDimBaseline.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeDimContinue.svg",
+      "destination": "vcRoot/Icons/rckForgeDimContinue.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeDimDiameter.svg",
+      "destination": "vcRoot/Icons/rckForgeDimDiameter.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeDimLinear.svg",
+      "destination": "vcRoot/Icons/rckForgeDimLinear.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeDimRadius.svg",
+      "destination": "vcRoot/Icons/rckForgeDimRadius.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeDivide.svg",
+      "destination": "vcRoot/Icons/rckForgeDivide.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeEditText.svg",
+      "destination": "vcRoot/Icons/rckForgeEditText.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeEllipse.svg",
+      "destination": "vcRoot/Icons/rckForgeEllipse.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeErase.svg",
+      "destination": "vcRoot/Icons/rckForgeErase.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeExplode.svg",
+      "destination": "vcRoot/Icons/rckForgeExplode.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeExtend.svg",
+      "destination": "vcRoot/Icons/rckForgeExtend.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeExtrude.svg",
+      "destination": "vcRoot/Icons/rckForgeExtrude.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeFillet.svg",
+      "destination": "vcRoot/Icons/rckForgeFillet.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeFilletEdge.svg",
+      "destination": "vcRoot/Icons/rckForgeFilletEdge.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeId.svg",
+      "destination": "vcRoot/Icons/rckForgeId.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeIntersect.svg",
+      "destination": "vcRoot/Icons/rckForgeIntersect.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeJoin.svg",
+      "destination": "vcRoot/Icons/rckForgeJoin.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeLeader.svg",
+      "destination": "vcRoot/Icons/rckForgeLeader.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeLengthen.svg",
+      "destination": "vcRoot/Icons/rckForgeLengthen.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeLine.svg",
+      "destination": "vcRoot/Icons/rckForgeLine.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeList.svg",
+      "destination": "vcRoot/Icons/rckForgeList.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeMatchProp.svg",
+      "destination": "vcRoot/Icons/rckForgeMatchProp.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeMeasureLen.svg",
+      "destination": "vcRoot/Icons/rckForgeMeasureLen.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeMirror.svg",
+      "destination": "vcRoot/Icons/rckForgeMirror.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeMText.svg",
+      "destination": "vcRoot/Icons/rckForgeMText.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeOffset.svg",
+      "destination": "vcRoot/Icons/rckForgeOffset.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeOsnapSettings.svg",
+      "destination": "vcRoot/Icons/rckForgeOsnapSettings.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgePlaneDelete.svg",
+      "destination": "vcRoot/Icons/rckForgePlaneDelete.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgePlaneMove.svg",
+      "destination": "vcRoot/Icons/rckForgePlaneMove.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgePoint.svg",
+      "destination": "vcRoot/Icons/rckForgePoint.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgePolygon.svg",
+      "destination": "vcRoot/Icons/rckForgePolygon.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgePolyline.svg",
+      "destination": "vcRoot/Icons/rckForgePolyline.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgePressPull.svg",
+      "destination": "vcRoot/Icons/rckForgePressPull.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeProject.svg",
+      "destination": "vcRoot/Icons/rckForgeProject.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeRectangle.svg",
+      "destination": "vcRoot/Icons/rckForgeRectangle.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeRedo.svg",
+      "destination": "vcRoot/Icons/rckForgeRedo.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeRevolve.svg",
+      "destination": "vcRoot/Icons/rckForgeRevolve.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeRotate.svg",
+      "destination": "vcRoot/Icons/rckForgeRotate.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeScale.svg",
+      "destination": "vcRoot/Icons/rckForgeScale.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeSpline.svg",
+      "destination": "vcRoot/Icons/rckForgeSpline.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeStretch.svg",
+      "destination": "vcRoot/Icons/rckForgeStretch.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeSubtract.svg",
+      "destination": "vcRoot/Icons/rckForgeSubtract.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeText.svg",
+      "destination": "vcRoot/Icons/rckForgeText.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeTrim.svg",
+      "destination": "vcRoot/Icons/rckForgeTrim.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeUcs.svg",
+      "destination": "vcRoot/Icons/rckForgeUcs.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeUndo.svg",
+      "destination": "vcRoot/Icons/rckForgeUndo.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeUnion.svg",
+      "destination": "vcRoot/Icons/rckForgeUnion.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeWorkPlane.svg",
+      "destination": "vcRoot/Icons/rckForgeWorkPlane.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeWorld.svg",
+      "destination": "vcRoot/Icons/rckForgeWorld.svg"
+    }
+  ]
+}
