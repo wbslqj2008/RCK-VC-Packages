@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "id": "2026-10-30-rckforge-2.9.5",
+  "id": "2026-11-02-rckstudio-4.0.0",
   "versions": {
-    "rck.rckforge": "2.9.5"
+    "rck.rckstudio": "4.0.0"
   }
 }
