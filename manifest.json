@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-02T07:23:56Z",
+  "updatedAt": "2026-11-03T04:01:53Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -176,12 +176,12 @@
       "id": "rck.addon-manager",
       "name": "RCK Addon Manager",
       "type": "addon",
-      "version": "2.0.9",
+      "version": "2.0.10",
       "description": "Visual Components Add-on 및 eCatalog 패키지 관리자",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-41001690196-1/rck.addon-manager-2.0.9.zip",
-      "sha256": "91DCD13480A22A0D310AC9FC57A94BAD63D769A9FF47982704FC1951873F1ABB",
-      "contentSha256": "F822032840B9DFEA5CBFF9CC839B954DCFF0F6AED160A261CB7BFF515DCD0E4A",
-      "publishedAt": "2026-10-30T04:13:36Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-41575661700-1/rck.addon-manager-2.0.10.zip",
+      "sha256": "D2015E973D91D1F6D84943E3715E7C8337EB946E5196DDBF6CACD88E6D8B3924",
+      "contentSha256": "85964FA82B3A0ED54315D7C798B5A6E7AA0D25F9AE0FE5B4789FF00541125808",
+      "publishedAt": "2026-11-03T04:01:53Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": true,
@@ -190,12 +190,12 @@
         "5.1"
       ],
       "releaseNotes": [
-        "패키지 아이콘 추가 (Addon Manager, RCK Forge, Rendering Optimization)"
+        "창배율 변경, FHD 에서 90%로 동작하게 fix"
       ],
       "contentFiles": [
         {
           "destination": "vcRoot/Plugin.RCKAddonManager.dll",
-          "sha256": "C68AC6EA6ED663921E015BD753571F4AA89DD60AD5AFFCC1F6A88DE317B48FE3"
+          "sha256": "5CF555AAB2F12510309572D806A209BF1DD53F9A8118ADAFC15B4DA26DA2AF27"
         }
       ],
       "versions": [
@@ -311,7 +311,7 @@
         }
       ],
       "mainDll": "Plugin.RCKAddonManager.dll",
-      "mainDllSha256": "C68AC6EA6ED663921E015BD753571F4AA89DD60AD5AFFCC1F6A88DE317B48FE3"
+      "mainDllSha256": "5CF555AAB2F12510309572D806A209BF1DD53F9A8118ADAFC15B4DA26DA2AF27"
     },
     {
       "id": "rck.rckforge",
@@ -1404,6 +1404,25 @@
         }
       ],
       "versions": [
+        {
+          "version": "4.0.0",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/AvalonDock.dll",
+              "sha256": "A00406D3D5DEABB74F41535C21CE0548E21C7C9315DADB895736096020E81849"
+            },
+            {
+              "destination": "vcRoot/ICSharpCode.AvalonEdit.dll",
+              "sha256": "B0032716709359F7361D5A2DDC8E2AD457A1448A093FB4900E0336312B0A10C7"
+            },
+            {
+              "destination": "vcRoot/Plugin.RCKStudio.dll",
+              "sha256": "B52666A4B7ED80F48D4F696A033DF01DA26C04B660D3D2225CC493FE20246DC1"
+            }
+          ],
+          "mainDll": "Plugin.RCKStudio.dll",
+          "mainDllSha256": "B52666A4B7ED80F48D4F696A033DF01DA26C04B660D3D2225CC493FE20246DC1"
+        },
         {
           "version": "3.1.9",
           "contentFiles": [
