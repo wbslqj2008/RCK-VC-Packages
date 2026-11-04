@@ -3,7 +3,7 @@
   "id": "rck.rckforge",
   "name": "RCK Forge",
   "type": "addon",
-  "version": "2.9.6",
+  "version": "2.9.7",
   "description": "AutoCAD/Inventor 방식 2D/3D 모델링 탭 (모드별 리본, 스냅, 작업평면, 돌출/컷, 치수, 주석, DXF/DWG)",
   "mainDll": "Plugin.RCK.Forge.dll",
   "restartRequired": true,
@@ -12,7 +12,7 @@
     "5.1"
   ],
   "releaseNotes": [
-    "모드별 리본(2D AutoCAD 홈 / 3D Inventor 3D 모형), 옵션 창(OP), 리본·대화상자 한/영 전환, DXF/DWG 가져오기·내보내기, 해치·도면층·블록"
+    "RCK Forge: 모드별 리본(2D AutoCAD / 3D Inventor), 옵션 창(OP), 한/영 전환, DXF/DWG 가져오기·내보내기"
   ],
   "files": [
     {
