@@ -4,7 +4,7 @@
   "name": "RCK Forge",
   "type": "addon",
   "version": "2.9.6",
-  "description": "AutoCAD 방식 키보드 2D/3D 모델링 탭 (스냅, 작업평면, 돌출/컷, 치수, 주석)",
+  "description": "AutoCAD/Inventor 방식 2D/3D 모델링 탭 (모드별 리본, 스냅, 작업평면, 돌출/컷, 치수, 주석, DXF/DWG)",
   "mainDll": "Plugin.RCK.Forge.dll",
   "restartRequired": true,
   "systemPackage": false,
@@ -12,7 +12,7 @@
     "5.1"
   ],
   "releaseNotes": [
-    "빠른 TRIM 변 단위 삭제, 스냅 옵션 창(OS/DS), 화면 끝까지 닿는 십자선"
+    "모드별 리본(2D AutoCAD 홈 / 3D Inventor 3D 모형), 옵션 창(OP), 리본·대화상자 한/영 전환, DXF/DWG 가져오기·내보내기, 해치·도면층·블록"
   ],
   "files": [
     {
@@ -38,6 +38,14 @@
     {
       "source": "payload/Icons/rckForgeArray.svg",
       "destination": "vcRoot/Icons/rckForgeArray.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeBlockCreate.svg",
+      "destination": "vcRoot/Icons/rckForgeBlockCreate.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeBlockInsert.svg",
+      "destination": "vcRoot/Icons/rckForgeBlockInsert.svg"
     },
     {
       "source": "payload/Icons/rckForgeBreak.svg",
@@ -112,6 +120,10 @@
       "destination": "vcRoot/Icons/rckForgeExplode.svg"
     },
     {
+      "source": "payload/Icons/rckForgeExport.svg",
+      "destination": "vcRoot/Icons/rckForgeExport.svg"
+    },
+    {
       "source": "payload/Icons/rckForgeExtend.svg",
       "destination": "vcRoot/Icons/rckForgeExtend.svg"
     },
@@ -128,8 +140,20 @@
       "destination": "vcRoot/Icons/rckForgeFilletEdge.svg"
     },
     {
+      "source": "payload/Icons/rckForgeHatch.svg",
+      "destination": "vcRoot/Icons/rckForgeHatch.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeHatchEdit.svg",
+      "destination": "vcRoot/Icons/rckForgeHatchEdit.svg"
+    },
+    {
       "source": "payload/Icons/rckForgeId.svg",
       "destination": "vcRoot/Icons/rckForgeId.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeImport.svg",
+      "destination": "vcRoot/Icons/rckForgeImport.svg"
     },
     {
       "source": "payload/Icons/rckForgeIntersect.svg",
@@ -138,6 +162,26 @@
     {
       "source": "payload/Icons/rckForgeJoin.svg",
       "destination": "vcRoot/Icons/rckForgeJoin.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeLayer.svg",
+      "destination": "vcRoot/Icons/rckForgeLayer.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeLayIso.svg",
+      "destination": "vcRoot/Icons/rckForgeLayIso.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeLayOff.svg",
+      "destination": "vcRoot/Icons/rckForgeLayOff.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeLayOn.svg",
+      "destination": "vcRoot/Icons/rckForgeLayOn.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeLayUniso.svg",
+      "destination": "vcRoot/Icons/rckForgeLayUniso.svg"
     },
     {
       "source": "payload/Icons/rckForgeLeader.svg",
@@ -180,6 +224,10 @@
       "destination": "vcRoot/Icons/rckForgeOsnapSettings.svg"
     },
     {
+      "source": "payload/Icons/rckForgePlan.svg",
+      "destination": "vcRoot/Icons/rckForgePlan.svg"
+    },
+    {
       "source": "payload/Icons/rckForgePlaneDelete.svg",
       "destination": "vcRoot/Icons/rckForgePlaneDelete.svg"
     },
@@ -206,6 +254,14 @@
     {
       "source": "payload/Icons/rckForgeProject.svg",
       "destination": "vcRoot/Icons/rckForgeProject.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeProperties.svg",
+      "destination": "vcRoot/Icons/rckForgeProperties.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgePurge.svg",
+      "destination": "vcRoot/Icons/rckForgePurge.svg"
     },
     {
       "source": "payload/Icons/rckForgeRectangle.svg",
@@ -266,6 +322,46 @@
     {
       "source": "payload/Icons/rckForgeWorld.svg",
       "destination": "vcRoot/Icons/rckForgeWorld.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeZoomExtents.svg",
+      "destination": "vcRoot/Icons/rckForgeZoomExtents.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeZoomPrevious.svg",
+      "destination": "vcRoot/Icons/rckForgeZoomPrevious.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeZoomWindow.svg",
+      "destination": "vcRoot/Icons/rckForgeZoomWindow.svg"
+    },
+    {
+      "source": "payload/RCKForge/ACadSharp.dll",
+      "destination": "vcRoot/RCKForge/ACadSharp.dll"
+    },
+    {
+      "source": "payload/RCKForge/RCKForge.Dxf.dll",
+      "destination": "vcRoot/RCKForge/RCKForge.Dxf.dll"
+    },
+    {
+      "source": "payload/RCKForge/System.Buffers.dll",
+      "destination": "vcRoot/RCKForge/System.Buffers.dll"
+    },
+    {
+      "source": "payload/RCKForge/System.Memory.dll",
+      "destination": "vcRoot/RCKForge/System.Memory.dll"
+    },
+    {
+      "source": "payload/RCKForge/System.Numerics.Vectors.dll",
+      "destination": "vcRoot/RCKForge/System.Numerics.Vectors.dll"
+    },
+    {
+      "source": "payload/RCKForge/System.Runtime.CompilerServices.Unsafe.dll",
+      "destination": "vcRoot/RCKForge/System.Runtime.CompilerServices.Unsafe.dll"
+    },
+    {
+      "source": "payload/RCKForge/THIRD_PARTY_LICENSES.txt",
+      "destination": "vcRoot/RCKForge/THIRD_PARTY_LICENSES.txt"
     }
   ]
 }
