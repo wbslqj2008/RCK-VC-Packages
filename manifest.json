@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-04T02:32:10Z",
+  "updatedAt": "2026-11-05T02:14:07Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -70,12 +70,12 @@
       "id": "rck.cycletime",
       "name": "CycleTime",
       "type": "addon",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "VC Cycle Time 측정 및 관리",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38670306024-1/rck.cycletime-1.0.0.zip",
-      "sha256": "BEFFEC8D2E320109E2B5299A19F9B58850F59CAB4B42BA80E4F2FD1D9EA11ABC",
-      "contentSha256": "0959D2818509E39971B7B5E9EF4E3BD9A10C6F3987E1FD59D0207B40EA86729E",
-      "publishedAt": "2026-10-15T02:18:46Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-41953829322-1/rck.cycletime-1.0.1.zip",
+      "sha256": "92682A5FBBA06890BD4D028160564CDE05F30F40C28D6AF28E8AEBDB731D4B35",
+      "contentSha256": "44CCAC7C8B727148BC1388FE0A6ECDE9D201857C924F7851977D168D037CEB72",
+      "publishedAt": "2026-11-05T02:14:07Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -84,12 +84,16 @@
         "5.1"
       ],
       "releaseNotes": [
-        "초기커밋"
+        "CycleTime·ShortCut: 홈 탭 버튼을 RCK 그룹으로 그룹화 (아이콘 추가)"
       ],
       "contentFiles": [
         {
           "destination": "vcRoot/Plugin.CycleTime.dll",
-          "sha256": "5009AE185012EB6397605B63CB3759C83C391CC86DC716BDDDD299E464AB3CC1"
+          "sha256": "E905AF2D5BC693444323C0B9ABF43A29C2F1FB653E1AA0A7825C93503F4D5FD2"
+        },
+        {
+          "destination": "vcRoot/Icons/rckCycleTime.svg",
+          "sha256": "7C1C0D1D86F053B44B12792E31080E7059021C7ADC3EA811EE27F043855C6D1B"
         }
       ],
       "versions": [
@@ -128,7 +132,7 @@
         }
       ],
       "mainDll": "Plugin.CycleTime.dll",
-      "mainDllSha256": "5009AE185012EB6397605B63CB3759C83C391CC86DC716BDDDD299E464AB3CC1"
+      "mainDllSha256": "E905AF2D5BC693444323C0B9ABF43A29C2F1FB653E1AA0A7825C93503F4D5FD2"
     },
     {
       "id": "rck.productify",
@@ -694,6 +698,361 @@
         }
       ],
       "versions": [
+        {
+          "version": "2.9.7",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/Plugin.RCK.Forge.dll",
+              "sha256": "418748002CA1DF9046ABBE98828F4D952625C0280AA7F01B4C6EA907B8684398"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForge2D.svg",
+              "sha256": "F85AECE89CE5E3F44FBBA11E102748230B9CEC419A5BAF9337D1ABE9BB7ADF92"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForge3D.svg",
+              "sha256": "C600540AB96EE633CC3133F1CE0163AF9213AF21E49A9588E8B55189C76C61DF"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeArc.svg",
+              "sha256": "06C8FF9489051176230FAFACC15FD3AF7CBBB4E0BA95109677EDB298EEC31DA8"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeArea.svg",
+              "sha256": "D12933A43D494A153B2FB4D4D7AC2D146D626043E7104F01E51405223C634CDE"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeArray.svg",
+              "sha256": "D1B888CE17582E38C2BB7D28D05AFBAF9E95AD8F77F95AE15F34C290341605B3"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeBlockCreate.svg",
+              "sha256": "64619D5747244843B5B538AE8848543C32394BB91E3011AD6DA99865E0994E32"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeBlockInsert.svg",
+              "sha256": "A70B124A223745235A5B513B70F03968EE3CC51B9218154D3E52D24D59AC4F6E"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeBreak.svg",
+              "sha256": "04FBA34C89B0336166617CBA5E044F7D388539BDC3248E1A1D74AB67B3639624"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeCenterMark.svg",
+              "sha256": "7363B86DCFF2BF196039FDD971D33B1BBDA2F6355D0BF504FCDF3AF9E968A8F5"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeChamfer.svg",
+              "sha256": "74C0A27F656E159E6E933C2CD89C9B602BF2D49C9C0B0FE05452EAD071F63847"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeChamferEdge.svg",
+              "sha256": "1F84B69F2CBEE3FE38C35913F5BEB00768704D4107F0C5504BA813D7ED6579EF"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeCircle.svg",
+              "sha256": "7EF5E114055C72E328DFCC79391D54C3901075CA785B8F454E008622DD6973E8"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeColor.svg",
+              "sha256": "16707593E4A72E378E1C6368103B5009BF2F03C796F9325EDB8C141756C7C463"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeCut.svg",
+              "sha256": "04EA474674531CCB968AAA2050E00D74880C8D89C9892EA40973392BA14E5C53"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeDimAligned.svg",
+              "sha256": "05035816C6DAE826D97C501D2D51C6373765323026934DA396D3EE8E92B2E816"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeDimBaseline.svg",
+              "sha256": "28683DB22B9C6374E71681C727CEAA754449D8CD474446933B0C97E1E573EDFD"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeDimContinue.svg",
+              "sha256": "1627868915BE2862E7796B16C731786A675980742A6C6C38037288C4FFBB05A2"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeDimDiameter.svg",
+              "sha256": "065A37E57C7E803BA3A2FC4D8E7294CC3BC2546DA463C273C81603B5C3290727"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeDimLinear.svg",
+              "sha256": "051EC5AE940320760044417E26512D220B41C15871227886814A781825A6E71F"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeDimRadius.svg",
+              "sha256": "51A87FA46A316C439026C262B81032DE2985412520A9D19A7D72D92E34FE8E62"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeDivide.svg",
+              "sha256": "E29E18D6F6047B171C94A1B4371A120F17F8A0F8B0FA7E17B4FF268361EEC6E3"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeEditText.svg",
+              "sha256": "7DE3905D7F15868B54A4ACDA5458443078A0409BC4934A85B0BD312F7D96F6F7"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeEllipse.svg",
+              "sha256": "689CC18C87D3AB74DB4EA7366FD826B4679639FC35AFBE9915BAE651AD527024"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeErase.svg",
+              "sha256": "CCFE18DE17D9A8129D0B09B5E009048AEDC02D2EE4F672F5D05CDFF6654F0A4D"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeExplode.svg",
+              "sha256": "485E0C7B197DD68DF429F41EE1A2F713A3D4847B2966DDEBA46E114C35F27B75"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeExport.svg",
+              "sha256": "39FFFD9EB81413C410496D4604EF314E0C9B21FA169F7A1FFB68A4EE2EA25577"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeExtend.svg",
+              "sha256": "6AD0DCEA1186175E985BE4857C77B93559B2AC6E584E35551037A89529F4DFCD"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeExtrude.svg",
+              "sha256": "D002D7A61CB249223993DDAA0081A6A14A95919ABE4AA7A28A1E563FEA6F7618"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeFillet.svg",
+              "sha256": "CE4837EE486BDB9FC1F6968C6CF3083603E26AAF233B32043E9F92E867A118E9"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeFilletEdge.svg",
+              "sha256": "FCE0FD736EAC7AE36D623A57D5F9F591A2DE814963F0527FB8FB5CC0F0987AB7"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeHatch.svg",
+              "sha256": "B26A2BFFEFF7DBEC7A65BAE690F1DD00BBD349FA740D0BF1329D883C02747FDF"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeHatchEdit.svg",
+              "sha256": "2723684E685C59D29C492173463F3D4B7DE2D13143CD45B7E80D5B8245993860"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeId.svg",
+              "sha256": "F9D5D36D451A3A36C05F28BDC9107CDF62E9A50D6EF27BDBD5982CCDFFCB4EBC"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeImport.svg",
+              "sha256": "FFB5A2DE709A4418A62CC3F85F6199CFCBF54005B694162D4D8369D0886EC485"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeIntersect.svg",
+              "sha256": "A6B5BDC94FB5E6AD047B010494F1F12F6881A835DFA22AF2F39FB39000DCC4CA"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeJoin.svg",
+              "sha256": "241AE2A5BA9BF80C20BAAE5B3D4B0CA46FD2FD5E7656ADC9870C2A6920775074"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeLayer.svg",
+              "sha256": "4D314CBEDF8518AF5C729332603B4C20017B8A62BA75FCA2227D4D098AB2885A"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeLayIso.svg",
+              "sha256": "2EBBB83DB994E28C30C5EEBC2EC3469B53BC2D259A60471C3BA068059B3683ED"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeLayOff.svg",
+              "sha256": "3F8E6B30CE4DC240D9ADD7B59FC918F8CDC284AF6E9442DACFA81F1DBA1048FE"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeLayOn.svg",
+              "sha256": "8C763CE29BE92FDE7C347F85CC7962E1B76646E45502D8176010B73EB4F90A9B"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeLayUniso.svg",
+              "sha256": "C9E6887E053CA8AE27294445882C114A9BC894C9D914C3BB98A5C55893EBF99D"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeLeader.svg",
+              "sha256": "A58FBBEFEEDF34063C97613BFDA2A025047262D8F1943E9BD74BD3AF95D94624"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeLengthen.svg",
+              "sha256": "969881A8B54A548AB2AB3B5C8AE5799FDFCE746139E455F73CC0F5349EDA309D"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeLine.svg",
+              "sha256": "7167D3DDB38D7E9963D1BEA0B253443C0AA18E69978A3D116E18AA0604BDFBA2"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeList.svg",
+              "sha256": "59E291CB6E45A8E011B3304C17D398E9914311C4ECE125B3EC6BCFD2A9BC33A4"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeMatchProp.svg",
+              "sha256": "6C22FC730615481B172D1E251CD845C5F4CDEFD05BE3113F7B20F3F24C47E3D9"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeMeasureLen.svg",
+              "sha256": "82C756E5CB28FA49BFBBC479A48BD1EAE80099CD1441B824FBAC7314E1B42532"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeMirror.svg",
+              "sha256": "BC6055B1A2E051284C3BE4AF6F68518DEC0F0BB139DB8DD121D2BD2261EDF12E"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeMText.svg",
+              "sha256": "621303782D1B6351D0A9954C945FCDF6CD7D6340B7596E5B2FD27F6F979A3A8C"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeOffset.svg",
+              "sha256": "EB3CBF3E9050DC23D94720640222F47684A6CE1248170472504BE72DE49CA687"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeOsnapSettings.svg",
+              "sha256": "65426092AA3C47F3BF550F7813864C4C530BE0265F431EF5777AF41F7FCF34B4"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgePlan.svg",
+              "sha256": "7B61867D0CFE6E9E65F2E34BFC81FC413A3C9DC873CDB64CE3AA942B8CDDD938"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgePlaneDelete.svg",
+              "sha256": "76F75AB8EFAE3D9C57D43458FB57BB9552525878C6B81686ACDC459FFF1E6A1B"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgePlaneMove.svg",
+              "sha256": "0949002439E15D2312ACDA578CFB3B77F19F23888489BE0E9649486A5C885A26"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgePoint.svg",
+              "sha256": "35530834CAA409EDD931FC812EAF0D6D42D29615953ABD964F86777F7923DC7D"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgePolygon.svg",
+              "sha256": "11955957AC569359AA0B99E78DD23BAABBA0C753B968274DBC105991E59F9046"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgePolyline.svg",
+              "sha256": "E771097CA16EC15C259FFCFE3908E7BE625045D3AAD88DD8448F317B068A1405"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgePressPull.svg",
+              "sha256": "2FF3BF15A70291111D9339907BD4DC36E967BFFD5B9E929BE03792D32552BEA5"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeProject.svg",
+              "sha256": "28C671DF7DAEE884FA53627E4EBC1D6AAF27D5613AED768208F30AC9DB2155DE"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeProperties.svg",
+              "sha256": "27885BEEDFA3F7C9F6CA1657950F7951F7D1AC9AD4DF3735BDD42441BC9649F0"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgePurge.svg",
+              "sha256": "14340A63E5C014D06D123D8243D622226E32FFE1A3E0B762421D777C5BC63C4B"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeRectangle.svg",
+              "sha256": "0D0353593437464140B937585D7761C946045060491FAF2F067E30C9A7F2B461"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeRedo.svg",
+              "sha256": "0736F1EB57332505B2C4323F31CB1A6E0642FFDE78CCBA0A95E99471843020D2"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeRevolve.svg",
+              "sha256": "00ECA571A5367A31C3716CE065C564E8895688CCD6ED7E66527A81A07177B33A"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeRotate.svg",
+              "sha256": "10F6FA5B3A1F0F24216F49AC9E47A862A06554F2A2DBAA85C4B234FE2A7302A0"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeScale.svg",
+              "sha256": "8C5119BA5D6B538A2C335C6B3C689161DBFB3982DE3492D27B54E68D009B1EA5"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeSpline.svg",
+              "sha256": "09067B7F4A86AFDF74B2A1954A9759D7D5A2174944055EFFE004A66002AB6B7E"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeStretch.svg",
+              "sha256": "066A9833C45FD80AF3A0017CE8F539ACAEA48EDD220972CAD8FD92EB6181E721"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeSubtract.svg",
+              "sha256": "2C330D13440020412F8C12A719209C0E65AE438E908163F52A1B47CF9A1DD6C2"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeText.svg",
+              "sha256": "0E9523E4ACB2335783A90A9BAB823C235301901B828B4C03BD5EE21C50E3744A"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeTrim.svg",
+              "sha256": "1EB12ACA2CFF90B6B5922AEC6648258EA02A2E7F4DD0AE3ACECB006B499FB280"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeUcs.svg",
+              "sha256": "A8FF00BD31F326210FBBC29F01BEECA89E44CCD58E3D23616D23E745B718AF63"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeUndo.svg",
+              "sha256": "70C01A3E20CC6AA10395E046A04A83210ADCB8B1B2F16AD48F1AEF5BAA07A3B2"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeUnion.svg",
+              "sha256": "1A988A9B4E44954C211607A801980F17C697E4EC2E95F74843021B8324A3B727"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeWorkPlane.svg",
+              "sha256": "4E9FB17B906FAF5F7D5F8967B0394B3EC3D22FF567E7CE0C3A981C871B0A0613"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeWorld.svg",
+              "sha256": "8A2F914844914866CD750A88406E22C25EA8986E83A275CB4935B505D9C9AC0B"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeZoomExtents.svg",
+              "sha256": "93E3C613C691B1014A5F8F129DA2938ACEA653CD5073FDA3FAD58B8474DBFA11"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeZoomPrevious.svg",
+              "sha256": "2771C67834AAD0E1EFA595214ACB12D0C1744F4AE6D0FCA189C3FA9E91A28392"
+            },
+            {
+              "destination": "vcRoot/Icons/rckForgeZoomWindow.svg",
+              "sha256": "24E09421903C08A5ABD2F8E9948E078744E6DEF4C9BC4839CEF58B59EF693FC5"
+            },
+            {
+              "destination": "vcRoot/RCKForge/ACadSharp.dll",
+              "sha256": "BF5A6F56361039B55A4DF9C3C478831667A56B2693218A8E6A1C0A0CFCE2782F"
+            },
+            {
+              "destination": "vcRoot/RCKForge/RCKForge.Dxf.dll",
+              "sha256": "2BC20CD897F8D75FBED1983F05DBC72F642AFBCA20F06D650F1089518C175D28"
+            },
+            {
+              "destination": "vcRoot/RCKForge/System.Buffers.dll",
+              "sha256": "2D78D770C9CB997199154AE8C018B9F1D1EFBC86729F7264DDE6DBAD2A12CAC3"
+            },
+            {
+              "destination": "vcRoot/RCKForge/System.Memory.dll",
+              "sha256": "D5E8E4866F9CFA66F7765660F84B210198893E55335487AFE5EBDA342C0E913D"
+            },
+            {
+              "destination": "vcRoot/RCKForge/System.Numerics.Vectors.dll",
+              "sha256": "20C2FA81B8C70D651099D762954F285FD4F942E63B2D7217C145DAB8D4B2F4C9"
+            },
+            {
+              "destination": "vcRoot/RCKForge/System.Runtime.CompilerServices.Unsafe.dll",
+              "sha256": "08CBD7278B66F1E68425A82D4B97181A4130D93E3DD91831407ABA7212CCDACF"
+            },
+            {
+              "destination": "vcRoot/RCKForge/THIRD_PARTY_LICENSES.txt",
+              "sha256": "B3E033144F080DE3775DADF51F1CCA4E333D809C41F87C2F87B18FD6FD8714B3"
+            }
+          ],
+          "mainDll": "Plugin.RCK.Forge.dll",
+          "mainDllSha256": "418748002CA1DF9046ABBE98828F4D952625C0280AA7F01B4C6EA907B8684398"
+        },
         {
           "version": "2.9.6",
           "contentFiles": [
@@ -2064,12 +2423,12 @@
       "id": "rck.shortcut",
       "name": "ShortCut",
       "type": "addon",
-      "version": "2.0.1",
+      "version": "2.0.2",
       "description": "VC 기능 단축키 모음",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-38853999258-1/rck.shortcut-2.0.1.zip",
-      "sha256": "DF735D5EB0A17EEA3FB2774C5F7AEB9CA24D175F142FA1931BE2B08DA8D93C66",
-      "contentSha256": "88BE669682F7432A3CA4D69A7BFFC5AA3F395F6BADC99D72AE7AA8B665C96607",
-      "publishedAt": "2026-10-16T05:06:00Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-41953829322-1/rck.shortcut-2.0.2.zip",
+      "sha256": "B2EFB7192B5A2D2AB3FF71E5B3029269790E523D7F3C258A6029963DF254476F",
+      "contentSha256": "3E37571E7549166DB4649B2BADB5ED4D16B0DFE9FA8E3A6ACAC19462BEB2E4EC",
+      "publishedAt": "2026-11-05T02:14:07Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -2078,12 +2437,16 @@
         "5.1"
       ],
       "releaseNotes": [
-        "단축키 안내창 열 경우 VC 종료시 오류메세지 뜨는 버그 수정"
+        "CycleTime·ShortCut: 홈 탭 버튼을 RCK 그룹으로 그룹화 (아이콘 추가)"
       ],
       "contentFiles": [
         {
           "destination": "vcRoot/Plugin.ShortCut.dll",
-          "sha256": "80523FD94A0FF6B538E580EF5669F0FFCE1670A5032BB59B191E0CB25D3B6987"
+          "sha256": "8C93B3DDD09894E1D93CC2CC71C318465C30CCAD5E9116DCFBF1F30BEFDADA44"
+        },
+        {
+          "destination": "vcRoot/Icons/rckHotKey.svg",
+          "sha256": "7BBD65E454E2F75E21A198FEB27FD131CACA8BECF131E56693A7968413464471"
         }
       ],
       "versions": [
@@ -2144,7 +2507,7 @@
         }
       ],
       "mainDll": "Plugin.ShortCut.dll",
-      "mainDllSha256": "80523FD94A0FF6B538E580EF5669F0FFCE1670A5032BB59B191E0CB25D3B6987"
+      "mainDllSha256": "8C93B3DDD09894E1D93CC2CC71C318465C30CCAD5E9116DCFBF1F30BEFDADA44"
     },
     {
       "id": "rck.signallinker",
