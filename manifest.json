@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-05T02:14:07Z",
+  "updatedAt": "2026-11-05T07:19:53Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -97,6 +97,21 @@
         }
       ],
       "versions": [
+        {
+          "version": "1.0.1",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/Plugin.CycleTime.dll",
+              "sha256": "E905AF2D5BC693444323C0B9ABF43A29C2F1FB653E1AA0A7825C93503F4D5FD2"
+            },
+            {
+              "destination": "vcRoot/Icons/rckCycleTime.svg",
+              "sha256": "7C1C0D1D86F053B44B12792E31080E7059021C7ADC3EA811EE27F043855C6D1B"
+            }
+          ],
+          "mainDll": "Plugin.CycleTime.dll",
+          "mainDllSha256": "E905AF2D5BC693444323C0B9ABF43A29C2F1FB653E1AA0A7825C93503F4D5FD2"
+        },
         {
           "version": "1.0.0",
           "contentFiles": [
@@ -332,12 +347,12 @@
       "id": "rck.rckforge",
       "name": "RCK Forge",
       "type": "addon",
-      "version": "2.9.7",
+      "version": "2.9.8",
       "description": "AutoCAD/Inventor 방식 2D/3D 모델링 탭 (모드별 리본, 스냅, 작업평면, 돌출/컷, 치수, 주석, DXF/DWG)",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-41761365525-1/rck.rckforge-2.9.7.zip",
-      "sha256": "0EC874B71642404FF24F72B0947EF671C59B015D15906A877BB7FDDCC9DDD142",
-      "contentSha256": "4010AF6C757960B65770B1C2029514BF60A4D81AEB8237E7CC2D35593C2A4967",
-      "publishedAt": "2026-11-04T02:32:10Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-41986453233-1/rck.rckforge-2.9.8.zip",
+      "sha256": "B242A12049C73345EAA4AFB7A7410A8EBB76296FC898D4B17ECE9649329554E5",
+      "contentSha256": "0401C85F26E82FA4889A79DD76403005AEC2F04EB6F65D6C139CDE6E7EB81ACA",
+      "publishedAt": "2026-11-05T07:19:53Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -345,12 +360,12 @@
         "5.1"
       ],
       "releaseNotes": [
-        "RCK Forge: 모드별 리본(2D AutoCAD / 3D Inventor), 옵션 창(OP), 한/영 전환, DXF/DWG 가져오기·내보내기"
+        "RCK Forge: 라이선스 적용(홈 탭 RCK 라이선스 버튼), 후킹 제거·Torch 방식으로 변경"
       ],
       "contentFiles": [
         {
           "destination": "vcRoot/Plugin.RCK.Forge.dll",
-          "sha256": "418748002CA1DF9046ABBE98828F4D952625C0280AA7F01B4C6EA907B8684398"
+          "sha256": "B7BD5A8CDCA4BA81907739D795B1A37B6AC398B7FA3D021D29280BCAD5D0DD3B"
         },
         {
           "destination": "vcRoot/Icons/rckForge2D.svg",
@@ -523,6 +538,10 @@
         {
           "destination": "vcRoot/Icons/rckForgeLengthen.svg",
           "sha256": "969881A8B54A548AB2AB3B5C8AE5799FDFCE746139E455F73CC0F5349EDA309D"
+        },
+        {
+          "destination": "vcRoot/Icons/rckForgeLicense.svg",
+          "sha256": "9440220B817CDF523083FD6410083FEE9A2E67699D1AE0DA359DE6561BF10597"
         },
         {
           "destination": "vcRoot/Icons/rckForgeLine.svg",
@@ -1832,7 +1851,7 @@
         }
       ],
       "mainDll": "Plugin.RCK.Forge.dll",
-      "mainDllSha256": "418748002CA1DF9046ABBE98828F4D952625C0280AA7F01B4C6EA907B8684398"
+      "mainDllSha256": "B7BD5A8CDCA4BA81907739D795B1A37B6AC398B7FA3D021D29280BCAD5D0DD3B"
     },
     {
       "id": "rck.rckstudio",
@@ -2450,6 +2469,21 @@
         }
       ],
       "versions": [
+        {
+          "version": "2.0.2",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/Plugin.ShortCut.dll",
+              "sha256": "8C93B3DDD09894E1D93CC2CC71C318465C30CCAD5E9116DCFBF1F30BEFDADA44"
+            },
+            {
+              "destination": "vcRoot/Icons/rckHotKey.svg",
+              "sha256": "7BBD65E454E2F75E21A198FEB27FD131CACA8BECF131E56693A7968413464471"
+            }
+          ],
+          "mainDll": "Plugin.ShortCut.dll",
+          "mainDllSha256": "8C93B3DDD09894E1D93CC2CC71C318465C30CCAD5E9116DCFBF1F30BEFDADA44"
+        },
         {
           "version": "2.0.1",
           "contentFiles": [
