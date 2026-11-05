@@ -18,6 +18,10 @@
     {
       "source": "payload/Plugin.CycleTime.dll",
       "destination": "vcRoot/Plugin.CycleTime.dll"
+    },
+    {
+      "source": "payload/Icons/rckCycleTime.svg",
+      "destination": "vcRoot/Icons/rckCycleTime.svg"
     }
   ]
 }

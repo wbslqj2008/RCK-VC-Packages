@@ -18,6 +18,10 @@
     {
       "source": "payload/Plugin.ShortCut.dll",
       "destination": "vcRoot/Plugin.ShortCut.dll"
+    },
+    {
+      "source": "payload/Icons/rckHotKey.svg",
+      "destination": "vcRoot/Icons/rckHotKey.svg"
     }
   ]
 }
