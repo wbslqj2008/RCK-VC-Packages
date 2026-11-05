@@ -192,6 +192,10 @@
       "destination": "vcRoot/Icons/rckForgeLengthen.svg"
     },
     {
+      "source": "payload/Icons/rckForgeLicense.svg",
+      "destination": "vcRoot/Icons/rckForgeLicense.svg"
+    },
+    {
       "source": "payload/Icons/rckForgeLine.svg",
       "destination": "vcRoot/Icons/rckForgeLine.svg"
     },
