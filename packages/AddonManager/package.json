@@ -3,7 +3,7 @@
   "id": "rck.addon-manager",
   "name": "RCK Addon Manager",
   "type": "addon",
-  "version": "2.0.10",
+  "version": "3.0.0",
   "description": "Visual Components Add-on 및 eCatalog 패키지 관리자",
   "restartRequired": true,
   "systemPackage": true,
@@ -12,17 +12,12 @@
     "5.1"
   ],
   "releaseNotes": [
-    "창배율 변경, FHD 에서 90%로 동작하게 fix"
+    "GitHub 로그인으로 Manager에서 애드온 게시·버전 업데이트, 관리자 승인·저장소 삭제 지원"
   ],
   "files": [
     {
       "source": "Plugin.RCKAddonManager.dll",
       "destination": "vcRoot/Plugin.RCKAddonManager.dll"
     }
-  ],
-  "publishRequest": {
-    "bump": "major",
-    "notes": "GitHub 로그인으로 Manager에서 애드온 게시·버전 업데이트, 관리자 승인·저장소 삭제 지원",
-    "requestedBy": "wbslqj2008"
-  }
+  ]
 }

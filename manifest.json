@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-05T07:19:53Z",
+  "updatedAt": "2026-11-09T06:30:53Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -195,12 +195,12 @@
       "id": "rck.addon-manager",
       "name": "RCK Addon Manager",
       "type": "addon",
-      "version": "2.0.10",
+      "version": "3.0.0",
       "description": "Visual Components Add-on 및 eCatalog 패키지 관리자",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-41575661700-1/rck.addon-manager-2.0.10.zip",
-      "sha256": "D2015E973D91D1F6D84943E3715E7C8337EB946E5196DDBF6CACD88E6D8B3924",
-      "contentSha256": "85964FA82B3A0ED54315D7C798B5A6E7AA0D25F9AE0FE5B4789FF00541125808",
-      "publishedAt": "2026-11-03T04:01:53Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-42573477889-1/rck.addon-manager-3.0.0.zip",
+      "sha256": "DA102723402C6EFDCCC1B21C2B32DABC700F84E544BE626C8A767711A42105F3",
+      "contentSha256": "D7A75913CCA77D32A5B6229A7D8745E8AC8B510D114F2891BA4EBEEC5A24CD9B",
+      "publishedAt": "2026-11-09T06:30:53Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": true,
@@ -209,12 +209,12 @@
         "5.1"
       ],
       "releaseNotes": [
-        "창배율 변경, FHD 에서 90%로 동작하게 fix"
+        "GitHub 로그인으로 Manager에서 애드온 게시·버전 업데이트, 관리자 승인·저장소 삭제 지원"
       ],
       "contentFiles": [
         {
           "destination": "vcRoot/Plugin.RCKAddonManager.dll",
-          "sha256": "5CF555AAB2F12510309572D806A209BF1DD53F9A8118ADAFC15B4DA26DA2AF27"
+          "sha256": "0650F4533B5C4C702910F0BBC36C2AF71FC069F7502310D45EAF013A4C8FCD35"
         }
       ],
       "versions": [
@@ -341,7 +341,7 @@
         }
       ],
       "mainDll": "Plugin.RCKAddonManager.dll",
-      "mainDllSha256": "5CF555AAB2F12510309572D806A209BF1DD53F9A8118ADAFC15B4DA26DA2AF27"
+      "mainDllSha256": "0650F4533B5C4C702910F0BBC36C2AF71FC069F7502310D45EAF013A4C8FCD35"
     },
     {
       "id": "rck.rckforge",
