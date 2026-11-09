@@ -19,5 +19,10 @@
       "source": "Plugin.RCKAddonManager.dll",
       "destination": "vcRoot/Plugin.RCKAddonManager.dll"
     }
-  ]
+  ],
+  "publishRequest": {
+    "bump": "major",
+    "notes": "GitHub 로그인으로 Manager에서 애드온 게시·버전 업데이트, 관리자 승인·저장소 삭제 지원",
+    "requestedBy": "wbslqj2008"
+  }
 }
