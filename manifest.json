@@ -219,6 +219,17 @@
       ],
       "versions": [
         {
+          "version": "3.0.0",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/Plugin.RCKAddonManager.dll",
+              "sha256": "0650F4533B5C4C702910F0BBC36C2AF71FC069F7502310D45EAF013A4C8FCD35"
+            }
+          ],
+          "mainDll": "Plugin.RCKAddonManager.dll",
+          "mainDllSha256": "0650F4533B5C4C702910F0BBC36C2AF71FC069F7502310D45EAF013A4C8FCD35"
+        },
+        {
           "version": "2.0.10",
           "contentFiles": [
             {
