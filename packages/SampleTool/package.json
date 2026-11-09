@@ -19,9 +19,7 @@
       "destination": "vcRoot/Plugin.SampleTool.dll"
     }
   ],
-  "publishRequest": {
-    "bump": "patch",
-    "notes": "테스트1",
-    "requestedBy": "wbslqj2008"
-  }
+  "releaseNotes": [
+    "테스트1"
+  ]
 }
