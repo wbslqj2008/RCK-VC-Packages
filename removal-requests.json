@@ -1,4 +1,6 @@
 {
   "schemaVersion": 1,
-  "ids": []
+  "ids": [
+    "rck.rckkinematicaddon"
+  ]
 }
