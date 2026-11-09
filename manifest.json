@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-09T06:56:10Z",
+  "updatedAt": "2026-11-09T06:57:37Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -2807,37 +2807,6 @@
       ],
       "mainDll": "Plugin.RCKStudio.dll",
       "mainDllSha256": "B52666A4B7ED80F48D4F696A033DF01DA26C04B660D3D2225CC493FE20246DC1"
-    },
-    {
-      "id": "rck.sampletool",
-      "name": "SampleTool",
-      "type": "addon",
-      "version": "1.0.0",
-      "description": "테스트입니다 테스트 아아 테스트",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-42576107787-1/rck.sampletool-1.0.0.zip",
-      "sha256": "3AFA4A1F8B52301EB5D56023B4E424E15E20487A07DC769BC86DFFF550535412",
-      "contentSha256": "32F850AB4BA27FAE04EC71AD8B0A5F28B6791798541BB8AADFF201C7AD111BE8",
-      "publishedAt": "2026-11-09T06:56:10Z",
-      "archiveType": "zip",
-      "restartRequired": true,
-      "systemPackage": false,
-      "vcVersions": [
-        "5.0",
-        "5.1"
-      ],
-      "releaseNotes": [
-        "테스트1"
-      ],
-      "contentFiles": [
-        {
-          "destination": "vcRoot/Plugin.SampleTool.dll",
-          "sha256": "3D934E4014350EC57337AC2E13999B6705D3E3F4C1235527933CF81F6B705B77"
-        }
-      ],
-      "versions": [],
-      "mainDll": "Plugin.SampleTool.dll",
-      "mainDllSha256": "3D934E4014350EC57337AC2E13999B6705D3E3F4C1235527933CF81F6B705B77",
-      "developer": "테스트머신"
     },
     {
       "id": "rck.shortcut",
