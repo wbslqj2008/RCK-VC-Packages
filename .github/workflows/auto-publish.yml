@@ -7,35 +7,29 @@ on:
       - 'packages/**'
       - 'manifest.json'
       - 'release-plan.json'
+      - 'removal-requests.json'
       - 'scripts/auto_publish.py'
       - 'scripts/apply_publish.py'
+      - 'scripts/resolve_removal_requests.py'
       - '.github/workflows/auto-publish.yml'
   workflow_dispatch:
-    inputs:
-      bump:
-        description: '기본 patch. minor/major 예외 배포 시에만 아래 패키지 ID를 지정'
-        type: choice
-        options: [patch, minor, major]
-        default: patch
-      package_id:
-        description: '특정 패키지만 확인 (rck.rckstudio 또는 rck.studio). 변경 없는 patch는 건너뜀'
-        type: string
-        default: ''
-      release_notes:
-        description: '릴리즈 노트 (비우면 최근 packages 변경 커밋 제목 사용)'
-        type: string
-        default: ''
 
 permissions:
   contents: write
 
 concurrency:
-  group: rck-manifest-update
+  # The bot's own manifest commit gets a private group: its run is skipped by the job guard
+  # below, and sharing the deploy group would cancel a pending deploy run queued behind it.
+  group: "${{ (github.event_name == 'push' && startsWith(github.event.head_commit.message, 'chore: auto-publish addon packages')) && format('rck-bot-{0}', github.run_id) || 'rck-manifest-update' }}"
   cancel-in-progress: false
 
 jobs:
   publish:
+    # Skip the bot's own manifest commit so an App-token push does not re-run this job.
+    if: "github.event_name != 'push' || !startsWith(github.event.head_commit.message, 'chore: auto-publish addon packages')"
     runs-on: ubuntu-latest
+    # PUBLISH_APP_ID / PUBLISH_APP_PRIVATE_KEY live in this Environment, restricted to main.
+    environment: publish-bot
     steps:
       - uses: actions/checkout@v4
         with:
@@ -48,9 +42,9 @@ jobs:
       - name: 변경된 패키지 생성
         id: packages
         env:
-          BUMP: ${{ inputs.bump || 'patch' }}
-          PACKAGE_ID: ${{ inputs.package_id || '' }}
-          RELEASE_NOTES_INPUT: ${{ inputs.release_notes || '' }}
+          BUMP: 'patch'
+          PACKAGE_ID: ''
+          RELEASE_NOTES_INPUT: ''
         shell: bash
         run: |
           set -euo pipefail
@@ -64,6 +58,7 @@ jobs:
           echo "count=$COUNT" >> "$GITHUB_OUTPUT"
           python -c 'import json; print("manifest_changed=" + str(json.load(open(".auto-release/summary.json"))["manifest_changed"]).lower())' >> "$GITHUB_OUTPUT"
           python -c 'import json; print("metadata_changed=" + str(json.load(open(".auto-release/summary.json"))["metadata_changed"]).lower())' >> "$GITHUB_OUTPUT"
+          python -c 'import json; print("requests_changed=" + str(json.load(open(".auto-release/summary.json"))["requests_changed"]).lower())' >> "$GITHUB_OUTPUT"
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"
           echo "source_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
@@ -77,9 +72,13 @@ jobs:
               print(f'- {name}')
           for package in result['releases']:
               print(f"- {package['id']}: {package['from'] or '첫 배포'} → {package['to']}")
+          for package_id in result.get('removed', []):
+              print(f'- {package_id}: 삭제')
+          for package_id in result.get('removal_pending', []):
+              print(f'- {package_id}: 삭제 요청이 있지만 패키지 폴더가 남아 있어 삭제하지 않았습니다')
           if not result['changed']:
               print('변경된 파일이 없어 배포하지 않았습니다.')
-              if result['manifest_changed']:
+              if result['manifest_changed'] and not result.get('removed'):
                   print('기존 배포의 파일 비교 기록을 갱신합니다.')
               if result['metadata_changed']:
                   print('package.json 버전을 현재 배포 버전에 맞춥니다. 새 버전을 발행하지 않습니다.')
@@ -94,10 +93,22 @@ jobs:
         run: |
           set -euo pipefail
           gh release create "$TAG" .auto-release/*.zip --target "$SOURCE_SHA" --title "자동 패키지 업데이트 $TAG" --notes '변경된 Add-on 및 eCatalog 패키지를 자동 생성했습니다.'
+      - name: 배포 봇 설정 확인
+        id: publish-app
+        shell: bash
+        run: echo "has_app=${{ secrets.PUBLISH_APP_ID != '' }}" >> "$GITHUB_OUTPUT"
+      - name: 배포 봇 토큰
+        id: app-token
+        if: steps.publish-app.outputs.has_app == 'true'
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.PUBLISH_APP_ID }}
+          private-key: ${{ secrets.PUBLISH_APP_PRIVATE_KEY }}
       - name: Manifest 반영
-        if: steps.packages.outputs.count != '0' || steps.packages.outputs.manifest_changed == 'true' || steps.packages.outputs.metadata_changed == 'true'
+        if: steps.packages.outputs.count != '0' || steps.packages.outputs.manifest_changed == 'true' || steps.packages.outputs.metadata_changed == 'true' || steps.packages.outputs.requests_changed == 'true'
         env:
           TAG: ${{ steps.packages.outputs.tag }}
+          PUSH_TOKEN: ${{ steps.app-token.outputs.token || github.token }}
         shell: bash
         run: |
           set -euo pipefail
@@ -105,11 +116,22 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add manifest.json packages
+          if [ -f removal-requests.json ]; then git add removal-requests.json; fi
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "chore: auto-publish addon packages $TAG"
+          git config --local --unset-all http.https://github.com/.extraheader || true
+          git remote set-url origin "https://x-access-token:${PUSH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           for attempt in 1 2 3 4; do
             if git push origin HEAD:main; then exit 0; fi
-            git pull --rebase origin main
+            if ! git pull --rebase origin main; then
+              # Another removal merged meanwhile: only removal-requests.json may be resolved automatically.
+              if python scripts/resolve_removal_requests.py --repo-root . --summary .auto-release/summary.json; then
+                git -c core.editor=true rebase --continue || { git rebase --abort; exit 1; }
+              else
+                git rebase --abort
+                exit 1
+              fi
+            fi
           done
           exit 1
 

@@ -100,11 +100,31 @@ def load_manifest_history(root: Path) -> dict[str, list[dict]]:
 
 
 def content_fingerprint(package: dict, payloads: list, *, legacy: bool = False) -> str:
-    identity = {k: v for k, v in package.items() if k != 'version'}
+    identity = {k: v for k, v in package.items() if k not in ('version', 'publishRequest')}
     if not legacy:
         identity['releaseNotes'] = package.get('releaseNotes', [])
     identity['content'] = sorted((name, dest, digest) for _, name, dest, digest in payloads)
     return hashlib.sha256(json.dumps(identity, sort_keys=True, ensure_ascii=False).encode()).hexdigest().upper()
+
+
+REMOVAL_REQUESTS = 'removal-requests.json'
+PROTECTED_PACKAGES = ('rck.addon-manager',)
+
+
+def load_removal_requests(root: Path) -> list[str] | None:
+    """Package ids an admin asked to delete (Addon Manager '저장소에서 삭제'); None when the file is absent."""
+    path = root / REMOVAL_REQUESTS
+    if not path.exists():
+        return None
+    try:
+        data = json.loads(path.read_text(encoding='utf-8-sig'))
+    except json.JSONDecodeError as error:
+        raise ValueError(f'{REMOVAL_REQUESTS} 형식이 올바르지 않습니다: {error}') from error
+    ids = data.get('ids') if isinstance(data, dict) else None
+    if not isinstance(data, dict) or data.get('schemaVersion') != 1 or not isinstance(ids, list) or not all(
+            isinstance(i, str) and re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]*', i) for i in ids):
+        raise ValueError(f'{REMOVAL_REQUESTS} 형식이 올바르지 않습니다 (schemaVersion 1, ids: 패키지 ID 목록).')
+    return list(dict.fromkeys(ids))
 
 
 def build(root: Path, output: Path, repository: str, tag: str, bump: str = 'patch', force_package: str = '', release_notes: str = '', *, force: bool = False, release_plan: Path | None = None) -> dict:
@@ -115,6 +135,23 @@ def build(root: Path, output: Path, repository: str, tag: str, bump: str = 'patc
     archived = load_manifest_history(root)
     metadata_paths = sorted((root / 'packages').glob('*/package.json'))
     available_ids = [json.loads(p.read_text(encoding='utf-8-sig'))['id'] for p in metadata_paths]
+    if not metadata_paths:
+        raise ValueError('packages/*/package.json을 하나도 찾지 못했습니다. 저장소 내용을 확인하십시오.')
+    # A package leaves the manifest only when its folder is gone AND an admin requested the removal;
+    # any other missing folder (edited id, broken checkout) fails the run before anything is written.
+    requests = load_removal_requests(root)
+    requested = requests or []
+    present = set(available_ids)
+    for package_id in requested:
+        entry = previous.get(package_id) or {}
+        if package_id.casefold() in PROTECTED_PACKAGES or entry.get('systemPackage'):
+            raise ValueError(f'시스템 패키지는 삭제할 수 없습니다: {package_id}')
+    removed = sorted(package_id for package_id in previous if package_id not in present)
+    for package_id in removed:
+        if package_id not in requested:
+            raise ValueError(f"패키지 폴더가 없습니다: {package_id}. 삭제하려면 Addon Manager의 '저장소에서 삭제'를 사용하십시오.")
+    # A requested package whose folder still exists stays published and stays requested.
+    removal_pending = [package_id for package_id in requested if package_id in present]
     # Explicit release-number corrections are applied once, after upload succeeds.
     # Keeping the plan in the repository must not reset later automatic patches.
     overrides = {}
@@ -126,13 +163,15 @@ def build(root: Path, output: Path, repository: str, tag: str, bump: str = 'patc
         versions = plan.get('versions')
         if not isinstance(versions, dict) or not versions:
             raise ValueError('Release plan must contain package versions')
+        pending_plan = plan['id'] not in manifest.get('appliedReleasePlans', [])
         for package_id, version in versions.items():
-            if package_id not in available_ids:
+            # An applied plan stays in the repository; a package it names may be deleted later.
+            if pending_plan and package_id not in available_ids:
                 raise ValueError(f'Unknown release plan package: {package_id}')
             if not isinstance(version, str):
                 raise ValueError(f'Invalid release plan version: {package_id}')
             version_tuple(version)
-        if plan['id'] not in manifest.get('appliedReleasePlans', []):
+        if pending_plan:
             if force_package or bump != 'patch' or force:
                 raise ValueError('Apply a pending release plan without package/bump/force overrides')
             plan_id = plan['id']
@@ -161,6 +200,11 @@ def build(root: Path, output: Path, repository: str, tag: str, bump: str = 'patc
         if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]*', package_id) or package_id in seen:
             raise ValueError(f'Invalid or duplicate package id: {package_id}')
         seen.add(package_id)
+        # A publish request only selects bump/notes; it never belongs in a release.
+        request = package.pop('publishRequest', None)
+        if request is not None and (not isinstance(request, dict) or request.get('bump') not in ('patch', 'minor', 'major')):
+            raise ValueError(f'{package_id}: invalid publishRequest.bump')
+        effective_bump = request['bump'] if request else bump
         if force_package and package_id != force_package:
             continue
         if package['type'] not in ('addon', 'ecatalog'):
@@ -188,7 +232,7 @@ def build(root: Path, output: Path, repository: str, tag: str, bump: str = 'patc
             payloads.append((source, archive_name, destination, digest))
         fingerprint = content_fingerprint(package, payloads)
         old = previous.get(package_id)
-        explicit_release = force or bump in ('minor', 'major') or package_id in overrides
+        explicit_release = force or effective_bump in ('minor', 'major') or package_id in overrides
         old_asset_version = None
         if old:
             asset_name = urllib.parse.unquote(urllib.parse.urlparse(old.get('downloadUrl', '')).path.rsplit('/', 1)[-1])
@@ -203,7 +247,7 @@ def build(root: Path, output: Path, repository: str, tag: str, bump: str = 'patc
             # Repair that identity alongside the source notes without creating a release.
             published_notes = old.get('releaseNotes', [])
             old['contentSha256'] = content_fingerprint(dict(package, releaseNotes=published_notes), payloads)
-            if package['version'] != old['version'] or package.get('releaseNotes', []) != published_notes:
+            if package['version'] != old['version'] or package.get('releaseNotes', []) != published_notes or request is not None:
                 package_updates.append({'path': metadata_path.relative_to(root).as_posix(), 'id': package_id, 'version': old['version']})
             continue
         source_version = version_tuple(package['version'])
@@ -212,15 +256,20 @@ def build(root: Path, output: Path, repository: str, tag: str, bump: str = 'patc
             next_version = version_tuple(overrides[package_id])
         elif not old:
             next_version = base
-        elif bump == 'major':
+        elif effective_bump == 'major':
             next_version = (base[0] + 1, 0, 0)
-        elif bump == 'minor':
+        elif effective_bump == 'minor':
             next_version = (base[0], base[1] + 1, 0)
         else:
             next_version = (base[0], base[1], base[2] + 1)
         package['version'] = '.'.join(map(str, next_version))
         # A version correction retains each package's individually authored notes.
-        note = '' if package_id in overrides else release_notes.strip()
+        if package_id in overrides:
+            note = ''
+        elif request:
+            note = str(request.get('notes', '')).strip() or release_notes.strip()
+        else:
+            note = release_notes.strip()
         notes = [note] if note else package.get('releaseNotes', [])
         package['releaseNotes'] = notes
         fingerprint = content_fingerprint(package, payloads)
@@ -260,17 +309,24 @@ def build(root: Path, output: Path, repository: str, tag: str, bump: str = 'patc
         releases.append({'id': package_id, 'from': old['version'] if old else None, 'to': package['version']})
     if force_package and force_package not in seen:
         raise ValueError(f'Unknown package id: {force_package}')
+    for package_id in removed:
+        del previous[package_id]
     manifest['schemaVersion'] = 1
     if plan_id:
         manifest.setdefault('appliedReleasePlans', []).append(plan_id)
-    if changed:
+    if changed or removed:
         manifest['updatedAt'] = now
     manifest['packages'] = sorted(previous.values(), key=lambda p: (p['type'], p['name'].casefold()))
     (output / 'manifest.next.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     (output / 'package-updates.json').write_text(json.dumps(package_updates, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    requests_changed = requests is not None and requests != removal_pending
+    if requests is not None:
+        (output / 'removal-requests.next.json').write_text(
+            json.dumps({'schemaVersion': 1, 'ids': removal_pending}, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     summary = {'changed': changed, 'count': len(changed), 'tag': tag, 'package_id': force_package, 'bump': bump,
                'releases': releases, 'manifest_changed': before != json.dumps(manifest, sort_keys=True),
-               'metadata_changed': bool(package_updates), 'release_plan_id': plan_id}
+               'metadata_changed': bool(package_updates), 'release_plan_id': plan_id, 'removed': removed,
+               'removal_pending': removal_pending, 'requests_changed': requests_changed}
     (output / 'summary.json').write_text(json.dumps(summary), encoding='utf-8')
     return summary
 

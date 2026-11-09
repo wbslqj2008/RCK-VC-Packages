@@ -1,0 +1,3 @@
+# 게시 요청(PR)은 여기 적힌 관리자의 승인 없이는 병합할 수 없습니다(Ruleset의 "Require review from Code Owners").
+# 관리자를 추가하려면 같은 줄에 @계정을 덧붙이세요. 업로더(Write 권한)는 적지 마세요.
+* @wbslqj2008

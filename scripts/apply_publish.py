@@ -33,7 +33,12 @@ def apply(root: Path, output: Path) -> list[str]:
             raise ValueError(f'Package/manifest mismatch: {update["id"]}')
         metadata['version'] = update['version']
         metadata['releaseNotes'] = entry.get('releaseNotes', [])
+        metadata.pop('publishRequest', None)
         planned.append((path, json.dumps(metadata, ensure_ascii=False, indent=2) + '\n'))
+    # Processed removal requests leave the list; a request whose folder still exists stays.
+    requests_next = output / 'removal-requests.next.json'
+    if requests_next.exists():
+        planned.append((root / 'removal-requests.json', requests_next.read_text(encoding='utf-8-sig')))
     for path, text in planned:
         path.write_text(text, encoding='utf-8')
     (root / 'manifest.json').write_text(manifest_text, encoding='utf-8')

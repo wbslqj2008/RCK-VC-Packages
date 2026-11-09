@@ -1,5 +1,6 @@
 import hashlib
 import json
+import shutil
 import tempfile
 import subprocess
 import sys
@@ -282,6 +283,70 @@ class AutoPublishTests(unittest.TestCase):
         self.assertEqual(summary['changed'], ['rck.rckstudio-0.0.11.zip'])
         self.assertEqual(summary['package_id'], 'rck.rckstudio')
 
+    def write_request(self, name, **request):
+        path = self.root / 'packages' / name / 'package.json'
+        package = json.loads(path.read_text(encoding='utf-8'))
+        package['publishRequest'] = request
+        path.write_text(json.dumps(package), encoding='utf-8')
+
+    def publish_initial(self):
+        summary, manifest, output = self.run_build('initial')
+        apply(self.root, output)  # manifest and sources now at 0.0.10
+        return summary, manifest, output
+
+    def test_publish_request_minor_creates_one_release_and_is_removed(self):
+        self.publish_initial()
+        self.write_request('Studio', bump='minor', notes='새 기능', requestedBy='dev1')
+        summary, manifest, output = self.run_build('request-minor', release_notes='commit title')
+        entry = next(p for p in manifest['packages'] if p['id'] == 'rck.studio')
+        self.assertEqual(summary['releases'], [{'id': 'rck.studio', 'from': '0.0.10', 'to': '0.1.0'}])
+        self.assertEqual(entry['releaseNotes'], ['새 기능'])
+        with zipfile.ZipFile(output / 'rck.studio-0.1.0.zip') as archive:
+            self.assertNotIn('publishRequest', json.loads(archive.read('package.json')))
+        apply(self.root, output)
+        source = json.loads((self.root / 'packages/Studio/package.json').read_text(encoding='utf-8'))
+        self.assertNotIn('publishRequest', source)
+        self.assertEqual(source['version'], '0.1.0')
+
+    def test_publish_request_does_not_change_fingerprint(self):
+        _, manifest, _ = self.publish_initial()
+        before = next(p for p in manifest['packages'] if p['id'] == 'rck.studio')['contentSha256']
+        self.write_request('Studio', bump='patch', notes='x', requestedBy='dev1')
+        summary, manifest, output = self.run_build('patch-unchanged')
+        self.assertEqual(summary['count'], 0)
+        self.assertEqual(next(p for p in manifest['packages'] if p['id'] == 'rck.studio')['contentSha256'], before)
+        apply(self.root, output)
+        source = json.loads((self.root / 'packages/Studio/package.json').read_text(encoding='utf-8'))
+        self.assertNotIn('publishRequest', source)
+
+    def test_publish_request_patch_with_changed_file_uses_request_notes(self):
+        self.publish_initial()
+        (self.root / 'packages/Studio/payload/Plugin.Studio.dll').write_bytes(b'changed')
+        self.write_request('Studio', bump='patch', notes='버그 수정', requestedBy='dev1')
+        summary, manifest, output = self.run_build('patch-changed', release_notes='commit title')
+        self.assertEqual(summary['releases'][0]['to'], '0.0.11')
+        entry = next(p for p in manifest['packages'] if p['id'] == 'rck.studio')
+        self.assertEqual(entry['releaseNotes'], ['버그 수정'])
+        with zipfile.ZipFile(output / 'rck.studio-0.0.11.zip') as archive:
+            self.assertNotIn('publishRequest', json.loads(archive.read('package.json')))
+
+    def test_publish_request_new_package_starts_at_source_version(self):
+        folder = self.root / 'packages' / 'NewTool'
+        (folder / 'payload').mkdir(parents=True)
+        (folder / 'payload' / 'Plugin.NewTool.dll').write_bytes(b'new')
+        package = {'id': 'rck.newtool', 'name': 'NewTool', 'type': 'addon', 'version': '1.0.0', 'description': 'd',
+                   'restartRequired': True, 'vcVersions': ['5.1'], 'mainDll': 'Plugin.NewTool.dll',
+                   'files': [{'source': 'payload/Plugin.NewTool.dll', 'destination': 'vcRoot/Plugin.NewTool.dll'}],
+                   'publishRequest': {'bump': 'patch', 'notes': '최초 등록', 'requestedBy': 'dev1'}}
+        (folder / 'package.json').write_text(json.dumps(package), encoding='utf-8')
+        summary, _, _ = self.run_build('new-package')
+        self.assertIn({'id': 'rck.newtool', 'from': None, 'to': '1.0.0'}, summary['releases'])
+
+    def test_publish_request_rejects_unknown_bump(self):
+        self.write_request('Studio', bump='huge', notes='x', requestedBy='dev1')
+        with self.assertRaises(ValueError):
+            self.run_build('bad-bump')
+
     def test_minor_major_require_explicit_package(self):
         with self.assertRaises(ValueError):
             self.run_build('ambiguous', bump='major')
@@ -414,6 +479,200 @@ class AutoPublishTests(unittest.TestCase):
         self.assertEqual(next(p for p in updated['packages'] if p['id'] == 'rck.studio')['version'], '0.0.10')
         apply(self.root, repair)
         self.assertEqual(json.loads(path.read_text())['version'], '0.0.10')
+
+
+    def request_removal(self, *ids):
+        (self.root / 'removal-requests.json').write_text(json.dumps({'schemaVersion': 1, 'ids': list(ids)}))
+
+    def removal_requests(self):
+        return json.loads((self.root / 'removal-requests.json').read_text(encoding='utf-8'))['ids']
+
+    def test_requested_removal_leaves_manifest_without_a_release_and_clears_the_request(self):
+        _, _, output = self.run_build('initial')
+        apply(self.root, output)
+        shutil.rmtree(self.root / 'packages' / 'CodeLens')
+        self.request_removal('rck.codelens')
+        summary, manifest, removal = self.run_build('removal')
+        self.assertEqual(summary['removed'], ['rck.codelens'])
+        self.assertEqual(summary['removal_pending'], [])
+        self.assertTrue(summary['requests_changed'])
+        self.assertEqual(summary['count'], 0)
+        self.assertEqual(summary['releases'], [])
+        self.assertTrue(summary['manifest_changed'])
+        self.assertEqual([p['id'] for p in manifest['packages']], ['rck.studio'])
+        self.assertEqual(list(removal.glob('*.zip')), [])
+        apply(self.root, removal)
+        self.assertEqual(self.removal_requests(), [])
+        again, _, _ = self.run_build('after-removal')
+        self.assertEqual(again['removed'], [])
+        self.assertFalse(again['manifest_changed'])
+        self.assertFalse(again['requests_changed'])
+
+    def test_missing_folder_without_request_fails_and_changes_nothing(self):
+        _, _, output = self.run_build('initial')
+        apply(self.root, output)
+        original = (self.root / 'manifest.json').read_bytes()
+        # e.g. an edited package.json id: the old id has no folder any more
+        path = self.root / 'packages/CodeLens/package.json'
+        metadata = json.loads(path.read_text())
+        metadata['id'] = 'rck.renamed'
+        path.write_text(json.dumps(metadata))
+        with self.assertRaisesRegex(ValueError, "패키지 폴더가 없습니다: rck.codelens. 삭제하려면 Addon Manager의 '저장소에서 삭제'를 사용하십시오."):
+            self.run_build('unrequested')
+        self.assertEqual((self.root / 'manifest.json').read_bytes(), original)
+        self.assertFalse((self.root / 'unrequested' / 'manifest.next.json').exists())
+        # A request for a different package does not cover it.
+        self.request_removal('rck.studio')
+        with self.assertRaisesRegex(ValueError, 'rck.codelens'):
+            self.run_build('other-request')
+
+    def test_empty_packages_folder_fails(self):
+        _, _, output = self.run_build('initial')
+        apply(self.root, output)
+        original = (self.root / 'manifest.json').read_bytes()
+        for name in ('Studio', 'CodeLens'):
+            shutil.rmtree(self.root / 'packages' / name)
+        self.request_removal('rck.studio', 'rck.codelens')
+        with self.assertRaisesRegex(ValueError, 'package.json을 하나도 찾지 못했습니다'):
+            self.run_build('empty')
+        self.assertEqual((self.root / 'manifest.json').read_bytes(), original)
+
+    def test_system_packages_cannot_be_removed(self):
+        manifest = json.loads((self.root / 'manifest.json').read_text())
+        manifest['packages'].append({'id': 'rck.addon-manager', 'name': 'RCK Addon Manager', 'type': 'addon', 'version': '2.0.6'})
+        manifest['packages'].append({'id': 'rck.core', 'name': 'Core', 'type': 'addon', 'version': '1.0.0', 'systemPackage': True})
+        self.save(manifest)
+        original = (self.root / 'manifest.json').read_bytes()
+        for package_id in ('rck.addon-manager', 'rck.core'):
+            self.request_removal(package_id)
+            with self.assertRaisesRegex(ValueError, '시스템 패키지는 삭제할 수 없습니다: ' + package_id):
+                self.run_build('system-' + package_id)
+            self.assertEqual((self.root / 'manifest.json').read_bytes(), original)
+
+    def test_requested_package_with_folder_stays_published_and_requested(self):
+        _, _, output = self.run_build('initial')
+        apply(self.root, output)
+        before = json.loads((self.root / 'manifest.json').read_text(encoding='utf-8'))
+        self.request_removal('rck.studio', 'rck.gone')
+        summary, manifest, pending = self.run_build('pending-removal')
+        self.assertEqual(summary['removed'], [])
+        self.assertEqual(summary['removal_pending'], ['rck.studio'])
+        self.assertTrue(summary['requests_changed'])  # rck.gone was already absent: it is cleared
+        self.assertEqual(manifest, before)
+        apply(self.root, pending)
+        self.assertEqual(self.removal_requests(), ['rck.studio'])
+
+    def test_present_packages_are_not_removed(self):
+        _, _, output = self.run_build('initial')
+        apply(self.root, output)
+        before = json.loads((self.root / 'manifest.json').read_text(encoding='utf-8'))
+        summary, manifest, untouched = self.run_build('no-removal')
+        self.assertEqual(summary['removed'], [])
+        self.assertFalse(summary['manifest_changed'])
+        self.assertFalse(summary['requests_changed'])
+        self.assertEqual(manifest, before)
+        self.assertFalse((untouched / 'removal-requests.next.json').exists())
+        apply(self.root, untouched)
+        self.assertFalse((self.root / 'removal-requests.json').exists())
+
+    def test_invalid_removal_requests_file_fails(self):
+        for text in ('{broken', json.dumps({'schemaVersion': 2, 'ids': []}), json.dumps({'schemaVersion': 1, 'ids': ['../x']})):
+            (self.root / 'removal-requests.json').write_text(text)
+            with self.assertRaisesRegex(ValueError, 'removal-requests.json'):
+                self.run_build('invalid-requests')
+
+    def test_applied_release_plan_may_name_a_removed_package(self):
+        _, _, output = self.run_build('initial')
+        apply(self.root, output)
+        plan = self.root / 'release-plan.json'
+        plan.write_text(json.dumps({'schemaVersion': 1, 'id': 'old-plan',
+                                    'versions': {'rck.studio': '0.0.10', 'rck.codelens': '0.0.10'}}))
+        manifest = json.loads((self.root / 'manifest.json').read_text(encoding='utf-8'))
+        manifest['appliedReleasePlans'] = ['old-plan']
+        self.save(manifest)
+        shutil.rmtree(self.root / 'packages' / 'CodeLens')
+        self.request_removal('rck.codelens')
+        summary, updated, _ = self.run_build('removal-with-plan', release_plan=plan)
+        self.assertEqual(summary['removed'], ['rck.codelens'])
+        self.assertIsNone(summary['release_plan_id'])
+        self.assertEqual(updated['appliedReleasePlans'], ['old-plan'])
+        # A plan that is about to be applied still rejects the unknown package.
+        manifest['appliedReleasePlans'] = []
+        self.save(manifest)
+        with self.assertRaisesRegex(ValueError, 'Unknown release plan package'):
+            self.run_build('pending-plan-removed', release_plan=plan)
+
+class AutoPublishWorkflowTests(unittest.TestCase):
+    def setUp(self):
+        path = Path(__file__).resolve().parent.parent / '.github' / 'workflows' / 'auto-publish.yml'
+        self.text = path.read_text(encoding='utf-8')
+
+    def test_publish_job_uses_protected_environment(self):
+        self.assertIn('\n    environment: publish-bot\n', self.text)
+        self.assertNotIn('HAS_PUBLISH_APP', self.text)
+        self.assertIn('echo "has_app=${{ secrets.PUBLISH_APP_ID != \'\' }}" >> "$GITHUB_OUTPUT"', self.text)
+        self.assertIn("if: steps.publish-app.outputs.has_app == 'true'", self.text)
+        self.assertIn('${{ steps.app-token.outputs.token || github.token }}', self.text)
+
+    def test_bot_commit_does_not_retrigger_publish_job(self):
+        guard = ("if: \"github.event_name != 'push' || "
+                 "!startsWith(github.event.head_commit.message, 'chore: auto-publish addon packages')\"")
+        self.assertIn(guard, self.text)
+        self.assertIn('git commit -m "chore: auto-publish addon packages $TAG"', self.text)
+
+    def test_bot_commit_run_does_not_share_the_deploy_concurrency_group(self):
+        # A skipped bot run in the shared group would cancel a pending deploy run.
+        group = ("group: \"${{ (github.event_name == 'push' && "
+                 "startsWith(github.event.head_commit.message, 'chore: auto-publish addon packages')) "
+                 "&& format('rck-bot-{0}', github.run_id) || 'rck-manifest-update' }}\"")
+        self.assertIn(group, self.text)
+        self.assertIn('  cancel-in-progress: false', self.text)
+        self.assertNotIn('\n  group: rck-manifest-update\n', self.text)
+
+    def test_workflow_is_valid_yaml(self):
+        # A plain (unquoted) YAML scalar may not contain ': ' — GitHub would reject the file.
+        in_block = None
+        for number, line in enumerate(self.text.splitlines(), 1):
+            indent = len(line) - len(line.lstrip(' '))
+            if in_block is not None and (not line.strip() or indent > in_block):
+                continue
+            in_block = None
+            stripped = line.strip()
+            if not stripped or stripped.startswith('#'):
+                continue
+            body = stripped[2:] if stripped.startswith('- ') else stripped
+            key, sep, value = body.partition(': ')
+            value = value.strip()
+            if not sep or not value:
+                continue
+            if value in ('|', '>') or value.startswith(('|', '>')):
+                in_block = indent
+                continue
+            if value[0] in '"\'[{':
+                continue
+            self.assertNotIn(': ', value, f'line {number}: quote this value')
+        try:
+            import yaml
+        except ImportError:
+            return
+        yaml.safe_load(self.text)
+
+    def test_summary_lists_removed_packages(self):
+        self.assertIn("for package_id in result.get('removed', []):", self.text)
+        self.assertIn("print(f'- {package_id}: 삭제')", self.text)
+
+    def test_push_retry_resolves_only_the_removal_requests_conflict(self):
+        self.assertIn("\n      - 'scripts/resolve_removal_requests.py'\n", self.text)
+        self.assertIn('if ! git pull --rebase origin main; then', self.text)
+        self.assertIn('python scripts/resolve_removal_requests.py --repo-root . --summary .auto-release/summary.json', self.text)
+        self.assertIn('git -c core.editor=true rebase --continue || { git rebase --abort; exit 1; }', self.text)
+        self.assertIn('                git rebase --abort\n                exit 1\n', self.text)
+
+    def test_removal_requests_trigger_the_run_and_are_committed(self):
+        self.assertIn("\n      - 'removal-requests.json'\n", self.text)
+        self.assertIn("steps.packages.outputs.requests_changed == 'true'", self.text)
+        self.assertIn('if [ -f removal-requests.json ]; then git add removal-requests.json; fi', self.text)
+        self.assertIn("result.get('removal_pending', [])", self.text)
 
 
 if __name__ == '__main__':
