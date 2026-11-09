@@ -4,11 +4,12 @@
   "name": "RCK Forge",
   "type": "addon",
   "version": "2.9.8",
-  "description": "AutoCAD/Inventor 방식 2D/3D 모델링 탭 (모드별 리본, 스냅, 작업평면, 돌출/컷, 치수, 주석, DXF/DWG)",
+  "description": "5.1 마이그레이션",
   "mainDll": "Plugin.RCK.Forge.dll",
   "restartRequired": true,
   "systemPackage": false,
   "vcVersions": [
+    "5.0",
     "5.1"
   ],
   "releaseNotes": [
@@ -362,10 +363,11 @@
     {
       "source": "payload/RCKForge/System.Runtime.CompilerServices.Unsafe.dll",
       "destination": "vcRoot/RCKForge/System.Runtime.CompilerServices.Unsafe.dll"
-    },
-    {
-      "source": "payload/RCKForge/THIRD_PARTY_LICENSES.txt",
-      "destination": "vcRoot/RCKForge/THIRD_PARTY_LICENSES.txt"
     }
-  ]
+  ],
+  "publishRequest": {
+    "bump": "major",
+    "notes": "5.0 마이그레이션",
+    "requestedBy": "wbslqj2008"
+  }
 }
