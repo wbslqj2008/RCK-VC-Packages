@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-09T07:12:09Z",
+  "updatedAt": "2026-11-09T07:16:57Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -2222,36 +2222,6 @@
       ],
       "mainDll": "Plugin.RCK.Forge.dll",
       "mainDllSha256": "B7BD5A8CDCA4BA81907739D795B1A37B6AC398B7FA3D021D29280BCAD5D0DD3B"
-    },
-    {
-      "id": "rck.rckkinematicaddon",
-      "name": "RCKKinematicAddon",
-      "type": "addon",
-      "version": "1.0.0",
-      "description": "기존 SASA ADD_ON에 편의성을 추가한 에드온입니다.",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-42577788320-1/rck.rckkinematicaddon-1.0.0.zip",
-      "sha256": "F443AAEADDDC96154F28F4D7F35BF9244E7A553B503FB23520B0A2BCF4AC5CBE",
-      "contentSha256": "BB9A39EB5042AD13E3E0542093A8035CF7D4AEFEE9765460031926AE2DB19DB2",
-      "publishedAt": "2026-11-09T07:12:09Z",
-      "archiveType": "zip",
-      "restartRequired": true,
-      "systemPackage": false,
-      "vcVersions": [
-        "4.10"
-      ],
-      "releaseNotes": [
-        "기존 에드온에 편의성을 추가한 에드온"
-      ],
-      "contentFiles": [
-        {
-          "destination": "vcRoot/Plugin.RCKKinematicAddon.dll",
-          "sha256": "EE4F7718F6083B51EB05E66C77775FF2AFDB1C11B5A3443005F88B588A8B8EC0"
-        }
-      ],
-      "versions": [],
-      "mainDll": "Plugin.RCKKinematicAddon.dll",
-      "mainDllSha256": "EE4F7718F6083B51EB05E66C77775FF2AFDB1C11B5A3443005F88B588A8B8EC0",
-      "developer": "이상엽 연구원"
     },
     {
       "id": "rck.rckstudio",
