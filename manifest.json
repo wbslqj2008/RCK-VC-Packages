@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-09T07:16:57Z",
+  "updatedAt": "2026-11-09T07:30:25Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -358,20 +358,21 @@
       "id": "rck.rckforge",
       "name": "RCK Forge",
       "type": "addon",
-      "version": "2.9.8",
-      "description": "AutoCAD/Inventor 방식 2D/3D 모델링 탭 (모드별 리본, 스냅, 작업평면, 돌출/컷, 치수, 주석, DXF/DWG)",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-41986453233-1/rck.rckforge-2.9.8.zip",
-      "sha256": "B242A12049C73345EAA4AFB7A7410A8EBB76296FC898D4B17ECE9649329554E5",
-      "contentSha256": "0401C85F26E82FA4889A79DD76403005AEC2F04EB6F65D6C139CDE6E7EB81ACA",
-      "publishedAt": "2026-11-05T07:19:53Z",
+      "version": "3.0.0",
+      "description": "5.1 마이그레이션",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-42579744139-1/rck.rckforge-3.0.0.zip",
+      "sha256": "6EA605BC3F48E0E4ABC6BEB055C995D7B13438271C3B4D00B50804132CB00AFA",
+      "contentSha256": "003231E72375738ADD9E433EAC08AA7F1928BEEE28D536A11BD188875D85BA19",
+      "publishedAt": "2026-11-09T07:30:25Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
       "vcVersions": [
+        "5.0",
         "5.1"
       ],
       "releaseNotes": [
-        "RCK Forge: 라이선스 적용(홈 탭 RCK 라이선스 버튼), 후킹 제거·Torch 방식으로 변경"
+        "5.0 마이그레이션"
       ],
       "contentFiles": [
         {
@@ -721,10 +722,6 @@
         {
           "destination": "vcRoot/RCKForge/System.Runtime.CompilerServices.Unsafe.dll",
           "sha256": "08CBD7278B66F1E68425A82D4B97181A4130D93E3DD91831407ABA7212CCDACF"
-        },
-        {
-          "destination": "vcRoot/RCKForge/THIRD_PARTY_LICENSES.txt",
-          "sha256": "B3E033144F080DE3775DADF51F1CCA4E333D809C41F87C2F87B18FD6FD8714B3"
         }
       ],
       "versions": [

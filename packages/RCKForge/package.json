@@ -3,7 +3,7 @@
   "id": "rck.rckforge",
   "name": "RCK Forge",
   "type": "addon",
-  "version": "2.9.8",
+  "version": "3.0.0",
   "description": "5.1 마이그레이션",
   "mainDll": "Plugin.RCK.Forge.dll",
   "restartRequired": true,
@@ -13,7 +13,7 @@
     "5.1"
   ],
   "releaseNotes": [
-    "RCK Forge: 라이선스 적용(홈 탭 RCK 라이선스 버튼), 후킹 제거·Torch 방식으로 변경"
+    "5.0 마이그레이션"
   ],
   "files": [
     {
@@ -364,10 +364,5 @@
       "source": "payload/RCKForge/System.Runtime.CompilerServices.Unsafe.dll",
       "destination": "vcRoot/RCKForge/System.Runtime.CompilerServices.Unsafe.dll"
     }
-  ],
-  "publishRequest": {
-    "bump": "major",
-    "notes": "5.0 마이그레이션",
-    "requestedBy": "wbslqj2008"
-  }
+  ]
 }
