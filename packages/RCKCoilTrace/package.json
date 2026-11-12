@@ -29,5 +29,10 @@
   ],
   "releaseNotes": [
     "어드레스 주소 표기 추가, 라인 정보 추가, 동작 순서 제목 변경"
-  ]
+  ],
+  "publishRequest": {
+    "bump": "patch",
+    "notes": "어드레스 보기 추가, 단계 넘어갈 시 옆에 주소추가",
+    "requestedBy": "wbslqj2008"
+  }
 }
