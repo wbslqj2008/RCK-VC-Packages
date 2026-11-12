@@ -27,9 +27,7 @@
       "destination": "vcRoot/RCKCoilTrace/CoilTrace.Engine.exe"
     }
   ],
-  "publishRequest": {
-    "bump": "patch",
-    "notes": "최초 커밋.",
-    "requestedBy": "wbslqj2008"
-  }
+  "releaseNotes": [
+    "최초 커밋."
+  ]
 }
