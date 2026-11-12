@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "rck.rckcoiltrace",
+  "name": "RCK CoilTrace",
+  "type": "addon",
+  "version": "1.0.0",
+  "description": "PLC 프로그램 분석 : LS XG5000(XGK·XGB·XGI)·미쓰비시 GX Works2,3 파일에서 입,출력 동작순서, 출력 조건, IO 입력 관계를 쉽게 Report,Excel 형식으로 보여주고, VC 시그널 까지 연결하는 애드온입니다.",
+  "developer": "오대영 주임",
+  "mainDll": "Plugin.RCK.CoilTrace.dll",
+  "restartRequired": true,
+  "systemPackage": false,
+  "vcVersions": [
+    "5.0",
+    "5.1"
+  ],
+  "files": [
+    {
+      "source": "payload/Icons/rckCoilTrace.svg",
+      "destination": "vcRoot/Icons/rckCoilTrace.svg"
+    },
+    {
+      "source": "payload/Plugin.RCK.CoilTrace.dll",
+      "destination": "vcRoot/Plugin.RCK.CoilTrace.dll"
+    },
+    {
+      "source": "payload/RCKCoilTrace/CoilTrace.Engine.exe",
+      "destination": "vcRoot/RCKCoilTrace/CoilTrace.Engine.exe"
+    }
+  ],
+  "publishRequest": {
+    "bump": "patch",
+    "notes": "최초 커밋.",
+    "requestedBy": "wbslqj2008"
+  }
+}
