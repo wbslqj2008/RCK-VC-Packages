@@ -3,7 +3,7 @@
   "id": "rck.coiltrace",
   "name": "RCK CoilTrace",
   "type": "addon",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "PLC 프로그램 분석 : LS XG5000(XGK·XGB·XGI)·미쓰비시 GX Works2,3",
   "developer": "오대영 주임",
   "mainDll": "Plugin.RCK.CoilTrace.dll",
@@ -28,11 +28,6 @@
     }
   ],
   "releaseNotes": [
-    "패키지 ID를 rck.coiltrace로 바꿈"
-  ],
-  "publishRequest": {
-    "bump": "minor",
-    "notes": "어드레스 주소 표기 추가, 라인 정보 추가, 동작 순서 제목 변경",
-    "requestedBy": "wbslqj2008"
-  }
+    "어드레스 주소 표기 추가, 라인 정보 추가, 동작 순서 제목 변경"
+  ]
 }

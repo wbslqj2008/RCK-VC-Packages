@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-12T07:01:30Z",
+  "updatedAt": "2026-11-12T08:36:52Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -219,6 +219,17 @@
       ],
       "versions": [
         {
+          "version": "3.0.2",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/Plugin.RCKAddonManager.dll",
+              "sha256": "1376AF2FF9AAE1114CF6710F65FA80A5D65C04BFECDD5E17B68383EC56280577"
+            }
+          ],
+          "mainDll": "Plugin.RCKAddonManager.dll",
+          "mainDllSha256": "1376AF2FF9AAE1114CF6710F65FA80A5D65C04BFECDD5E17B68383EC56280577"
+        },
+        {
           "version": "3.0.1",
           "contentFiles": [
             {
@@ -369,12 +380,12 @@
       "id": "rck.coiltrace",
       "name": "RCK CoilTrace",
       "type": "addon",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "description": "PLC 프로그램 분석 : LS XG5000(XGK·XGB·XGI)·미쓰비시 GX Works2,3",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-43172199344-1/rck.coiltrace-1.0.1.zip",
-      "sha256": "16A0AF59EAE81EE8C8D2F77200CA8F0933D7D9EAADC25C1C3AE58F21F165153D",
-      "contentSha256": "D91A332989A8AE4B673C353E16380514630D812C46BA0FF8D9A3D7E9B68EDBB2",
-      "publishedAt": "2026-11-12T07:01:30Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-43184373144-1/rck.coiltrace-1.1.0.zip",
+      "sha256": "2A1F182D496EFF22794BA7AD78DF4C63AF45E5855BF725D6424D4D64659D3821",
+      "contentSha256": "8D427E0771A8223F512E42A6827594A55DCCF4C332D950592B6B60AD4F0BEF11",
+      "publishedAt": "2026-11-12T08:36:52Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -383,7 +394,7 @@
         "5.1"
       ],
       "releaseNotes": [
-        "패키지 ID를 rck.coiltrace로 바꿈"
+        "어드레스 주소 표기 추가, 라인 정보 추가, 동작 순서 제목 변경"
       ],
       "contentFiles": [
         {
@@ -392,16 +403,36 @@
         },
         {
           "destination": "vcRoot/Plugin.RCK.CoilTrace.dll",
-          "sha256": "E6A664F34C2AD16F78BFA86A17ED9CC93D5C2200D34BCBDB932A3ED21C7E2C2A"
+          "sha256": "D22D932F40CA3A7C9606939477B8B5857B3FE228D5F95EB9DB3169DBF3FD99FA"
         },
         {
           "destination": "vcRoot/RCKCoilTrace/CoilTrace.Engine.exe",
-          "sha256": "5E1ADAD90E87A8876C410ECB060A88C3EAB18557DC2EE4E6D9C21BF9B760BB76"
+          "sha256": "7ED76F6D93F14594921B29B329BC1E08BDB12255043AD80C04516EEE968E66C3"
         }
       ],
-      "versions": [],
+      "versions": [
+        {
+          "version": "1.0.1",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/Icons/rckCoilTrace.svg",
+              "sha256": "9D9354FA6BA97A94FBC8F8B16080167591472AC9B44C5D2D41966F2A00D3857B"
+            },
+            {
+              "destination": "vcRoot/Plugin.RCK.CoilTrace.dll",
+              "sha256": "E6A664F34C2AD16F78BFA86A17ED9CC93D5C2200D34BCBDB932A3ED21C7E2C2A"
+            },
+            {
+              "destination": "vcRoot/RCKCoilTrace/CoilTrace.Engine.exe",
+              "sha256": "5E1ADAD90E87A8876C410ECB060A88C3EAB18557DC2EE4E6D9C21BF9B760BB76"
+            }
+          ],
+          "mainDll": "Plugin.RCK.CoilTrace.dll",
+          "mainDllSha256": "E6A664F34C2AD16F78BFA86A17ED9CC93D5C2200D34BCBDB932A3ED21C7E2C2A"
+        }
+      ],
       "mainDll": "Plugin.RCK.CoilTrace.dll",
-      "mainDllSha256": "E6A664F34C2AD16F78BFA86A17ED9CC93D5C2200D34BCBDB932A3ED21C7E2C2A",
+      "mainDllSha256": "D22D932F40CA3A7C9606939477B8B5857B3FE228D5F95EB9DB3169DBF3FD99FA",
       "developer": "오대영 주임"
     },
     {
