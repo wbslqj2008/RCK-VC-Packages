@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-12T06:43:22Z",
+  "updatedAt": "2026-11-12T06:50:21Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -358,12 +358,12 @@
       "id": "rck.rckcoiltrace",
       "name": "RCK CoilTrace",
       "type": "addon",
-      "version": "1.0.0",
-      "description": "PLC 프로그램 분석 : LS XG5000(XGK·XGB·XGI)·미쓰비시 GX Works2,3 파일에서 입,출력 동작순서, 출력 조건, IO 입력 관계를 쉽게 Report,Excel 형식으로 보여주고, VC 시그널 까지 연결하는 애드온입니다.",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-43170103957-1/rck.rckcoiltrace-1.0.0.zip",
-      "sha256": "2583072FCFADE0732A7348E9DF5BA76DEFE2204DDCEB50267BC2B6CEAA1B751F",
-      "contentSha256": "98C359FBE1BB1243978BD11971F77DB296BAF31DBA4683F6A62AD364E7BB7346",
-      "publishedAt": "2026-11-12T06:43:22Z",
+      "version": "1.0.1",
+      "description": "PLC 프로그램 분석 : LS XG5000(XGK·XGB·XGI)·미쓰비시 GX Works2,3",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-43170920966-1/rck.rckcoiltrace-1.0.1.zip",
+      "sha256": "AE5C7950F0A76090116C043CFDF982BE67BC7D06740F41A629134269238B47F2",
+      "contentSha256": "12FA509E5C116358CA3216AB8313EF3E2F52272A87E51BFF08A61D9CB4BDFD17",
+      "publishedAt": "2026-11-12T06:50:21Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -372,7 +372,7 @@
         "5.1"
       ],
       "releaseNotes": [
-        "최초 커밋."
+        "Update description in package.json"
       ],
       "contentFiles": [
         {
@@ -388,7 +388,27 @@
           "sha256": "5E1ADAD90E87A8876C410ECB060A88C3EAB18557DC2EE4E6D9C21BF9B760BB76"
         }
       ],
-      "versions": [],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/Icons/rckCoilTrace.svg",
+              "sha256": "9D9354FA6BA97A94FBC8F8B16080167591472AC9B44C5D2D41966F2A00D3857B"
+            },
+            {
+              "destination": "vcRoot/Plugin.RCK.CoilTrace.dll",
+              "sha256": "E6A664F34C2AD16F78BFA86A17ED9CC93D5C2200D34BCBDB932A3ED21C7E2C2A"
+            },
+            {
+              "destination": "vcRoot/RCKCoilTrace/CoilTrace.Engine.exe",
+              "sha256": "5E1ADAD90E87A8876C410ECB060A88C3EAB18557DC2EE4E6D9C21BF9B760BB76"
+            }
+          ],
+          "mainDll": "Plugin.RCK.CoilTrace.dll",
+          "mainDllSha256": "E6A664F34C2AD16F78BFA86A17ED9CC93D5C2200D34BCBDB932A3ED21C7E2C2A"
+        }
+      ],
       "mainDll": "Plugin.RCK.CoilTrace.dll",
       "mainDllSha256": "E6A664F34C2AD16F78BFA86A17ED9CC93D5C2200D34BCBDB932A3ED21C7E2C2A",
       "developer": "오대영 주임"
