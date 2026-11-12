@@ -19,5 +19,10 @@
       "source": "Plugin.RCKAddonManager.dll",
       "destination": "vcRoot/Plugin.RCKAddonManager.dll"
     }
-  ]
+  ],
+  "publishRequest": {
+    "bump": "patch",
+    "notes": "Coil Trace 아이콘 추가",
+    "requestedBy": "wbslqj2008"
+  }
 }
