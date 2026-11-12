@@ -28,6 +28,6 @@
     }
   ],
   "releaseNotes": [
-    "Update description in package.json"
+    "패키지 ID를 rck.coiltrace로 바꿈"
   ]
 }
