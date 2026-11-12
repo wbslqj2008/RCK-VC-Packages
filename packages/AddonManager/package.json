@@ -19,5 +19,10 @@
       "source": "Plugin.RCKAddonManager.dll",
       "destination": "vcRoot/Plugin.RCKAddonManager.dll"
     }
-  ]
+  ],
+  "publishRequest": {
+    "bump": "patch",
+    "notes": "CoilTrace 패키지 ID 변경(rck.coiltrace)에 맞춰 아이콘 연결",
+    "requestedBy": "wbslqj2008"
+  }
 }

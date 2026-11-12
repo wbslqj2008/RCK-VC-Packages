@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "rck.rckcoiltrace",
+  "id": "rck.coiltrace",
   "name": "RCK CoilTrace",
   "type": "addon",
   "version": "1.0.1",
