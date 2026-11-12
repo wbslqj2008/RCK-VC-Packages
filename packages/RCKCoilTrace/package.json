@@ -29,5 +29,10 @@
   ],
   "releaseNotes": [
     "패키지 ID를 rck.coiltrace로 바꿈"
-  ]
+  ],
+  "publishRequest": {
+    "bump": "minor",
+    "notes": "어드레스 주소 표기 추가, 라인 정보 추가, 동작 순서 제목 변경",
+    "requestedBy": "wbslqj2008"
+  }
 }
