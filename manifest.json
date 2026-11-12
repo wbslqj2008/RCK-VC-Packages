@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-12T06:50:21Z",
+  "updatedAt": "2026-11-12T06:58:10Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -195,12 +195,12 @@
       "id": "rck.addon-manager",
       "name": "RCK Addon Manager",
       "type": "addon",
-      "version": "3.0.0",
+      "version": "3.0.1",
       "description": "Visual Components Add-on 및 eCatalog 패키지 관리자",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-42573477889-1/rck.addon-manager-3.0.0.zip",
-      "sha256": "DA102723402C6EFDCCC1B21C2B32DABC700F84E544BE626C8A767711A42105F3",
-      "contentSha256": "D7A75913CCA77D32A5B6229A7D8745E8AC8B510D114F2891BA4EBEEC5A24CD9B",
-      "publishedAt": "2026-11-09T06:30:53Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-43171802171-1/rck.addon-manager-3.0.1.zip",
+      "sha256": "BD8EAB8E114E673B4C8CBCC7074ED93CCB22FC1B51E8B0F06262CCFDC3834F0F",
+      "contentSha256": "2864337DFD82A32EA219D9090B86811C42C43C2B1986AC34AE4892C1F76B97F8",
+      "publishedAt": "2026-11-12T06:58:10Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": true,
@@ -209,12 +209,12 @@
         "5.1"
       ],
       "releaseNotes": [
-        "GitHub 로그인으로 Manager에서 애드온 게시·버전 업데이트, 관리자 승인·저장소 삭제 지원"
+        "Coil Trace 아이콘 추가"
       ],
       "contentFiles": [
         {
           "destination": "vcRoot/Plugin.RCKAddonManager.dll",
-          "sha256": "0650F4533B5C4C702910F0BBC36C2AF71FC069F7502310D45EAF013A4C8FCD35"
+          "sha256": "CF05C779397CF814609B7BC178179D77B387642B4FE4C3348AEF50E03BE0F258"
         }
       ],
       "versions": [
@@ -352,7 +352,7 @@
         }
       ],
       "mainDll": "Plugin.RCKAddonManager.dll",
-      "mainDllSha256": "0650F4533B5C4C702910F0BBC36C2AF71FC069F7502310D45EAF013A4C8FCD35"
+      "mainDllSha256": "CF05C779397CF814609B7BC178179D77B387642B4FE4C3348AEF50E03BE0F258"
     },
     {
       "id": "rck.rckcoiltrace",
@@ -389,6 +389,25 @@
         }
       ],
       "versions": [
+        {
+          "version": "1.0.1",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/Icons/rckCoilTrace.svg",
+              "sha256": "9D9354FA6BA97A94FBC8F8B16080167591472AC9B44C5D2D41966F2A00D3857B"
+            },
+            {
+              "destination": "vcRoot/Plugin.RCK.CoilTrace.dll",
+              "sha256": "E6A664F34C2AD16F78BFA86A17ED9CC93D5C2200D34BCBDB932A3ED21C7E2C2A"
+            },
+            {
+              "destination": "vcRoot/RCKCoilTrace/CoilTrace.Engine.exe",
+              "sha256": "5E1ADAD90E87A8876C410ECB060A88C3EAB18557DC2EE4E6D9C21BF9B760BB76"
+            }
+          ],
+          "mainDll": "Plugin.RCK.CoilTrace.dll",
+          "mainDllSha256": "E6A664F34C2AD16F78BFA86A17ED9CC93D5C2200D34BCBDB932A3ED21C7E2C2A"
+        },
         {
           "version": "1.0.0",
           "contentFiles": [

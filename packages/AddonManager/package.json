@@ -3,7 +3,7 @@
   "id": "rck.addon-manager",
   "name": "RCK Addon Manager",
   "type": "addon",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Visual Components Add-on 및 eCatalog 패키지 관리자",
   "restartRequired": true,
   "systemPackage": true,
@@ -12,17 +12,12 @@
     "5.1"
   ],
   "releaseNotes": [
-    "GitHub 로그인으로 Manager에서 애드온 게시·버전 업데이트, 관리자 승인·저장소 삭제 지원"
+    "Coil Trace 아이콘 추가"
   ],
   "files": [
     {
       "source": "Plugin.RCKAddonManager.dll",
       "destination": "vcRoot/Plugin.RCKAddonManager.dll"
     }
-  ],
-  "publishRequest": {
-    "bump": "patch",
-    "notes": "Coil Trace 아이콘 추가",
-    "requestedBy": "wbslqj2008"
-  }
+  ]
 }
