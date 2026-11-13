@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-12T09:04:47Z",
+  "updatedAt": "2026-11-13T06:13:19Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -380,12 +380,12 @@
       "id": "rck.coiltrace",
       "name": "RCK CoilTrace",
       "type": "addon",
-      "version": "1.1.1",
+      "version": "2.0.0",
       "description": "PLC 프로그램 분석 : LS XG5000(XGK·XGB·XGI)·미쓰비시 GX Works2,3",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-43188236471-1/rck.coiltrace-1.1.1.zip",
-      "sha256": "2E6BE0E0CAD6F1088906D78DA0C7A03FD9B213295A1C8D38EFE3DD72EFD08025",
-      "contentSha256": "24A4E2B4B11544B5B4527BA9DF78856B7C797E76211E8EF39DDA010B00460EEC",
-      "publishedAt": "2026-11-12T09:04:47Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-43377158697-1/rck.coiltrace-2.0.0.zip",
+      "sha256": "664718DF82F58C199C054F269022ADB8314EE20FCC40877F1B77F920A7EB4AD4",
+      "contentSha256": "FC9B260BC169FADF5C9DC3B351AA2FADD6BEA17D25800E91E963949F6AEF7498",
+      "publishedAt": "2026-11-13T06:13:19Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -394,7 +394,7 @@
         "5.1"
       ],
       "releaseNotes": [
-        "어드레스 보기 추가, 단계 넘어갈 시 옆에 주소추가"
+        "플로우 차트 기능 추가"
       ],
       "contentFiles": [
         {
@@ -403,14 +403,33 @@
         },
         {
           "destination": "vcRoot/Plugin.RCK.CoilTrace.dll",
-          "sha256": "3622BAAF216684F67447E809BC9CC8A14CAA25FF0D7735CFD060589B2EB76B52"
+          "sha256": "2C3C53B912A18542F28E4BFA9E6AF64DE8E2E2143C663419B9692C02E48B4821"
         },
         {
           "destination": "vcRoot/RCKCoilTrace/CoilTrace.Engine.exe",
-          "sha256": "3A29A417DE516CDCC6D832661C17FE784AC4C92CA3C7773E1459D2813A75FB29"
+          "sha256": "B9733F8F2696B17F6DDF15A2F24AAC2A1536CCCD277FD106D7389F88E51E955C"
         }
       ],
       "versions": [
+        {
+          "version": "1.1.1",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/Icons/rckCoilTrace.svg",
+              "sha256": "9D9354FA6BA97A94FBC8F8B16080167591472AC9B44C5D2D41966F2A00D3857B"
+            },
+            {
+              "destination": "vcRoot/Plugin.RCK.CoilTrace.dll",
+              "sha256": "3622BAAF216684F67447E809BC9CC8A14CAA25FF0D7735CFD060589B2EB76B52"
+            },
+            {
+              "destination": "vcRoot/RCKCoilTrace/CoilTrace.Engine.exe",
+              "sha256": "3A29A417DE516CDCC6D832661C17FE784AC4C92CA3C7773E1459D2813A75FB29"
+            }
+          ],
+          "mainDll": "Plugin.RCK.CoilTrace.dll",
+          "mainDllSha256": "3622BAAF216684F67447E809BC9CC8A14CAA25FF0D7735CFD060589B2EB76B52"
+        },
         {
           "version": "1.1.0",
           "contentFiles": [
@@ -451,7 +470,7 @@
         }
       ],
       "mainDll": "Plugin.RCK.CoilTrace.dll",
-      "mainDllSha256": "3622BAAF216684F67447E809BC9CC8A14CAA25FF0D7735CFD060589B2EB76B52",
+      "mainDllSha256": "2C3C53B912A18542F28E4BFA9E6AF64DE8E2E2143C663419B9692C02E48B4821",
       "developer": "오대영 주임"
     },
     {

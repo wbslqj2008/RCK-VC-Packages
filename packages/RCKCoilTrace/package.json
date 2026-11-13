@@ -3,7 +3,7 @@
   "id": "rck.coiltrace",
   "name": "RCK CoilTrace",
   "type": "addon",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "PLC 프로그램 분석 : LS XG5000(XGK·XGB·XGI)·미쓰비시 GX Works2,3",
   "developer": "오대영 주임",
   "mainDll": "Plugin.RCK.CoilTrace.dll",
@@ -28,11 +28,6 @@
     }
   ],
   "releaseNotes": [
-    "어드레스 보기 추가, 단계 넘어갈 시 옆에 주소추가"
-  ],
-  "publishRequest": {
-    "bump": "major",
-    "notes": "플로우 차트 기능 추가",
-    "requestedBy": "wbslqj2008"
-  }
+    "플로우 차트 기능 추가"
+  ]
 }
