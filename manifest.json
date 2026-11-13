@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-13T06:13:19Z",
+  "updatedAt": "2026-11-13T06:16:11Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -412,6 +412,25 @@
       ],
       "versions": [
         {
+          "version": "2.0.0",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/Icons/rckCoilTrace.svg",
+              "sha256": "9D9354FA6BA97A94FBC8F8B16080167591472AC9B44C5D2D41966F2A00D3857B"
+            },
+            {
+              "destination": "vcRoot/Plugin.RCK.CoilTrace.dll",
+              "sha256": "2C3C53B912A18542F28E4BFA9E6AF64DE8E2E2143C663419B9692C02E48B4821"
+            },
+            {
+              "destination": "vcRoot/RCKCoilTrace/CoilTrace.Engine.exe",
+              "sha256": "B9733F8F2696B17F6DDF15A2F24AAC2A1536CCCD277FD106D7389F88E51E955C"
+            }
+          ],
+          "mainDll": "Plugin.RCK.CoilTrace.dll",
+          "mainDllSha256": "2C3C53B912A18542F28E4BFA9E6AF64DE8E2E2143C663419B9692C02E48B4821"
+        },
+        {
           "version": "1.1.1",
           "contentFiles": [
             {
@@ -477,12 +496,12 @@
       "id": "rck.rckforge",
       "name": "RCK Forge",
       "type": "addon",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "description": "5.1 마이그레이션",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-42579744139-1/rck.rckforge-3.0.0.zip",
-      "sha256": "6EA605BC3F48E0E4ABC6BEB055C995D7B13438271C3B4D00B50804132CB00AFA",
-      "contentSha256": "003231E72375738ADD9E433EAC08AA7F1928BEEE28D536A11BD188875D85BA19",
-      "publishedAt": "2026-11-09T07:30:25Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-43377497303-1/rck.rckforge-3.1.0.zip",
+      "sha256": "932984945F7B380CA8D667D02CDA3943289D6C6637ED0C24F0ADFE90FCFB94E2",
+      "contentSha256": "F41B9E7661CBCF3EFFCEC18BD7A77621EC20D498DDC70A72C67828A791397010",
+      "publishedAt": "2026-11-13T06:16:11Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -491,12 +510,12 @@
         "5.1"
       ],
       "releaseNotes": [
-        "5.0 마이그레이션"
+        "HELIX (나선), SWEEP (스윕) 기능 추가"
       ],
       "contentFiles": [
         {
           "destination": "vcRoot/Plugin.RCK.Forge.dll",
-          "sha256": "B7BD5A8CDCA4BA81907739D795B1A37B6AC398B7FA3D021D29280BCAD5D0DD3B"
+          "sha256": "A4D2614ED1543C8FC4F32429CD3150C99C563C5EFC42E3363B00A58A0BA80CCC"
         },
         {
           "destination": "vcRoot/Icons/rckForge2D.svg",
@@ -841,6 +860,14 @@
         {
           "destination": "vcRoot/RCKForge/System.Runtime.CompilerServices.Unsafe.dll",
           "sha256": "08CBD7278B66F1E68425A82D4B97181A4130D93E3DD91831407ABA7212CCDACF"
+        },
+        {
+          "destination": "vcRoot/Icons/rckForgeHelix.svg",
+          "sha256": "87EBD49CD5E172513D2AC8F871019526976E10D98BA86FFF15A2AFDC819D5D11"
+        },
+        {
+          "destination": "vcRoot/Icons/rckForgeSweep.svg",
+          "sha256": "1E9AE32FD08FFD77684E2BE1789BFA5B82EC1A4A06E4C003E14DC66B8D83811E"
         }
       ],
       "versions": [
@@ -2692,7 +2719,7 @@
         }
       ],
       "mainDll": "Plugin.RCK.Forge.dll",
-      "mainDllSha256": "B7BD5A8CDCA4BA81907739D795B1A37B6AC398B7FA3D021D29280BCAD5D0DD3B"
+      "mainDllSha256": "A4D2614ED1543C8FC4F32429CD3150C99C563C5EFC42E3363B00A58A0BA80CCC"
     },
     {
       "id": "rck.rckstudio",

@@ -3,7 +3,7 @@
   "id": "rck.rckforge",
   "name": "RCK Forge",
   "type": "addon",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "5.1 마이그레이션",
   "mainDll": "Plugin.RCK.Forge.dll",
   "restartRequired": true,
@@ -13,7 +13,7 @@
     "5.1"
   ],
   "releaseNotes": [
-    "5.0 마이그레이션"
+    "HELIX (나선), SWEEP (스윕) 기능 추가"
   ],
   "files": [
     {
@@ -372,10 +372,5 @@
       "source": "payload/Icons/rckForgeSweep.svg",
       "destination": "vcRoot/Icons/rckForgeSweep.svg"
     }
-  ],
-  "publishRequest": {
-    "bump": "minor",
-    "notes": "HELIX (나선), SWEEP (스윕) 기능 추가",
-    "requestedBy": "wbslqj2008"
-  }
+  ]
 }
