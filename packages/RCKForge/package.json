@@ -363,6 +363,19 @@
     {
       "source": "payload/RCKForge/System.Runtime.CompilerServices.Unsafe.dll",
       "destination": "vcRoot/RCKForge/System.Runtime.CompilerServices.Unsafe.dll"
+    },
+    {
+      "source": "payload/Icons/rckForgeHelix.svg",
+      "destination": "vcRoot/Icons/rckForgeHelix.svg"
+    },
+    {
+      "source": "payload/Icons/rckForgeSweep.svg",
+      "destination": "vcRoot/Icons/rckForgeSweep.svg"
     }
-  ]
+  ],
+  "publishRequest": {
+    "bump": "minor",
+    "notes": "HELIX (나선), SWEEP (스윕) 기능 추가",
+    "requestedBy": "wbslqj2008"
+  }
 }
