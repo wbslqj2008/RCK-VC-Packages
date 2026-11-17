@@ -27,6 +27,19 @@
     {
       "source": "payload/Plugin.RCKStudio.dll",
       "destination": "vcRoot/Plugin.RCKStudio.dll"
+    },
+    {
+      "source": "payload/log4net.dll",
+      "destination": "vcRoot/log4net.dll"
+    },
+    {
+      "source": "payload/Plugin.RCKStudio.dll.config",
+      "destination": "vcRoot/Plugin.RCKStudio.dll.config"
     }
-  ]
+  ],
+  "publishRequest": {
+    "bump": "minor",
+    "notes": "이미지 제너레이터, 모델링 뷰러 추가",
+    "requestedBy": "wbslqj2008"
+  }
 }
