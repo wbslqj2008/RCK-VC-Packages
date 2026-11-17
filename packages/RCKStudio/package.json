@@ -3,7 +3,7 @@
   "id": "rck.rckstudio",
   "name": "RCKStudio",
   "type": "addon",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "VC 최적화 Python IDE",
   "restartRequired": true,
   "systemPackage": false,
@@ -12,8 +12,7 @@
     "5.1"
   ],
   "releaseNotes": [
-    "Claude 모델(오푸스, 하이쿠, 소넷) 추가",
-    "클로드에서 도구 모음 불러올때 예외처리 추가"
+    "이미지 제너레이터, 모델링 뷰러 추가"
   ],
   "files": [
     {
@@ -36,10 +35,5 @@
       "source": "payload/Plugin.RCKStudio.dll.config",
       "destination": "vcRoot/Plugin.RCKStudio.dll.config"
     }
-  ],
-  "publishRequest": {
-    "bump": "minor",
-    "notes": "이미지 제너레이터, 모델링 뷰러 추가",
-    "requestedBy": "wbslqj2008"
-  }
+  ]
 }
