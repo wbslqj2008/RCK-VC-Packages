@@ -35,5 +35,10 @@
       "source": "payload/Plugin.RCKStudio.dll.config",
       "destination": "vcRoot/Plugin.RCKStudio.dll.config"
     }
-  ]
+  ],
+  "publishRequest": {
+    "bump": "patch",
+    "notes": "스테이트먼트 고도화 (reBacking)",
+    "requestedBy": "wbslqj2008"
+  }
 }
