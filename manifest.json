@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-19T01:27:17Z",
+  "updatedAt": "2026-11-19T02:09:25Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -411,6 +411,25 @@
         }
       ],
       "versions": [
+        {
+          "version": "2.3.0",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/Icons/rckCoilTrace.svg",
+              "sha256": "9D9354FA6BA97A94FBC8F8B16080167591472AC9B44C5D2D41966F2A00D3857B"
+            },
+            {
+              "destination": "vcRoot/Plugin.RCK.CoilTrace.dll",
+              "sha256": "1BE37425531103E88ABCE450C25FA353E1F4FF7B5B5A7F9147D891996C8CC4D5"
+            },
+            {
+              "destination": "vcRoot/RCKCoilTrace/CoilTrace.Engine.exe",
+              "sha256": "1DF0EFBA0959AE88B106339867937D42FD0CCC935DA4D47A612976E05B61517F"
+            }
+          ],
+          "mainDll": "Plugin.RCK.CoilTrace.dll",
+          "mainDllSha256": "1BE37425531103E88ABCE450C25FA353E1F4FF7B5B5A7F9147D891996C8CC4D5"
+        },
         {
           "version": "2.2.0",
           "contentFiles": [
@@ -3126,12 +3145,12 @@
       "id": "rck.rckstudio",
       "name": "RCKStudio",
       "type": "addon",
-      "version": "4.1.0",
+      "version": "4.1.1",
       "description": "VC 최적화 Python IDE",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-44039610526-1/rck.rckstudio-4.1.0.zip",
-      "sha256": "647DB6811A65E25C75B77BFBC0F59F5F30F68367C669E1CB024E5FA259B72FC7",
-      "contentSha256": "ED55E896DF9B8800E188B188F206E79407486918AFD977AED31FF14AF4D32B94",
-      "publishedAt": "2026-11-17T07:33:46Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-44442191386-1/rck.rckstudio-4.1.1.zip",
+      "sha256": "15C5B884A33B6F1D6F20572E744B37207E3576D123E65DF04FDB9D85DB25E9F8",
+      "contentSha256": "05BB9FFE47BB288CEF0965B2E665F92CD9A5BCC7FC661FACE3370348BA6481E3",
+      "publishedAt": "2026-11-19T02:09:25Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -3140,7 +3159,7 @@
         "5.1"
       ],
       "releaseNotes": [
-        "이미지 제너레이터, 모델링 뷰러 추가"
+        "스테이트먼트 고도화 (reBacking)"
       ],
       "contentFiles": [
         {
@@ -3153,7 +3172,7 @@
         },
         {
           "destination": "vcRoot/Plugin.RCKStudio.dll",
-          "sha256": "1A5FE911A5E74720CFAB2CF746391B3CAD96BBC1E947897897AC42ABFC6C540C"
+          "sha256": "67D77554D367C399CA789FE723DB1B6C358A835F1351488F3264D7CA5EDEAB76"
         },
         {
           "destination": "vcRoot/log4net.dll",
@@ -3739,7 +3758,7 @@
         }
       ],
       "mainDll": "Plugin.RCKStudio.dll",
-      "mainDllSha256": "1A5FE911A5E74720CFAB2CF746391B3CAD96BBC1E947897897AC42ABFC6C540C"
+      "mainDllSha256": "67D77554D367C399CA789FE723DB1B6C358A835F1351488F3264D7CA5EDEAB76"
     },
     {
       "id": "rck.shortcut",
