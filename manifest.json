@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-17T07:33:46Z",
+  "updatedAt": "2026-11-19T00:13:35Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -380,12 +380,12 @@
       "id": "rck.coiltrace",
       "name": "RCK CoilTrace",
       "type": "addon",
-      "version": "2.0.0",
+      "version": "2.1.0",
       "description": "PLC 프로그램 분석 : LS XG5000(XGK·XGB·XGI)·미쓰비시 GX Works2,3",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-43377158697-1/rck.coiltrace-2.0.0.zip",
-      "sha256": "664718DF82F58C199C054F269022ADB8314EE20FCC40877F1B77F920A7EB4AD4",
-      "contentSha256": "FC9B260BC169FADF5C9DC3B351AA2FADD6BEA17D25800E91E963949F6AEF7498",
-      "publishedAt": "2026-11-13T06:13:19Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-44427231423-1/rck.coiltrace-2.1.0.zip",
+      "sha256": "B5C23A5F0E4A8DF742FAA886F003513292C5F1A81DC8764B295CFD7A7E96AD8C",
+      "contentSha256": "10C9B6E2B2E1D2D8B37D3ED7A96314BD5E1655BF773FE4619D651199CEC75E67",
+      "publishedAt": "2026-11-19T00:13:35Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -394,7 +394,7 @@
         "5.1"
       ],
       "releaseNotes": [
-        "플로우 차트 기능 추가"
+        "쉽게 보기 정리(확인 필요·내부 신호·프로그램 목록은 PLC 보기에서만), 주소 대응표 쉬운 설명과 나오는 곳 이동"
       ],
       "contentFiles": [
         {
@@ -407,7 +407,7 @@
         },
         {
           "destination": "vcRoot/RCKCoilTrace/CoilTrace.Engine.exe",
-          "sha256": "B9733F8F2696B17F6DDF15A2F24AAC2A1536CCCD277FD106D7389F88E51E955C"
+          "sha256": "39A528FCFA1FC07DC0BFBE3C9E401DF42462F13566C2EFF93740D3A5638F9E8D"
         }
       ],
       "versions": [
@@ -3127,6 +3127,33 @@
         }
       ],
       "versions": [
+        {
+          "version": "4.1.0",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/AvalonDock.dll",
+              "sha256": "A00406D3D5DEABB74F41535C21CE0548E21C7C9315DADB895736096020E81849"
+            },
+            {
+              "destination": "vcRoot/ICSharpCode.AvalonEdit.dll",
+              "sha256": "B0032716709359F7361D5A2DDC8E2AD457A1448A093FB4900E0336312B0A10C7"
+            },
+            {
+              "destination": "vcRoot/Plugin.RCKStudio.dll",
+              "sha256": "1A5FE911A5E74720CFAB2CF746391B3CAD96BBC1E947897897AC42ABFC6C540C"
+            },
+            {
+              "destination": "vcRoot/log4net.dll",
+              "sha256": "9A6615AE2C1C434E178E8C9FA755B0127085AA4F6F2FD60E80622E13EE5396D0"
+            },
+            {
+              "destination": "vcRoot/Plugin.RCKStudio.dll.config",
+              "sha256": "579A76A5D3F296A2ADF7AE010CED17972DED3ABC0779F2525FE179EA0293FAF6"
+            }
+          ],
+          "mainDll": "Plugin.RCKStudio.dll",
+          "mainDllSha256": "1A5FE911A5E74720CFAB2CF746391B3CAD96BBC1E947897897AC42ABFC6C540C"
+        },
         {
           "version": "4.0.0",
           "contentFiles": [
