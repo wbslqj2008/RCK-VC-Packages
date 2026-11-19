@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-19T02:09:25Z",
+  "updatedAt": "2026-11-19T04:22:32Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -380,12 +380,12 @@
       "id": "rck.coiltrace",
       "name": "RCK CoilTrace",
       "type": "addon",
-      "version": "2.3.0",
+      "version": "2.4.0",
       "description": "PLC 프로그램 분석 : LS XG5000(XGK·XGB·XGI)·미쓰비시 GX Works2,3",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-44436985586-1/rck.coiltrace-2.3.0.zip",
-      "sha256": "358A0A4DE1E1F06076301FE9BD0118EB49AEE22C9D73A52DB0A58B194C47BDD3",
-      "contentSha256": "A5DBD7525BAEC04C41BFFCD4D650DC84670706A542300620CDE33B51535833C9",
-      "publishedAt": "2026-11-19T01:27:17Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-44457852491-1/rck.coiltrace-2.4.0.zip",
+      "sha256": "42EEA5DCC992254E1A180F9D0D1E55FCAF1C09A728F00CFB9D7247BF719074AD",
+      "contentSha256": "E63E779E5D1CF46DF1DE251287AFE961936EF6581EE5DBFE97C2FF48EA59E8DB",
+      "publishedAt": "2026-11-19T04:22:32Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": false,
@@ -394,7 +394,7 @@
         "5.1"
       ],
       "releaseNotes": [
-        "시작 조건·알람 탭: 시뮬레이션 전 켜 둘 입력, 알람마다 원인 입력·푸는 버튼·총괄 알람. Excel에 시작 조건·알람 시트 추가"
+        "변경파일 읽는 로직 추가"
       ],
       "contentFiles": [
         {
@@ -403,11 +403,11 @@
         },
         {
           "destination": "vcRoot/Plugin.RCK.CoilTrace.dll",
-          "sha256": "1BE37425531103E88ABCE450C25FA353E1F4FF7B5B5A7F9147D891996C8CC4D5"
+          "sha256": "DED7C95061CFEAF90ABB7A9F69D9EDAF76B7CE496E956B7F93270B3E4EF11610"
         },
         {
           "destination": "vcRoot/RCKCoilTrace/CoilTrace.Engine.exe",
-          "sha256": "1DF0EFBA0959AE88B106339867937D42FD0CCC935DA4D47A612976E05B61517F"
+          "sha256": "4F60C500EFFA52A548088DD8270738A45BCCF5A01A87A3F76D8DB3F3AD2D2EC5"
         }
       ],
       "versions": [
@@ -546,7 +546,7 @@
         }
       ],
       "mainDll": "Plugin.RCK.CoilTrace.dll",
-      "mainDllSha256": "1BE37425531103E88ABCE450C25FA353E1F4FF7B5B5A7F9147D891996C8CC4D5",
+      "mainDllSha256": "DED7C95061CFEAF90ABB7A9F69D9EDAF76B7CE496E956B7F93270B3E4EF11610",
       "developer": "오대영 주임"
     },
     {
@@ -3184,6 +3184,33 @@
         }
       ],
       "versions": [
+        {
+          "version": "4.1.1",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/AvalonDock.dll",
+              "sha256": "A00406D3D5DEABB74F41535C21CE0548E21C7C9315DADB895736096020E81849"
+            },
+            {
+              "destination": "vcRoot/ICSharpCode.AvalonEdit.dll",
+              "sha256": "B0032716709359F7361D5A2DDC8E2AD457A1448A093FB4900E0336312B0A10C7"
+            },
+            {
+              "destination": "vcRoot/Plugin.RCKStudio.dll",
+              "sha256": "67D77554D367C399CA789FE723DB1B6C358A835F1351488F3264D7CA5EDEAB76"
+            },
+            {
+              "destination": "vcRoot/log4net.dll",
+              "sha256": "9A6615AE2C1C434E178E8C9FA755B0127085AA4F6F2FD60E80622E13EE5396D0"
+            },
+            {
+              "destination": "vcRoot/Plugin.RCKStudio.dll.config",
+              "sha256": "579A76A5D3F296A2ADF7AE010CED17972DED3ABC0779F2525FE179EA0293FAF6"
+            }
+          ],
+          "mainDll": "Plugin.RCKStudio.dll",
+          "mainDllSha256": "67D77554D367C399CA789FE723DB1B6C358A835F1351488F3264D7CA5EDEAB76"
+        },
         {
           "version": "4.1.0",
           "contentFiles": [

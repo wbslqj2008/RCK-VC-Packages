@@ -3,7 +3,7 @@
   "id": "rck.coiltrace",
   "name": "RCK CoilTrace",
   "type": "addon",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "PLC 프로그램 분석 : LS XG5000(XGK·XGB·XGI)·미쓰비시 GX Works2,3",
   "developer": "오대영 주임",
   "mainDll": "Plugin.RCK.CoilTrace.dll",
@@ -28,11 +28,6 @@
     }
   ],
   "releaseNotes": [
-    "시작 조건·알람 탭: 시뮬레이션 전 켜 둘 입력, 알람마다 원인 입력·푸는 버튼·총괄 알람. Excel에 시작 조건·알람 시트 추가"
-  ],
-  "publishRequest": {
-    "bump": "minor",
-    "notes": "변경파일 읽는 로직 추가",
-    "requestedBy": "wbslqj2008"
-  }
+    "변경파일 읽는 로직 추가"
+  ]
 }
