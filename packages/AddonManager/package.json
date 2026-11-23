@@ -19,5 +19,10 @@
       "source": "Plugin.RCKAddonManager.dll",
       "destination": "vcRoot/Plugin.RCKAddonManager.dll"
     }
-  ]
+  ],
+  "publishRequest": {
+    "bump": "minor",
+    "notes": "설정에서 고르는 테마 5가지 추가(기본: 엔터프라이즈), 테마마다 메인 화면 배치가 다르며 여러 항목 선택·일괄 처리 지원",
+    "requestedBy": "wbslqj2008"
+  }
 }
