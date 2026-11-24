@@ -19,5 +19,10 @@
       "source": "Plugin.RCKAddonManager.dll",
       "destination": "vcRoot/Plugin.RCKAddonManager.dll"
     }
-  ]
+  ],
+  "publishRequest": {
+    "bump": "patch",
+    "notes": "설정 창을 닫으면 설치 대상 경로가 지워져 모든 패키지가 비호환으로 보이던 문제 수정",
+    "requestedBy": "wbslqj2008"
+  }
 }
