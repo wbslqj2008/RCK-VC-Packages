@@ -3,7 +3,7 @@
   "id": "rck.addon-manager",
   "name": "RCK Addon Manager",
   "type": "addon",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "Visual Components Add-on 및 eCatalog 패키지 관리자",
   "restartRequired": true,
   "systemPackage": true,
@@ -12,17 +12,12 @@
     "5.1"
   ],
   "releaseNotes": [
-    "설정에서 고르는 테마 5가지 추가(기본: 엔터프라이즈), 테마마다 메인 화면 배치가 다르며 여러 항목 선택·일괄 처리 지원"
+    "설정 창을 닫으면 설치 대상 경로가 지워져 모든 패키지가 비호환으로 보이던 문제 수정"
   ],
   "files": [
     {
       "source": "Plugin.RCKAddonManager.dll",
       "destination": "vcRoot/Plugin.RCKAddonManager.dll"
     }
-  ],
-  "publishRequest": {
-    "bump": "patch",
-    "notes": "설정 창을 닫으면 설치 대상 경로가 지워져 모든 패키지가 비호환으로 보이던 문제 수정",
-    "requestedBy": "wbslqj2008"
-  }
+  ]
 }

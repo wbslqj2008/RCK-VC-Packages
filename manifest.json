@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-24T04:39:29Z",
+  "updatedAt": "2026-11-24T07:55:44Z",
   "packages": [
     {
       "id": "rck.codelens",
@@ -195,12 +195,12 @@
       "id": "rck.addon-manager",
       "name": "RCK Addon Manager",
       "type": "addon",
-      "version": "3.1.0",
+      "version": "3.1.1",
       "description": "Visual Components Add-on 및 eCatalog 패키지 관리자",
-      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-45327882831-1/rck.addon-manager-3.1.0.zip",
-      "sha256": "98D2592439257EAC4E7396FA4B3D04AE3C2DC561811F4F5F2AA6435BDA68F9B6",
-      "contentSha256": "67E603975EF633CE7DD9F5E20964EB2D3B3E9B78295344737C0BADD0D5559E46",
-      "publishedAt": "2026-11-24T04:39:29Z",
+      "downloadUrl": "https://github.com/wbslqj2008/RCK-VC-Packages/releases/download/auto-45351756246-1/rck.addon-manager-3.1.1.zip",
+      "sha256": "E084976CEE2B24B06287557645D40E1E7C4AB3B7809A60694DE41DEA30720FB9",
+      "contentSha256": "F4F5F2727C68851797F697CC5336D36DC0FF86C9D26E142DC53349D85CAEB65F",
+      "publishedAt": "2026-11-24T07:55:44Z",
       "archiveType": "zip",
       "restartRequired": true,
       "systemPackage": true,
@@ -209,15 +209,26 @@
         "5.1"
       ],
       "releaseNotes": [
-        "설정에서 고르는 테마 5가지 추가(기본: 엔터프라이즈), 테마마다 메인 화면 배치가 다르며 여러 항목 선택·일괄 처리 지원"
+        "설정 창을 닫으면 설치 대상 경로가 지워져 모든 패키지가 비호환으로 보이던 문제 수정"
       ],
       "contentFiles": [
         {
           "destination": "vcRoot/Plugin.RCKAddonManager.dll",
-          "sha256": "01A70B44A9442D5730BC26599188C0D762AF0BAE62D3F10F0B6229B9E3ED6B90"
+          "sha256": "40738FC66660DF818A62D97C54319040326F4BFB5EEA3F6D964A673A9A3788AB"
         }
       ],
       "versions": [
+        {
+          "version": "3.1.0",
+          "contentFiles": [
+            {
+              "destination": "vcRoot/Plugin.RCKAddonManager.dll",
+              "sha256": "01A70B44A9442D5730BC26599188C0D762AF0BAE62D3F10F0B6229B9E3ED6B90"
+            }
+          ],
+          "mainDll": "Plugin.RCKAddonManager.dll",
+          "mainDllSha256": "01A70B44A9442D5730BC26599188C0D762AF0BAE62D3F10F0B6229B9E3ED6B90"
+        },
         {
           "version": "3.0.2",
           "contentFiles": [
@@ -374,7 +385,7 @@
         }
       ],
       "mainDll": "Plugin.RCKAddonManager.dll",
-      "mainDllSha256": "01A70B44A9442D5730BC26599188C0D762AF0BAE62D3F10F0B6229B9E3ED6B90"
+      "mainDllSha256": "40738FC66660DF818A62D97C54319040326F4BFB5EEA3F6D964A673A9A3788AB"
     },
     {
       "id": "rck.coiltrace",
